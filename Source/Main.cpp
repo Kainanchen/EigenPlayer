@@ -65,10 +65,12 @@ public:
                                         Colours::lightgrey,
                                         DocumentWindow::allButtons)
         {
+            setUsingNativeTitleBar (true);
             setContentOwned (new MainContentComponent(), true);
-
+            
             centreWithSize (getWidth(), getHeight());
             setVisible (true);
+            setResizable(true,true);
         }
 
         void closeButtonPressed()

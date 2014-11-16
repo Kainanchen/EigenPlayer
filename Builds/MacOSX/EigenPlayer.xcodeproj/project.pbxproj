@@ -29,6 +29,7 @@
 		744F6E2867CF91DD10B12164 /* juce_graphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7ED6BE223BFAC93CFA0B6B7 /* juce_graphics.mm */; };
 		82D8F07A6ADAC81D68D0E505 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D816A8A7BC650BA0FCFB9C /* CoreMIDI.framework */; };
 		8A6267F983C1797C4E26C4A7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A3FB9135F3BB9CCB8EEBC8 /* AudioToolbox.framework */; };
+		918448191A14719F0086E811 /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 918448171A14719F0086E811 /* MediaPlayer.cpp */; };
 		98F06AD9BD3B99E0CEA08F9B /* juce_audio_processors.mm in Sources */ = {isa = PBXBuildFile; fileRef = 87BF4C019267724B00099039 /* juce_audio_processors.mm */; };
 		9937F19D03C2D3C39D744FF0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B73C42EBCB2385FE26D2B4 /* Cocoa.framework */; };
 		9C545AD41CB8DBF9FE4DCF4C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7842E27F17902F8481F58A93 /* IOKit.framework */; };
@@ -457,7 +458,7 @@
 		799C7CB211C567AF4DB6A3C6 /* juce_MemoryOutputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MemoryOutputStream.h; path = ../../JuceLibraryCode/modules/juce_core/streams/juce_MemoryOutputStream.h; sourceTree = SOURCE_ROOT; };
 		7A897D117B9E0FEF2A1E0B5B /* juce_ComponentDragger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ComponentDragger.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/mouse/juce_ComponentDragger.h; sourceTree = SOURCE_ROOT; };
 		7A95AFF5B2FF11A1F1835F27 /* juce_AlertWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AlertWindow.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/windows/juce_AlertWindow.h; sourceTree = SOURCE_ROOT; };
-		7AB47BE91C630BC679D04FCC /* EigenPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EigenPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB47BE91C630BC679D04FCC /* NewProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFFFBE3419C1042C1CE3F58 /* juce_Drawable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Drawable.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/drawables/juce_Drawable.cpp; sourceTree = SOURCE_ROOT; };
 		7BC48E6ACFDA160812614122 /* juce_HyperlinkButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_HyperlinkButton.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_HyperlinkButton.cpp; sourceTree = SOURCE_ROOT; };
 		7BE53AE83D5F3E65D7F15375 /* juce_AnimatedPositionBehaviours.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AnimatedPositionBehaviours.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_AnimatedPositionBehaviours.h; sourceTree = SOURCE_ROOT; };
@@ -550,6 +551,8 @@
 		90B7C694C4CDDA6E3B4740D8 /* juce_MixerAudioSource.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MixerAudioSource.cpp; path = ../../JuceLibraryCode/modules/juce_audio_basics/sources/juce_MixerAudioSource.cpp; sourceTree = SOURCE_ROOT; };
 		914C3A09939688C5F7BEC870 /* juce_PropertySet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_PropertySet.h; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_PropertySet.h; sourceTree = SOURCE_ROOT; };
 		9169E2C9A78412E41AB01148 /* RecentFilesMenuTemplate.nib */ = {isa = PBXFileReference; lastKnownFileType = file.nib; path = RecentFilesMenuTemplate.nib; sourceTree = SOURCE_ROOT; };
+		918448171A14719F0086E811 /* MediaPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPlayer.cpp; sourceTree = "<group>"; };
+		918448181A14719F0086E811 /* MediaPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPlayer.h; sourceTree = "<group>"; };
 		91978DAB543BED6DD75A70DC /* juce_ArrowButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ArrowButton.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_ArrowButton.h; sourceTree = SOURCE_ROOT; };
 		91EE5BDB7668D30739E7E25B /* juce_module_info */ = {isa = PBXFileReference; lastKnownFileType = text; name = juce_module_info; path = ../../JuceLibraryCode/modules/juce_audio_formats/juce_module_info; sourceTree = SOURCE_ROOT; };
 		925150739267D3BDC60A991D /* juce_AudioSubsectionReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_AudioSubsectionReader.cpp; path = ../../JuceLibraryCode/modules/juce_audio_formats/format/juce_AudioSubsectionReader.cpp; sourceTree = SOURCE_ROOT; };
@@ -1069,7 +1072,7 @@
 		0A9117BB95242C522884AEC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7AB47BE91C630BC679D04FCC /* EigenPlayer.app */,
+				7AB47BE91C630BC679D04FCC /* NewProject.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2263,6 +2266,8 @@
 			isa = PBXGroup;
 			children = (
 				F6670CD9FC3B4F0282EC8E9F /* MainComponent.cpp */,
+				918448171A14719F0086E811 /* MediaPlayer.cpp */,
+				918448181A14719F0086E811 /* MediaPlayer.h */,
 				3F9475CAD947A4A4E4A522BD /* MainComponent.h */,
 				02F32DD79C0BBA0C344DAC52 /* Main.cpp */,
 			);
@@ -2697,7 +2702,7 @@
 			name = EigenPlayer;
 			productInstallPath = "$(HOME)/Applications";
 			productName = EigenPlayer;
-			productReference = 7AB47BE91C630BC679D04FCC /* EigenPlayer.app */;
+			productReference = 7AB47BE91C630BC679D04FCC /* NewProject.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2741,6 +2746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54FD3EA923816E268BDA9684 /* MainComponent.cpp in Sources */,
+				918448191A14719F0086E811 /* MediaPlayer.cpp in Sources */,
 				28B30B935BE838FA5B4C5628 /* Main.cpp in Sources */,
 				70E6E223E8DBD0A2B8945FE9 /* juce_audio_basics.mm in Sources */,
 				0FF0A68564782DA81EBA06B9 /* juce_audio_devices.mm in Sources */,
@@ -2788,9 +2794,8 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.9;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Release;
@@ -2820,9 +2825,8 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.9;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Debug;
@@ -2841,7 +2845,6 @@
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = NewProject;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
@@ -2862,9 +2865,8 @@
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = EigenPlayer;
+				PRODUCT_NAME = NewProject;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
 			};
