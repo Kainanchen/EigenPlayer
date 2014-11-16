@@ -51,17 +51,20 @@ PopupMenu MainContentComponent::getMenuForIndex(int index, const String& name){
 
 void MainContentComponent::menuItemSelected(int menuID, int index){
     switch (menuID) {
-        {case OpenFile:
+		case OpenFile: {
             FileChooser chooser ("Select a Wave file to play...",File::nonexistent);
             if (chooser.browseForFileToOpen()) {
                 player.transportSource.setSource(nullptr);
                 File file (chooser.getResult());
                 player.readerSource=new AudioFormatReaderSource(player.formatManager.createReaderFor(file),true);
                 player.transportSource.setSource(player.readerSource);
-                player.playButton->setEnabled(true);}
-            break;}
+                player.playButton->setEnabled(true);
+			}
+			break;
+		}
+			
             
-        {case AudioSettings:
+		case AudioSettings: {
                 bool showMidiInputOptions=false;
                 bool showMidiOutputSelector=false;
                 bool showChannelsAsStereoPairs=true;
@@ -69,7 +72,8 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
                 AudioDeviceSelectorComponent settings (player.deviceManager,0,0,1,2,showMidiInputOptions,showMidiOutputSelector,showChannelsAsStereoPairs,hideAdvancedOptions);
                 settings.setSize(500, 400);
                 DialogWindow::showModalDialog(String("Audio Settings"), &settings, TopLevelWindow::getTopLevelWindow(0), Colours::white, true);
-            break;}
+				break;
+		}
         
     }
 }

@@ -2265,9 +2265,9 @@
 		CEE01CE6C89CB789194789FE /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F6670CD9FC3B4F0282EC8E9F /* MainComponent.cpp */,
 				918448171A14719F0086E811 /* MediaPlayer.cpp */,
 				918448181A14719F0086E811 /* MediaPlayer.h */,
+				F6670CD9FC3B4F0282EC8E9F /* MainComponent.cpp */,
 				3F9475CAD947A4A4E4A522BD /* MainComponent.h */,
 				02F32DD79C0BBA0C344DAC52 /* Main.cpp */,
 			);
@@ -2846,6 +2846,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PRODUCT_NAME = NewProject;
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
 			};
@@ -2867,6 +2868,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = NewProject;
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
 			};

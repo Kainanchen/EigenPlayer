@@ -26,12 +26,13 @@ public:
     StringArray getMenuBarNames();
     PopupMenu getMenuForIndex (int index, const String& name);
     void menuItemSelected (int menuID, int index);
-    enum MenuIDs {
-        OpenFile,
-        AudioSettings,
-        Exit,
-        AudioDevice
-    };
+	enum MenuIDs {
+		OpenFile = 1000,
+		AudioSettings,
+		Exit,
+		AudioDevice
+	};
+
     
 private:
     MediaPlayer player;
