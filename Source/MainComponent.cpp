@@ -12,8 +12,11 @@
 //==============================================================================
 MainContentComponent::MainContentComponent():menuBar(this)
 {
-    addAndMakeVisible(&player);
-    setSize (player.getWidth(), player.getHeight());
+#if JUCE_MAC
+	MenuBarModel::setMacMainMenu (this);
+#endif
+    addAndMakeVisible(&playControlBar);
+    setSize (playControlBar.getWidth(), playControlBar.getHeight());
     addAndMakeVisible(&menuBar);
     PropertiesFile::Options options;
     options.applicationName = ProjectInfo::projectName;
@@ -24,14 +27,19 @@ MainContentComponent::MainContentComponent():menuBar(this)
     
 //    PropertiesFile* props = appProperties.getUserSettings();
 }
-//MainContentComponent::~MainContentComponent(){
-//     setMacMainMenu(0);
-//}
+MainContentComponent::~MainContentComponent(){
+#if JUCE_MAC
+	MenuBarModel::setMacMainMenu (nullptr);
+#endif
+	PopupMenu::dismissAllActiveMenus();
+}
 
 void MainContentComponent::resized()
 {
-    player.setBounds(0, 0, getWidth(), getHeight());
-    menuBar.setBounds(0, 0, getWidth(), 20);
+    playControlBar.setBounds(0, getHeight()-playControlBar.getHeight(), playControlBar.getWidth(), playControlBar.getHeight());
+#if JUCE_WINDOWS || JUCE_LINUX
+	menuBar.setBounds(0, 0, getWidth(), 20);
+#endif
 }
 
 StringArray MainContentComponent::getMenuBarNames(){
@@ -54,22 +62,21 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
 		case OpenFile: {
             FileChooser chooser ("Select a Wave file to play...",File::nonexistent);
             if (chooser.browseForFileToOpen()) {
-                player.transportSource.setSource(nullptr);
+                playControlBar.transportSource.setSource(nullptr);
                 File file (chooser.getResult());
-                player.readerSource=new AudioFormatReaderSource(player.formatManager.createReaderFor(file),true);
-                player.transportSource.setSource(player.readerSource);
-                player.playButton->setEnabled(true);
+                playControlBar.readerSource=new AudioFormatReaderSource(playControlBar.formatManager.createReaderFor(file),true);
+                playControlBar.transportSource.setSource(playControlBar.readerSource);
+                playControlBar.playButton->setEnabled(true);
 			}
 			break;
 		}
 			
-            
 		case AudioSettings: {
                 bool showMidiInputOptions=false;
                 bool showMidiOutputSelector=false;
                 bool showChannelsAsStereoPairs=true;
                 bool hideAdvancedOptions=false;
-                AudioDeviceSelectorComponent settings (player.deviceManager,0,0,1,2,showMidiInputOptions,showMidiOutputSelector,showChannelsAsStereoPairs,hideAdvancedOptions);
+                AudioDeviceSelectorComponent settings (playControlBar.deviceManager,0,0,1,2,showMidiInputOptions,showMidiOutputSelector,showChannelsAsStereoPairs,hideAdvancedOptions);
                 settings.setSize(500, 400);
                 DialogWindow::showModalDialog(String("Audio Settings"), &settings, TopLevelWindow::getTopLevelWindow(0), Colours::white, true);
 				break;

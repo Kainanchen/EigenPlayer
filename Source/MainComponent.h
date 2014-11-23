@@ -10,18 +10,20 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "MediaPlayer.h"
+#include "PlayControlBar.h"
 
 //==============================================================================
 /*
  This component lives inside our window, and this is where you should put all
  your controls and content.
  */
-class MainContentComponent   : public Component,public MenuBarModel
+class MainContentComponent   : public Component,
+							   public MenuBarModel
 {
 public:
     //==============================================================================
     MainContentComponent();
+	~MainContentComponent();
     void resized();
     StringArray getMenuBarNames();
     PopupMenu getMenuForIndex (int index, const String& name);
@@ -35,7 +37,7 @@ public:
 
     
 private:
-    MediaPlayer player;
+    PlayControlBar playControlBar;
     MenuBarComponent menuBar;
     ApplicationProperties appProperties;
 };

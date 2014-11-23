@@ -1,33 +1,11 @@
-/*
- ==============================================================================
- 
- This is an automatically generated GUI class created by the Introjucer!
- 
- Be careful when adding custom code to these files, as only the code within
- the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
- and re-saved.
- 
- Created with Introjucer version: 3.1.0
- 
- ------------------------------------------------------------------------------
- 
- The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
- Copyright 2004-13 by Raw Material Software Ltd.
- 
- ==============================================================================
- */
-
-//[Headers] You can add your own extra header files here...
-//[/Headers]
-
-#include "MediaPlayer.h"
+#include "PlayControlBar.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
 //[/MiscUserDefs]
 
 //==============================================================================
-MediaPlayer::MediaPlayer ()
+PlayControlBar::PlayControlBar ()
 {
     
     addAndMakeVisible (playButton = new TextButton ("Play"));
@@ -50,7 +28,7 @@ MediaPlayer::MediaPlayer ()
     //[UserPreSize]
     //[/UserPreSize]
     
-    setSize (600, 400);
+    setSize (100, 50);
     
     
     //[Constructor] You can add your own custom stuff here..
@@ -66,7 +44,7 @@ MediaPlayer::MediaPlayer ()
     //[/Constructor]
 }
 
-MediaPlayer::~MediaPlayer()
+PlayControlBar::~PlayControlBar()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
@@ -82,7 +60,7 @@ MediaPlayer::~MediaPlayer()
 }
 
 //==============================================================================
-void MediaPlayer::paint (Graphics& g)
+void PlayControlBar::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
@@ -93,17 +71,17 @@ void MediaPlayer::paint (Graphics& g)
     //[/UserPaint]
 }
 
-void MediaPlayer::resized()
+void PlayControlBar::resized()
 {
-    playButton->setBounds (200, 32, 40, 24);
-    stopButton->setBounds (200, 64, 40, 24);
+	playButton->setBoundsRelative(0, 0, 0.5, 1);
+    stopButton->setBoundsRelative (0.5, 0, 0.5, 1);
  //   openButton->setBounds (-40, 0, getWidth() - -74, 24);
 //    settingsButton->setBounds (-40, 96, getWidth() - -74, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
 
-void MediaPlayer::buttonClicked (Button* buttonThatWasClicked)
+void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
@@ -165,7 +143,7 @@ void MediaPlayer::buttonClicked (Button* buttonThatWasClicked)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void MediaPlayer::changeListenerCallback(ChangeBroadcaster* src){
+void PlayControlBar::changeListenerCallback(ChangeBroadcaster* src){
     if (&deviceManager==src) {
         AudioDeviceManager::AudioDeviceSetup setup;
         deviceManager.getAudioDeviceSetup(setup);
@@ -185,7 +163,7 @@ void MediaPlayer::changeListenerCallback(ChangeBroadcaster* src){
         }
     }
 }
-void MediaPlayer::changeState(TransportState newState){
+void PlayControlBar::changeState(TransportState newState){
     if (state != newState) {
         state=newState;
         switch (state) {
