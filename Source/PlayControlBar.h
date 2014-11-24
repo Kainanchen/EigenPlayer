@@ -16,10 +16,9 @@
  //[/Comments]
  */
 class PlayControlBar  : public Component,
-						public ChangeListener,
+						//public Slider::Listener,
 						public ButtonListener,
-						private ScrollBar::Listener,
-						private Timer
+						public ChangeListener
 
 {
 public:
@@ -39,22 +38,21 @@ public:
     };
     void changeState( TransportState newState);
     void changeListenerCallback (ChangeBroadcaster* source);
-    //[/UserMethods]
-    
     void paint (Graphics& g);
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
+	//void sliderValueChanged (Slider* sliderThatWasMoved);
 	void playEnable(bool enable);
 	void stopEnable(bool enable);
+	//[/UserMethods]
 	
-    AudioDeviceManager deviceManager;
-    AudioFormatManager formatManager;
-    ScopedPointer<AudioFormatReaderSource> readerSource;
-    AudioTransportSource transportSource;
-    AudioSourcePlayer sourcePlayer;
-    TransportState state;
     //[/UserVariables]
-    
+	AudioDeviceManager deviceManager;
+	AudioFormatManager formatManager;
+	ScopedPointer<AudioFormatReaderSource> readerSource;
+	AudioTransportSource transportSource;
+	AudioSourcePlayer sourcePlayer;
+	TransportState state;
     //==============================================================================
 
 
@@ -63,11 +61,12 @@ public:
 private:
     
     //[UserVariables]   -- You can add your own custom variables in this section.
+	
 	ScopedPointer<TextButton> playButton;
 	ScopedPointer<TextButton> stopButton;
+	ScopedPointer<Slider> playTimeSlider;
+
 	
-    
-    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PlayControlBar)
 };

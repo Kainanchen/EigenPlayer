@@ -10,13 +10,13 @@
 
 
 //==============================================================================
-MainContentComponent::MainContentComponent():menuBar(this)
+MainContentComponent::MainContentComponent()
+:menuBar(this)
 {
 #if JUCE_MAC
 	MenuBarModel::setMacMainMenu (this);
 #endif
     addAndMakeVisible(&playControlBar);
-    setSize (playControlBar.getWidth(), playControlBar.getHeight());
     addAndMakeVisible(&menuBar);
     PropertiesFile::Options options;
     options.applicationName = ProjectInfo::projectName;
@@ -24,10 +24,13 @@ MainContentComponent::MainContentComponent():menuBar(this)
     options.filenameSuffix = "settings";
     options.osxLibrarySubFolder = "Application Support";
     appProperties.setStorageParameters(options);
-    
 //    PropertiesFile* props = appProperties.getUserSettings();
+	
+	setSize (playControlBar.getWidth(), playControlBar.getHeight());
 }
-MainContentComponent::~MainContentComponent(){
+
+MainContentComponent::~MainContentComponent()
+{
 #if JUCE_MAC
 	MenuBarModel::setMacMainMenu (nullptr);
 #endif

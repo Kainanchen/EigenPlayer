@@ -15,16 +15,17 @@ PlayControlBar::PlayControlBar ()
     addAndMakeVisible (stopButton = new TextButton ("Stop"));
     stopButton->addListener (this);
     stopButton->setColour (TextButton::buttonColourId, Colours::red);
-    
 
-    
-    
+	addAndMakeVisible(playTimeSlider = new Slider ("Play Time"));
+	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+	playTimeSlider->setEnabled(false);
+	//playTimeSlider.addListener(this);
+
     //[UserPreSize]
     //[/UserPreSize]
     
-    setSize (100, 50);
-    
-    
+    setSize (500, 25);
+	
     //[Constructor] You can add your own custom stuff here..
     playButton->setEnabled(false);
     stopButton->setEnabled(false);
@@ -45,8 +46,6 @@ PlayControlBar::~PlayControlBar()
     
     playButton = nullptr;
     stopButton = nullptr;
-//    playListButton = nullptr;
-    
     
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
@@ -66,9 +65,9 @@ void PlayControlBar::paint (Graphics& g)
 
 void PlayControlBar::resized()
 {
-	playButton->setBoundsRelative(0, 0, 0.5, 1);
-    stopButton->setBoundsRelative (0.5, 0, 0.5, 1);
-
+	playButton->setBoundsRelative(0, 0, 0.125, 1);
+    stopButton->setBoundsRelative (0.125, 0, 0.125, 1);
+	playTimeSlider->setBoundsRelative(0.25, 0, 0.75, 1);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -93,17 +92,24 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == stopButton)
     {
         //[UserButtonCode_stopButton] -- add your button handler code here..
-        if (Paused==state) {
+        if (Paused==state)
             changeState(Stopped);
-        }else
+        else
             changeState(Stopping);
-        
         //[/UserButtonCode_stopButton]
     }
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
 }
-
+/*
+void PlayControlBar::sliderValueChanged (Slider* sliderThatWasMoved)
+{
+	if (sliderThatWasMoved == &playTimeSlider)
+	{
+		playTimeSlider.setRange(0, 100);
+	}
+}
+*/
 void PlayControlBar::playEnable(bool enable)
 {
 	playButton->setEnabled(enable);
@@ -136,6 +142,7 @@ void PlayControlBar::changeListenerCallback(ChangeBroadcaster* src){
         }
     }
 }
+
 void PlayControlBar::changeState(TransportState newState){
     if (state != newState) {
         state=newState;
