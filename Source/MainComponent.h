@@ -11,6 +11,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PlayControlBar.h"
+#include "PlayList.h"
 
 //==============================================================================
 /*
@@ -39,6 +40,7 @@ public:
     
 private:
     PlayControlBar playControlBar;
+	//PlayList playList;
     MenuBarComponent menuBar;
     ApplicationProperties appProperties;
 };

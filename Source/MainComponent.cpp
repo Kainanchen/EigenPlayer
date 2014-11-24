@@ -67,9 +67,9 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
                 File file (chooser.getResult());
                 playControlBar.readerSource=new AudioFormatReaderSource(playControlBar.formatManager.createReaderFor(file),true);
                 playControlBar.transportSource.setSource(playControlBar.readerSource);
-                playControlBar.playButton->setEnabled(true);
-                PlayControlBar::musicInfo = ValueTree(PlayControlBar::musicId);
-                musicInfo.setProperty
+				playControlBar.playEnable(true);
+                //PlayControlBar::musicInfo = ValueTree(PlayControlBar::musicId);
+                //musicInfo.setProperty
 			}
 			break;
 		}
@@ -81,8 +81,8 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
                     plfile.moveToTrash();
                 }
                 FileOutputStream stream(plfile);
-                ScopedPointer<XmlElement>xml = personData.createXml();
-                xml->writeToStream(stream, String::empty);
+                //ScopedPointer<XmlElement>xml = personData.createXml();
+                //xml->writeToStream(stream, String::empty);
             }
         }
 			
