@@ -17,7 +17,8 @@
  */
 class PlayControlBar  : public Component,
 public ChangeListener,
-public ButtonListener
+public ButtonListener,
+public ValueTree::Listener
 {
 public:
     //==============================================================================
@@ -42,6 +43,14 @@ public:
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
     
+    
+    void valueTreePropertyChanged (ValueTree& tree, const Identifier& property);
+    void valueTreeChildAdded(ValueTree& parentTree, ValueTree& child){}
+    void valueTreeChildRemoved(ValueTree& parentTree, ValueTree& child) {}
+    void valueTreeChildOrderChanged(ValueTree& tree) {}
+    void valueTreeParentChanged (ValueTree& tree){}
+    void valueTreeRedirected (ValueTree& tree) {}
+    
     AudioDeviceManager deviceManager;
     AudioFormatManager formatManager;
     ScopedPointer<AudioFormatReaderSource> readerSource;
@@ -53,10 +62,18 @@ public:
     //==============================================================================
     ScopedPointer<TextButton> playButton;
     ScopedPointer<TextButton> stopButton;
+ //   ScopedPointer<TextButton> playListButton;
 //    ScopedPointer<TextButton> openButton;
 //    ScopedPointer<TextButton> settingsButton;
+    ValueTree musicInfo;
+    static const Identifier musicId;
+    static const Identifier musicName;
+    static const Identifier musicType;
+    static const Identifier musicSinger;
+    static const Identifier musicAlbum;
     
 private:
+    
     //[UserVariables]   -- You can add your own custom variables in this section.
 
     

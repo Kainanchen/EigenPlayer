@@ -16,6 +16,11 @@ PlayControlBar::PlayControlBar ()
     stopButton->addListener (this);
     stopButton->setColour (TextButton::buttonColourId, Colours::red);
     
+//    addAndMakeVisible(playListButton=new TextButton("Save to playlist"));
+//    playListButton->addListener(this);
+//    playListButton->setColour(TextButton::buttonColourId, Colours::chocolate);
+    
+    
 //    addAndMakeVisible (openButton = new TextButton ("Open Files"));
 //    openButton->setButtonText (TRANS("Open..."));
 //    openButton->addListener (this);
@@ -34,6 +39,7 @@ PlayControlBar::PlayControlBar ()
     //[Constructor] You can add your own custom stuff here..
     playButton->setEnabled(false);
     stopButton->setEnabled(false);
+//    playListButton->setEnabled(false);
     formatManager.registerBasicFormats();
     sourcePlayer.setSource(&transportSource);
     deviceManager.addAudioCallback(&sourcePlayer);
@@ -51,6 +57,7 @@ PlayControlBar::~PlayControlBar()
     
     playButton = nullptr;
     stopButton = nullptr;
+//    playListButton = nullptr;
 //    openButton = nullptr;
 //    settingsButton = nullptr;
     
@@ -73,8 +80,14 @@ void PlayControlBar::paint (Graphics& g)
 
 void PlayControlBar::resized()
 {
+<<<<<<< Updated upstream:Source/PlayControlBar.cpp
 	playButton->setBoundsRelative(0, 0, 0.5, 1);
     stopButton->setBoundsRelative (0.5, 0, 0.5, 1);
+=======
+    playButton->setBounds (200, 32, 40, 24);
+    stopButton->setBounds (200, 64, 40, 24);
+//    playListButton->setBounds(200, 96, 40, 24);
+>>>>>>> Stashed changes:Builds/MacOSX/MediaPlayer.cpp
  //   openButton->setBounds (-40, 0, getWidth() - -74, 24);
 //    settingsButton->setBounds (-40, 96, getWidth() - -74, 24);
     //[UserResized] Add your own custom resize handling here..
@@ -108,6 +121,16 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
         
         //[/UserButtonCode_stopButton]
     }
+//    else if(buttonThatWasClicked==playListButton){
+//        if (Playing==state) {
+//            changeState(Paused);
+//        }
+//        else if(Paused==state){
+//            changeState(Paused);
+//        }
+//        else
+//            changeState(Stopping);
+//    }
 //    else if (buttonThatWasClicked == openButton)
 //    {
         //[UserButtonCode_openButton] -- add your button handler code here..

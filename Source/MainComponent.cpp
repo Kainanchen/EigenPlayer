@@ -51,6 +51,7 @@ PopupMenu MainContentComponent::getMenuForIndex(int index, const String& name){
     PopupMenu menu;
     if (name=="File") {
         menu.addItem(OpenFile,"Open File...");
+        menu.addItem(SavePlayList,"Save to playlist...");
     }else if (name=="Audio"){
         menu.addItem(AudioSettings, "Audio Settings...");
     }
@@ -67,9 +68,23 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
                 playControlBar.readerSource=new AudioFormatReaderSource(playControlBar.formatManager.createReaderFor(file),true);
                 playControlBar.transportSource.setSource(playControlBar.readerSource);
                 playControlBar.playButton->setEnabled(true);
+                PlayControlBar::musicInfo = ValueTree(PlayControlBar::musicId);
+                musicInfo.setProperty
 			}
 			break;
 		}
+        case SavePlayList:{
+            FileChooser chooser("Save to playlist",File::nonexistent,"*.xml");
+            if (chooser.browseForFileToSave(true)){
+                File plfile (chooser.getResult());
+                if (plfile.existsAsFile()) {
+                    plfile.moveToTrash();
+                }
+                FileOutputStream stream(plfile);
+                ScopedPointer<XmlElement>xml = personData.createXml();
+                xml->writeToStream(stream, String::empty);
+            }
+        }
 			
 		case AudioSettings: {
                 bool showMidiInputOptions=false;

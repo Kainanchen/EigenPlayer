@@ -30,6 +30,7 @@ public:
     void menuItemSelected (int menuID, int index);
 	enum MenuIDs {
 		OpenFile = 1000,
+        SavePlayList,
 		AudioSettings,
 		Exit,
 		AudioDevice
