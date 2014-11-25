@@ -66,16 +66,14 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
 		case OpenFile: {
             FileChooser chooser ("Select a Wave file to play...",File::nonexistent);
             if (chooser.browseForFileToOpen()) {
-                playControlBar.transportSource.setSource(nullptr);
                 File file (chooser.getResult());
-                playControlBar.readerSource=new AudioFormatReaderSource(playControlBar.formatManager.createReaderFor(file),true);
-                playControlBar.transportSource.setSource(playControlBar.readerSource);
-				playControlBar.playEnable(true);
-                //PlayControlBar::musicInfo = ValueTree(PlayControlBar::musicId);
-                //musicInfo.setProperty
+				playControlBar.setMusicFile(file);
+				playControlBar.changeState(PlayControlBar::Load);
 			}
 			break;
 		}
+		//PlayControlBar::musicInfo = ValueTree(PlayControlBar::musicId);
+		//musicInfo.setProperty
         case SavePlayList:{
             FileChooser chooser("Save to playlist",File::nonexistent,"*.xml");
             if (chooser.browseForFileToSave(true)){
@@ -90,13 +88,7 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
         }
 			
 		case AudioSettings: {
-                bool showMidiInputOptions=false;
-                bool showMidiOutputSelector=false;
-                bool showChannelsAsStereoPairs=true;
-                bool hideAdvancedOptions=false;
-                AudioDeviceSelectorComponent settings (playControlBar.deviceManager,0,0,1,2,showMidiInputOptions,showMidiOutputSelector,showChannelsAsStereoPairs,hideAdvancedOptions);
-                settings.setSize(500, 400);
-                DialogWindow::showModalDialog(String("Audio Settings"), &settings, TopLevelWindow::getTopLevelWindow(0), Colours::white, true);
+				playControlBar.audioSettingsMenu();
 				break;
 		}
         

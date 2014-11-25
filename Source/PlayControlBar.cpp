@@ -41,26 +41,14 @@ PlayControlBar::PlayControlBar ()
 
 PlayControlBar::~PlayControlBar()
 {
-    //[Destructor_pre]. You can add your own custom destruction code here..
-    //[/Destructor_pre]
-    
     playButton = nullptr;
     stopButton = nullptr;
-    
-    //[Destructor]. You can add your own custom destruction code here..
-    //[/Destructor]
 }
 
 //==============================================================================
 void PlayControlBar::paint (Graphics& g)
 {
-    //[UserPrePaint] Add your own custom painting code here..
-    //[/UserPrePaint]
-    
     g.fillAll (Colours::white);
-    
-    //[UserPaint] Add your own custom painting code here..
-    //[/UserPaint]
 }
 
 void PlayControlBar::resized()
@@ -68,8 +56,6 @@ void PlayControlBar::resized()
 	playButton->setBoundsRelative(0, 0, 0.125, 1);
     stopButton->setBoundsRelative (0.125, 0, 0.125, 1);
 	playTimeSlider->setBoundsRelative(0.25, 0, 0.75, 1);
-    //[UserResized] Add your own custom resize handling here..
-    //[/UserResized]
 }
 
 void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
@@ -81,7 +67,7 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_playButton] -- add your button handler code here..
         //[UserButtonCode_textButton] -- add your button handler code here..
-        if ((Stopped==state)||(Paused==state))
+        if ((Stopped==state)||(Paused==state)||(Load==state))
             changeState(Starting);
         else if(Playing==state)
             changeState(Pausing);
@@ -120,6 +106,27 @@ void PlayControlBar::stopEnable(bool enable)
 	stopButton->setEnabled(enable);
 }
 
+void PlayControlBar::playTimeEnable(bool enable)
+{
+	playTimeSlider->setEnabled(enable);
+}
+
+void PlayControlBar::setMusicFile(File file)
+{
+	musicFile = file;
+}
+
+void PlayControlBar::audioSettingsMenu()
+{
+	bool showMidiInputOptions=false;
+	bool showMidiOutputSelector=false;
+	bool showChannelsAsStereoPairs=true;
+	bool hideAdvancedOptions=false;
+	AudioDeviceSelectorComponent settings (deviceManager,0,0,1,2,showMidiInputOptions,showMidiOutputSelector,showChannelsAsStereoPairs,hideAdvancedOptions);
+	settings.setSize(500, 400);
+	DialogWindow::showModalDialog(String("Audio Settings"), &settings, TopLevelWindow::getTopLevelWindow(0), Colours::white, true);
+}
+
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void PlayControlBar::changeListenerCallback(ChangeBroadcaster* src){
@@ -147,7 +154,14 @@ void PlayControlBar::changeState(TransportState newState){
     if (state != newState) {
         state=newState;
         switch (state) {
-            case Stopped:
+			case Load:
+				transportSource.setSource(nullptr);
+				readerSource=new AudioFormatReaderSource(formatManager.createReaderFor(musicFile),true);
+				transportSource.setSource(readerSource);
+				playEnable(true);
+				playTimeEnable(true);
+				break;
+			case Stopped:
                 playButton->setButtonText("Play");
                 stopButton->setButtonText("Stop");
                 stopButton->setEnabled(false);

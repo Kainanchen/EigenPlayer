@@ -8,13 +8,7 @@
 
 
 //==============================================================================
-/**
- //[Comments]
- An auto-generated component, created by the Introjucer.
- 
- Describe your class and how it works here!
- //[/Comments]
- */
+
 class PlayControlBar  : public Component,
 						//public Slider::Listener,
 						public ButtonListener,
@@ -29,6 +23,7 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     enum TransportState {
+		Load,
         Stopped,
         Starting,
         Playing,
@@ -44,28 +39,30 @@ public:
 	//void sliderValueChanged (Slider* sliderThatWasMoved);
 	void playEnable(bool enable);
 	void stopEnable(bool enable);
+	void playTimeEnable(bool enable);
+	
+	void setMusicFile(File file);
+	void audioSettingsMenu();
 	//[/UserMethods]
 	
     //[/UserVariables]
+
+    //==============================================================================
+
+	
+private:
+    
+    //[UserVariables]   -- You can add your own custom variables in this section.
+	File musicFile;
+	ScopedPointer<TextButton> playButton;
+	ScopedPointer<TextButton> stopButton;
+	ScopedPointer<Slider> playTimeSlider;
 	AudioDeviceManager deviceManager;
 	AudioFormatManager formatManager;
 	ScopedPointer<AudioFormatReaderSource> readerSource;
 	AudioTransportSource transportSource;
 	AudioSourcePlayer sourcePlayer;
 	TransportState state;
-    //==============================================================================
-
-
-
-    
-private:
-    
-    //[UserVariables]   -- You can add your own custom variables in this section.
-	
-	ScopedPointer<TextButton> playButton;
-	ScopedPointer<TextButton> stopButton;
-	ScopedPointer<Slider> playTimeSlider;
-
 	
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PlayControlBar)
