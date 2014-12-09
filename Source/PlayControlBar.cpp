@@ -6,6 +6,7 @@
 
 //==============================================================================
 PlayControlBar::PlayControlBar ()
+: playTime(0.0)
 {
     
     addAndMakeVisible (playButton = new TextButton ("Play"));
@@ -18,6 +19,7 @@ PlayControlBar::PlayControlBar ()
 
 	addAndMakeVisible(playTimeSlider = new Slider ("Play Time"));
 	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+	playTimeSlider->getValueObject().referTo(playTime);
 	playTimeSlider->setEnabled(false);
 	//playTimeSlider.addListener(this);
 
@@ -56,6 +58,11 @@ void PlayControlBar::resized()
 	playButton->setBoundsRelative(0, 0, 0.125, 1);
     stopButton->setBoundsRelative (0.125, 0, 0.125, 1);
 	playTimeSlider->setBoundsRelative(0.25, 0, 0.75, 1);
+}
+
+void PlayControlBar::timerCallback()
+{
+	
 }
 
 void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
@@ -152,12 +159,14 @@ void PlayControlBar::changeListenerCallback(ChangeBroadcaster* src){
 
 void PlayControlBar::changeState(TransportState newState){
     if (state != newState) {
-        state=newState;
+        state = newState;
         switch (state) {
 			case Load:
 				transportSource.setSource(nullptr);
 				readerSource=new AudioFormatReaderSource(formatManager.createReaderFor(musicFile),true);
 				transportSource.setSource(readerSource);
+				musicLength = transportSource.getLengthInSeconds();
+				playTimeSlider->setRange(0.0, musicLength);
 				playEnable(true);
 				playTimeEnable(true);
 				break;

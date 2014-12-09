@@ -12,7 +12,8 @@
 class PlayControlBar  : public Component,
 						//public Slider::Listener,
 						public ButtonListener,
-						public ChangeListener
+						public ChangeListener,
+						private Timer
 
 {
 public:
@@ -36,6 +37,7 @@ public:
     void paint (Graphics& g);
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
+	void timerCallback() override;
 	//void sliderValueChanged (Slider* sliderThatWasMoved);
 	void playEnable(bool enable);
 	void stopEnable(bool enable);
@@ -53,6 +55,8 @@ public:
 private:
     
     //[UserVariables]   -- You can add your own custom variables in this section.
+	Value playTime;
+	double musicLength;
 	File musicFile;
 	ScopedPointer<TextButton> playButton;
 	ScopedPointer<TextButton> stopButton;
