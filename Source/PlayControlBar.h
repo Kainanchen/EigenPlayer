@@ -37,7 +37,7 @@ public:
     void paint (Graphics& g);
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
-	void timerCallback() override;
+	
 	//void sliderValueChanged (Slider* sliderThatWasMoved);
 	void playEnable(bool enable);
 	void stopEnable(bool enable);
@@ -67,6 +67,8 @@ private:
 	AudioTransportSource transportSource;
 	AudioSourcePlayer sourcePlayer;
 	TransportState state;
+	
+	void timerCallback() override;
 	
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PlayControlBar)

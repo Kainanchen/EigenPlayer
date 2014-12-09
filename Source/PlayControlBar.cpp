@@ -62,7 +62,7 @@ void PlayControlBar::resized()
 
 void PlayControlBar::timerCallback()
 {
-	
+	playTime = transportSource.getCurrentPosition();
 }
 
 void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
@@ -152,7 +152,6 @@ void PlayControlBar::changeListenerCallback(ChangeBroadcaster* src){
                 changeState(Stopped);
             else if (Pausing==state)
                 changeState(Paused);
-            
         }
     }
 }
@@ -169,6 +168,7 @@ void PlayControlBar::changeState(TransportState newState){
 				playTimeSlider->setRange(0.0, musicLength);
 				playEnable(true);
 				playTimeEnable(true);
+				startTimer(1000/40);
 				break;
 			case Stopped:
                 playButton->setButtonText("Play");
