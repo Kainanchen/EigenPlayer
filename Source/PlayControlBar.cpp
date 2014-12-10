@@ -21,7 +21,7 @@ PlayControlBar::PlayControlBar ()
 	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 	playTimeSlider->getValueObject().referTo(playTime);
 	playTimeSlider->setEnabled(false);
-	//playTimeSlider.addListener(this);
+	playTimeSlider->addListener(this);
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -94,15 +94,15 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
 }
-/*
+
 void PlayControlBar::sliderValueChanged (Slider* sliderThatWasMoved)
 {
-	if (sliderThatWasMoved == &playTimeSlider)
+	if (sliderThatWasMoved == playTimeSlider)
 	{
-		playTimeSlider.setRange(0, 100);
+		transportSource.setPosition(playTime.getValue());
 	}
 }
-*/
+
 void PlayControlBar::playEnable(bool enable)
 {
 	playButton->setEnabled(enable);

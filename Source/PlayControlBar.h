@@ -10,7 +10,7 @@
 //==============================================================================
 
 class PlayControlBar  : public Component,
-						//public Slider::Listener,
+						public Slider::Listener,
 						public ButtonListener,
 						public ChangeListener,
 						private Timer
@@ -38,7 +38,7 @@ public:
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
 	
-	//void sliderValueChanged (Slider* sliderThatWasMoved);
+	void sliderValueChanged (Slider* sliderThatWasMoved);
 	void playEnable(bool enable);
 	void stopEnable(bool enable);
 	void playTimeEnable(bool enable);
