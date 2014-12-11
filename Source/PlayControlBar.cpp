@@ -103,6 +103,11 @@ void PlayControlBar::sliderValueChanged (Slider* sliderThatWasMoved)
 	}
 }
 
+Value PlayControlBar::getPlayTime()
+{
+	return playTime;
+}
+
 void PlayControlBar::playEnable(bool enable)
 {
 	playButton->setEnabled(enable);

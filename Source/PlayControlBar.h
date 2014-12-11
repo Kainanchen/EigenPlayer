@@ -32,16 +32,18 @@ public:
         Paused,
         Stopping
     };
-    void changeState( TransportState newState);
-    void changeListenerCallback (ChangeBroadcaster* source);
+
     void paint (Graphics& g);
     void resized();
-    void buttonClicked (Button* buttonThatWasClicked);
 	
+    void buttonClicked (Button* buttonThatWasClicked);
 	void sliderValueChanged (Slider* sliderThatWasMoved);
+	void changeState( TransportState newState);
+	void changeListenerCallback (ChangeBroadcaster* source);
 	void playEnable(bool enable);
 	void stopEnable(bool enable);
 	void playTimeEnable(bool enable);
+	Value getPlayTime();
 	
 	void setMusicFile(File file);
 	void audioSettingsMenu();
