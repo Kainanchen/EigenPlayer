@@ -1,17 +1,17 @@
 //
-//  MetaData.h
+//  ChromaPrint.h
 //  EigenPlayer
 //
-//  Created by Ken Chen on 14-12-14.
+//  Created by Ken Chen on 14-12-15.
 //
 //
 
-#ifndef __EigenPlayer__MetaData__
-#define __EigenPlayer__MetaData__
+#ifndef __EigenPlayer__ChromaPrint__
+#define __EigenPlayer__ChromaPrint__
 
+#include "chromaprint.h"
 
 class MetaData
-
 
 {
 public:
@@ -21,7 +21,7 @@ public:
 	
 	//==============================================================================
 	//[UserMethods]     -- You can add your own custom methods in this section.
-
+	
 	//[/UserMethods]
 	
 	//[/UserVariables]
@@ -30,7 +30,15 @@ public:
 	
 	
 private:
-
+	int maxLength;
+	int numFileNames;
+	int raw;
+	int rawFingerPrintSize;
+	int duration;
+	int algo;
+	
 };
 
-#endif /* defined(__EigenPlayer__MetaData__) */
+
+
+#endif /* defined(__EigenPlayer__ChromaPrint__) */
