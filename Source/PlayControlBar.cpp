@@ -167,7 +167,7 @@ void PlayControlBar::changeState(TransportState newState){
         switch (state) {
 			case Load:
 				transportSource.setSource(nullptr);
-				readerSource=new AudioFormatReaderSource(formatManager.createReaderFor(musicFile),true);
+				readerSource = new AudioFormatReaderSource(formatManager.createReaderFor(musicFile),true);
 				transportSource.setSource(readerSource);
 				musicLength = transportSource.getLengthInSeconds();
 				playTimeSlider->setRange(0.0, musicLength);
