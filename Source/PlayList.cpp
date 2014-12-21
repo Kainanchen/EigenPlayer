@@ -33,21 +33,17 @@ PlayList::PlayList ()
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (600, 400);
-	//    addAndMakeVisible(playListButton=new TextButton("Save to playlist"));
-	//    playListButton->addListener(this);
-	//    playListButton->setColour(TextButton::buttonColourId, Colours::chocolate);
-	
-	
-	//    addAndMakeVisible (openButton = new TextButton ("Open Files"));
-	//    openButton->setButtonText (TRANS("Open..."));
-	//    openButton->addListener (this);
-	
-	//    addAndMakeVisible (settingsButton = new TextButton ("Configure audio"));
-	//    settingsButton->setButtonText (TRANS("Audio Settings..."));
-	//    settingsButton->addListener (this);
+    setSize (200, getHeight()-200);
 
     //[Constructor] You can add your own custom stuff here..
+    musicInfo  = ValueTree (musicId);
+    musicInfo.setProperty(musicNameId, String::empty, nullptr);
+    musicInfo.setProperty(musicTypeId, String::empty, nullptr);
+    musicInfo.setProperty(musicSingerId, String::empty, nullptr);
+    musicInfo.setProperty(musicAlbumId, String::empty, nullptr);
+    playlist = ValueTree(playlistId);
+    playlist.addChild(musicInfo, 0, nullptr);
+    playlist.addListener(this);
     //[/Constructor]
 }
 
@@ -77,12 +73,7 @@ void PlayList::paint (Graphics& g)
 
 void PlayList::resized()
 {
-    //[UserResized] Add your own custom resize handling here..
-	//    playListButton->setBounds(200, 96, 40, 24);
-	//// Stashed changes:Builds/MacOSX/MediaPlayer.cpp
- //   openButton->setBounds (-40, 0, getWidth() - -74, 24);
-	//    settingsButton->setBounds (-40, 96, getWidth() - -74, 24);
-    //[/UserResized]
+
 }
 
 
