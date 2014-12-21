@@ -35,13 +35,13 @@
 		C394044CEE955459FA9002BA /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA0B34063D865B435FE85084 /* juce_core.mm */; };
 		C7A6FEDB42692614115518C0 /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E25334B981B6A3D521BB1 /* juce_events.mm */; };
 		CF5217DC28B95D1A551DA629 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF96F349C2F28E219A2BAA2 /* Accelerate.framework */; };
-		F33FCB981A3F961F00F091D9 /* ChromaPrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33FCB961A3F961F00F091D9 /* ChromaPrint.cpp */; };
-		F33FCB9A1A3FA20200F091D9 /* libchromaprint.0.2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F33FCB991A3FA20200F091D9 /* libchromaprint.0.2.2.dylib */; };
+		F33FCB981A3F961F00F091D9 /* ChromaFingerPrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33FCB961A3F961F00F091D9 /* ChromaFingerPrint.cpp */; };
 		F3732C7D1A227B53003DF225 /* PlayControlBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */; };
 		F3732C801A227CD3003DF225 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7E1A227CD3003DF225 /* MainWindow.cpp */; };
 		F3732C821A228528003DF225 /* SystemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C811A228528003DF225 /* SystemInfo.cpp */; };
 		F379E9811A23E087007D0E20 /* PlayList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F379E97F1A23E087007D0E20 /* PlayList.cpp */; };
 		F39CC91F1A3E45AC00D94A76 /* MetaData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */; };
+		F3CE6AF71A477FF0009B61E1 /* libchromaprint.0.2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CE6AF61A477FF0009B61E1 /* libchromaprint.0.2.2.dylib */; };
 		F3D5603A2577AD7DC5176076 /* juce_audio_formats.mm in Sources */ = {isa = PBXBuildFile; fileRef = 318065D9899DEBB0E49DCECB /* juce_audio_formats.mm */; };
 		FE6F7C7C4F40C0CFD8971DB5 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1DAB96EC6F35EAFBB40CA0 /* CoreAudio.framework */; };
 /* End PBXBuildFile section */
@@ -897,9 +897,8 @@
 		F2CFC78201AF6BF7F1B8F82D /* juce_Viewport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Viewport.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_Viewport.h; sourceTree = SOURCE_ROOT; };
 		F2E6C909D897D53F18982029 /* juce_AttributedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AttributedString.h; path = ../../JuceLibraryCode/modules/juce_graphics/fonts/juce_AttributedString.h; sourceTree = SOURCE_ROOT; };
 		F33FCB951A3F948200F091D9 /* chromaprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chromaprint.h; sourceTree = "<group>"; };
-		F33FCB961A3F961F00F091D9 /* ChromaPrint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChromaPrint.cpp; path = ../../Source/ChromaPrint.cpp; sourceTree = "<group>"; };
-		F33FCB971A3F961F00F091D9 /* ChromaPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChromaPrint.h; path = ../../Source/ChromaPrint.h; sourceTree = "<group>"; };
-		F33FCB991A3FA20200F091D9 /* libchromaprint.0.2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libchromaprint.0.2.2.dylib; sourceTree = "<group>"; };
+		F33FCB961A3F961F00F091D9 /* ChromaFingerPrint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChromaFingerPrint.cpp; path = ../../Source/ChromaFingerPrint.cpp; sourceTree = "<group>"; };
+		F33FCB971A3F961F00F091D9 /* ChromaFingerPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChromaFingerPrint.h; path = ../../Source/ChromaFingerPrint.h; sourceTree = "<group>"; };
 		F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayControlBar.cpp; path = ../../Source/PlayControlBar.cpp; sourceTree = "<group>"; };
 		F3732C7C1A227B53003DF225 /* PlayControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayControlBar.h; path = ../../Source/PlayControlBar.h; sourceTree = "<group>"; };
 		F3732C7E1A227CD3003DF225 /* MainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainWindow.cpp; path = ../../Source/MainWindow.cpp; sourceTree = "<group>"; };
@@ -979,6 +978,7 @@
 		F39CC91E1A3E45AC00D94A76 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MetaData.h; path = ../../Source/MetaData.h; sourceTree = "<group>"; };
 		F3AD40115521AF95EE95AB15 /* juce_MidiFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MidiFile.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/midi/juce_MidiFile.h; sourceTree = SOURCE_ROOT; };
 		F3C5C5DE5A4C24B830B42E72 /* juce_mac_SystemStats.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_mac_SystemStats.mm; path = ../../JuceLibraryCode/modules/juce_core/native/juce_mac_SystemStats.mm; sourceTree = SOURCE_ROOT; };
+		F3CE6AF61A477FF0009B61E1 /* libchromaprint.0.2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libchromaprint.0.2.2.dylib; sourceTree = "<group>"; };
 		F405A5EE9C65D3AA1D8F15A9 /* juce_OpenGLExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_OpenGLExtensions.h; path = ../../JuceLibraryCode/modules/juce_opengl/native/juce_OpenGLExtensions.h; sourceTree = SOURCE_ROOT; };
 		F460115978198547E3DD4719 /* juce_Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Time.h; path = ../../JuceLibraryCode/modules/juce_core/time/juce_Time.h; sourceTree = SOURCE_ROOT; };
 		F4AA41027F97BEE7DC00636E /* juce_linux_Fonts.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_linux_Fonts.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/native/juce_linux_Fonts.cpp; sourceTree = SOURCE_ROOT; };
@@ -1031,7 +1031,7 @@
 				82D8F07A6ADAC81D68D0E505 /* CoreMIDI.framework in Frameworks */,
 				40D9637F2AAF122A8859339C /* DiscRecording.framework in Frameworks */,
 				9C545AD41CB8DBF9FE4DCF4C /* IOKit.framework in Frameworks */,
-				F33FCB9A1A3FA20200F091D9 /* libchromaprint.0.2.2.dylib in Frameworks */,
+				F3CE6AF71A477FF0009B61E1 /* libchromaprint.0.2.2.dylib in Frameworks */,
 				4491195C6CE8E1C844BD723A /* OpenGL.framework in Frameworks */,
 				4F2AA97863C185FA5FDB805C /* QTKit.framework in Frameworks */,
 				5E4027649BE52CB2FC6CC628 /* QuartzCore.framework in Frameworks */,
@@ -2367,8 +2367,8 @@
 				F3732C7F1A227CD3003DF225 /* MainWindow.h */,
 				F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */,
 				F39CC91E1A3E45AC00D94A76 /* MetaData.h */,
-				F33FCB961A3F961F00F091D9 /* ChromaPrint.cpp */,
-				F33FCB971A3F961F00F091D9 /* ChromaPrint.h */,
+				F33FCB961A3F961F00F091D9 /* ChromaFingerPrint.cpp */,
+				F33FCB971A3F961F00F091D9 /* ChromaFingerPrint.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -2620,7 +2620,7 @@
 		F33FCB911A3F93A800F091D9 /* acoustid */ = {
 			isa = PBXGroup;
 			children = (
-				F33FCB991A3FA20200F091D9 /* libchromaprint.0.2.2.dylib */,
+				F3CE6AF61A477FF0009B61E1 /* libchromaprint.0.2.2.dylib */,
 				F33FCB951A3F948200F091D9 /* chromaprint.h */,
 			);
 			path = acoustid;
@@ -2958,7 +2958,7 @@
 				F39CC91F1A3E45AC00D94A76 /* MetaData.cpp in Sources */,
 				5BB77F0B3031EF7AE8C7A439 /* juce_opengl.mm in Sources */,
 				303C55A283CCB2C48BF9407E /* juce_video.mm in Sources */,
-				F33FCB981A3F961F00F091D9 /* ChromaPrint.cpp in Sources */,
+				F33FCB981A3F961F00F091D9 /* ChromaFingerPrint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

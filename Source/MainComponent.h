@@ -12,7 +12,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PlayControlBar.h"
 #include "PlayList.h"
-
+#include "ChromaFingerPrint.h"
 //==============================================================================
 /*
  This component lives inside our window, and this is where you should put all

@@ -66,7 +66,9 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
 		case OpenFile: {
             FileChooser chooser ("Select a Wave file to play...",File::nonexistent);
             if (chooser.browseForFileToOpen()) {
-                File file (chooser.getResult());
+                File file(chooser.getResult());
+				ChromaFingerPrint cfp;
+				cfp.calculateFingerPrint(file);
 				playControlBar.setMusicFile(file);
 				playControlBar.changeState(PlayControlBar::Load);
 			}

@@ -12,19 +12,18 @@
 #include "../Include/acoustid/chromaprint.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
-class MetaData
+class ChromaFingerPrint
 
 {
 public:
 	//==============================================================================
-	MetaData();
-	~MetaData();
+	ChromaFingerPrint();
+	~ChromaFingerPrint();
 	
 	//==============================================================================
 	//[UserMethods]     -- You can add your own custom methods in this section.
 	
-	void addFile(File file);
-	void readAudio();
+	String calculateFingerPrint(File audioFile);
 	
 	//[/UserMethods]
 	
@@ -34,14 +33,8 @@ public:
 	
 	
 private:
-	int maxLength;
-	int numFileNames;
-	int duration;
-	int algo = CHROMAPRINT_ALGORITHM_DEFAULT;
-	OwnedArray<File> audioFiles;
-	ChromaprintContext *chromaprint_ctx;
 	AudioFormatManager formatManager;
-	OwnedArray<AudioFormatReaderSource> readerSource;
+	ChromaprintContext *chromaprintContext;
 };
 
 
