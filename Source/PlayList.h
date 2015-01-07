@@ -22,7 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include "JsonToJuce.h"
+//#include "JsonToJuce.h"
 
 //[/Headers]
 
@@ -39,7 +39,8 @@
 class PlayList  : public Component,
 				  public TableListBoxModel,
 				  public ValueTree::Listener,
-				  public ButtonListener
+				  public ButtonListener,
+public JSON
 {
 public:
     //==============================================================================

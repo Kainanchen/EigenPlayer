@@ -36,6 +36,7 @@ PlayList::PlayList ()
     setSize (200, getHeight()-200);
 
     //[Constructor] You can add your own custom stuff here..
+
     musicInfo  = ValueTree (musicId);
     musicInfo.setProperty(musicNameId, String::empty, nullptr);
     musicInfo.setProperty(musicTypeId, String::empty, nullptr);
@@ -44,6 +45,8 @@ PlayList::PlayList ()
     playlist = ValueTree(playlistId);
     playlist.addChild(musicInfo, 0, nullptr);
     playlist.addListener(this);
+    
+    //button to be added
     //[/Constructor]
 }
 
