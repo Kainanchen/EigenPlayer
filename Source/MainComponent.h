@@ -11,7 +11,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PlayControlBar.h"
-#include "PlayList.h"
+//#include "PlayList.h"
 #include "ChromaFingerPrint.h"
 //==============================================================================
 /*

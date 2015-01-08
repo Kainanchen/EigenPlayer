@@ -43,9 +43,9 @@ PlayList::PlayList ()
     musicInfo.setProperty(musicSingerId, String::empty, nullptr);
     musicInfo.setProperty(musicAlbumId, String::empty, nullptr);
     playlist = ValueTree(playlistId);
-    playlist.addChild(musicInfo, 0, nullptr);
+//    playlist.addChild(musicInfo, 0, nullptr);
     playlist.addListener(this);
-    
+	
     //button to be added
     //[/Constructor]
 }
@@ -82,6 +82,12 @@ void PlayList::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+const Identifier PlayList::musicId = "musicId";
+const Identifier PlayList::musicNameId = "musicNameId";
+const Identifier PlayList::musicTypeId = "musicTypeId";
+const Identifier PlayList::musicSingerId = "musicSingerId";
+const Identifier PlayList::musicAlbumId = "musicAlbumId";
+const Identifier PlayList::playlistId = "playlistId";
 //[/MiscUserCode]
 
 

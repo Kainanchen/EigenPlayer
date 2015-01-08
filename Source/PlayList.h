@@ -22,7 +22,6 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include "JsonToJuce.h"
 
 //[/Headers]
 
@@ -53,13 +52,13 @@ public:
     void paint (Graphics& g);
     void resized();
 
-	void valueTreePropertyChanged (ValueTree& tree, const Identifier& property);
+	//void valueTreePropertyChanged (ValueTree& tree, const Identifier& property);
 	void valueTreeChildAdded(ValueTree& parentTree, ValueTree& child){}
 	void valueTreeChildRemoved(ValueTree& parentTree, ValueTree& child) {}
 	void valueTreeChildOrderChanged(ValueTree& tree) {}
 	void valueTreeParentChanged (ValueTree& tree){}
 	void valueTreeRedirected (ValueTree& tree) {}
-    
+	
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 	TableListBox table;
@@ -76,6 +75,7 @@ private:
 	static const Identifier musicSingerId;
 	static const Identifier musicAlbumId;
     static const Identifier playlistId;
+ 
     //[/UserVariables]
 
     //==============================================================================
