@@ -36,9 +36,11 @@
                                                                     //[/Comments]
 */
 class PlayList  : public Component,
-				  public TableListBoxModel,
-				  public ValueTree::Listener,
-				  public ButtonListener
+
+				  public ButtonListener//,
+				  //public ValueTree::Listener
+				//public TableListBoxModel,
+
 {
 public:
     //==============================================================================
@@ -59,10 +61,10 @@ public:
 	void valueTreeParentChanged (ValueTree& tree){}
 	void valueTreeRedirected (ValueTree& tree) {}
     void buttonClicked (Button* buttonThatWasClicked);
-	
+
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-	TableListBox table;
+	//TableListBox table;
 	Font font;
 	
 	ScopedPointer<TextButton> loadList;

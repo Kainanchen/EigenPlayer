@@ -17,6 +17,7 @@ MainContentComponent::MainContentComponent()
 	MenuBarModel::setMacMainMenu (this);
 #endif
     addAndMakeVisible(&playControlBar);
+	addAndMakeVisible(&playList);
     addAndMakeVisible(&menuBar);
     PropertiesFile::Options options;
     options.applicationName = ProjectInfo::projectName;
@@ -40,6 +41,7 @@ MainContentComponent::~MainContentComponent()
 void MainContentComponent::resized()
 {
     playControlBar.setBounds(0, getHeight()-playControlBar.getHeight(), playControlBar.getWidth(), playControlBar.getHeight());
+	playList.setBounds(0,playList.getHeight(), playList.getWidth(), playList.getHeight());
 #if JUCE_WINDOWS || JUCE_LINUX
 	menuBar.setBounds(0, 0, getWidth(), 20);
 #endif
@@ -68,7 +70,7 @@ void MainContentComponent::menuItemSelected(int menuID, int index){
             if (chooser.browseForFileToOpen()) {
                 File file(chooser.getResult());
 				ChromaFingerPrint cfp;
-				cfp.calculateFingerPrint(file);
+				//cfp.calculateFingerPrint(file);
 				playControlBar.setMusicFile(file);
 				playControlBar.changeState(PlayControlBar::Load);
 			}
