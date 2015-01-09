@@ -58,6 +58,7 @@ public:
 	void valueTreeChildOrderChanged(ValueTree& tree) {}
 	void valueTreeParentChanged (ValueTree& tree){}
 	void valueTreeRedirected (ValueTree& tree) {}
+    void buttonClicked (Button* buttonThatWasClicked);
 	
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
@@ -66,7 +67,6 @@ private:
 	
 	ScopedPointer<TextButton> loadList;
 	ScopedPointer<TextButton> saveList;
-	
 	ValueTree musicInfo;
     ValueTree playlist;
 	static const Identifier musicId;

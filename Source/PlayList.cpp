@@ -32,11 +32,16 @@ PlayList::PlayList ()
 
     //[UserPreSize]
     //[/UserPreSize]
-
+    
+    addAndMakeVisible (saveList = new TextButton ("saveList"));
+    saveList->setButtonText (TRANS("Save Playlist"));
+    saveList->addListener (this);
+    addAndMakeVisible (loadList = new TextButton ("loadList"));
+    loadList->setButtonText (TRANS("Load Playlist"));
+    loadList->addListener (this);
     setSize (200, getHeight()-200);
-
     //[Constructor] You can add your own custom stuff here..
-
+    playlist = ValueTree (musicId);
     musicInfo  = ValueTree (musicId);
     musicInfo.setProperty(musicNameId, String::empty, nullptr);
     musicInfo.setProperty(musicTypeId, String::empty, nullptr);
@@ -76,6 +81,11 @@ void PlayList::paint (Graphics& g)
 
 void PlayList::resized()
 {
+    int controlHeight=20;
+    int margin = 10;
+    int width=getWidth()-margin*2;
+    loadList->setBounds(margin, controlHeight+margin, width, controlHeight);
+    saveList->setBounds(margin, margin, width, controlHeight);
 
 }
 
@@ -88,6 +98,51 @@ const Identifier PlayList::musicTypeId = "musicTypeId";
 const Identifier PlayList::musicSingerId = "musicSingerId";
 const Identifier PlayList::musicAlbumId = "musicAlbumId";
 const Identifier PlayList::playlistId = "playlistId";
+
+void PlayList::buttonClicked (Button* buttonThatWasClicked)
+{
+    //[UserbuttonClicked_Pre]
+    //[/UserbuttonClicked_Pre]
+    
+    if(buttonThatWasClicked == loadList)
+    {
+        //[UserButtonCode_openButton] -- add your button handler code here..
+        FileChooser chooser ("Select Playlist",File::nonexistent,"*.xml");
+        if (chooser.browseForFileToOpen()) {
+            Logger* log = Logger::getCurrentLogger();
+            File file (chooser.getResult());
+            XmlDocument xmlDoc(file);
+            ScopedPointer<XmlElement>xml =xmlDoc.getDocumentElement();
+            if (xml==nullptr) {
+                log->writeToLog("XML error");
+                return;
+            }
+            ValueTree newPlaylist (ValueTree::fromXml(*xml));
+
+            playlist.copyPropertiesFrom(newPlaylist, nullptr);
+            ValueTree newlist (newPlaylist.getChildWithName(musicId));
+            ValueTree musicInfo (newPlaylist.getChildWithName(musicId));
+            musicInfo.copyPropertiesFrom(newlist, nullptr);
+        }
+        //[/UserButtonCode_openButton]
+    }
+    else if (buttonThatWasClicked == saveList)
+    {
+        //[UserButtonCode_saveButton] -- add your button handler code here..
+        FileChooser chooser("Save Playlist",File::nonexistent,"*.xml");
+        if (chooser.browseForFileToSave(true)){
+            File file (chooser.getResult());
+            if (file.existsAsFile()) {
+                file.moveToTrash();
+            }
+            FileOutputStream stream(file);
+            ScopedPointer<XmlElement>xml = playlist.createXml();
+            xml->writeToStream(stream, String::empty);
+        }
+        //[/UserButtonCode_saveButton]
+    }
+}
+
 //[/MiscUserCode]
 
 
