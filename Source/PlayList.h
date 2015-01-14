@@ -36,10 +36,9 @@
                                                                     //[/Comments]
 */
 class PlayList  : public Component,
-
-				  public ButtonListener//,
+				  public ButtonListener,//,
 				  //public ValueTree::Listener
-				//public TableListBoxModel,
+				public TableListBoxModel
 
 {
 public:
@@ -71,12 +70,16 @@ private:
 	ScopedPointer<TextButton> saveList;
 	ValueTree musicInfo;
     ValueTree playlist;
+    ValueTree sublist;
+    ValueTree music;
 	static const Identifier musicId;
 	static const Identifier musicNameId;
 	static const Identifier musicTypeId;
 	static const Identifier musicSingerId;
 	static const Identifier musicAlbumId;
     static const Identifier playlistId;
+    static const Identifier sublistId;
+    static const Identifier musicinfoId;
  
     //[/UserVariables]
 
