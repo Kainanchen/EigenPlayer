@@ -36,9 +36,9 @@
                                                                     //[/Comments]
 */
 class PlayList  : public Component,
-				  public ButtonListener,//,
+				  public ButtonListener//,
 				  //public ValueTree::Listener
-				public TableListBoxModel
+			//public TableListBoxModel
 
 {
 public:

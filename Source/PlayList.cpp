@@ -35,10 +35,10 @@ PlayList::PlayList ()
     
     addAndMakeVisible (saveList = new TextButton ("saveList"));
     saveList->setButtonText (TRANS("Save Playlist"));
-    saveList->addListener (this);
+    //saveList->addListener (this);
     addAndMakeVisible (loadList = new TextButton ("loadList"));
     loadList->setButtonText (TRANS("Load Playlist"));
-    loadList->addListener (this);
+    //loadList->addListener (this);
     
     //[Constructor] You can add your own custom stuff here..
 
@@ -90,7 +90,6 @@ void PlayList::resized()
 {
     loadList->setBounds(0, getHeight()/2, getWidth(), getHeight()/2);
     saveList->setBounds(0, 0, getWidth(), getHeight()/2);
-
 }
 
 
