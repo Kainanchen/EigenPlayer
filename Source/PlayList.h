@@ -94,7 +94,7 @@ public:
         ScopedPointer<XmlElement>xml = playlist.createXml();
         xml->writeToStream(stream, String::empty);
     }
-    ValueTree setsublist(const Identifier sublistId, const Identifier musicId)
+    ValueTree setsublist(String sublistId, String musicId)
     {
         sublist = ValueTree(sublistId);
         music = ValueTree(musicId);

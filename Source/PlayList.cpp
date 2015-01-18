@@ -143,8 +143,8 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
     }
     else if (buttonThatWasClicked == savesublist)
     {
-       const Identifier sublistId = sublist.getPropertyName(0);
-        const Identifier musicId = music.getPropertyName(0);
+       String sublistId = sublist.getProperty(sublistId, "0");
+       String musicId = music.getProperty(musicId, "0");
         ValueTree newsublist = setsublist(sublistId, musicId);
         playlist.addChild(newsublist, 0, nullptr);
     }
