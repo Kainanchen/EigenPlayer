@@ -2987,12 +2987,6 @@
 				F33153241A69E0BA008831DB /* b_RandomPlay.png in Resources */,
 				F331532B1A69E0BA008831DB /* p_ListBackgoundDown.png in Resources */,
 				F33153281A69E0BA008831DB /* c_Search.png in Resources */,
-<<<<<<< HEAD
-				F331532D1A69E0BA008831DB /* Show1.jpg in Resources */,
-=======
-				F331532D1A69E0BA008831DB /* 界面1.jpg in Resources */,
-				91099BF91A6C603A001BFD44 /* 命运交错.mp3 in Resources */,
->>>>>>> FETCH_HEAD
 				3402E39E107A346C1D7F6EFC /* RecentFilesMenuTemplate.nib in Resources */,
 				F33153211A69E0BA008831DB /* b_GenreBig.png in Resources */,
 				F331532A1A69E0BA008831DB /* f_OutFrame.png in Resources */,
