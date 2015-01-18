@@ -36,8 +36,9 @@
                                                                     //[/Comments]
 */
 class PlayList  : public Component,
-				  public ButtonListener//,
-				  //public ValueTree::Listener
+				  public ButtonListener
+               //   public LabelListener
+				//  public ValueTree::Listener
 
 
 {
@@ -53,13 +54,14 @@ public:
     void paint (Graphics& g);
     void resized();
 
-	//void valueTreePropertyChanged (ValueTree& tree, const Identifier& property);
+//	void valueTreePropertyChanged (ValueTree& tree, const Identifier& property);
 	void valueTreeChildAdded(ValueTree& parentTree, ValueTree& child){}
 	void valueTreeChildRemoved(ValueTree& parentTree, ValueTree& child) {}
 	void valueTreeChildOrderChanged(ValueTree& tree) {}
 	void valueTreeParentChanged (ValueTree& tree){}
 	void valueTreeRedirected (ValueTree& tree) {}
     void buttonClicked (Button* buttonThatWasClicked);
+ //   void labelTextChanged (Label* labelThatHasChanged);
     void setlist (const Identifier musicID)
     {
     
@@ -94,9 +96,8 @@ public:
     }
     ValueTree setsublist(const Identifier sublistId, const Identifier musicId)
     {
-        //应该加一个listener，在想
-        ValueTree sublist = ValueTree(sublistId);
-        ValueTree music = ValueTree(musicId);
+        sublist = ValueTree(sublistId);
+        music = ValueTree(musicId);
         sublist.addChild(music,0,nullptr);
         
         return sublist;        
@@ -110,6 +111,8 @@ private:
 	ScopedPointer<TextButton> loadList;
 	ScopedPointer<TextButton> saveList;
     ScopedPointer<TextButton> savesublist;
+    ScopedPointer<Label> musicname;
+    ScopedPointer<Label> sublistname;
 	ValueTree musicInfo;
     ValueTree playlist;
     ValueTree sublist;

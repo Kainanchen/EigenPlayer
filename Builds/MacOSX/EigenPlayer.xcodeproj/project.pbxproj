@@ -29,6 +29,7 @@
 		744F6E2867CF91DD10B12164 /* juce_graphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7ED6BE223BFAC93CFA0B6B7 /* juce_graphics.mm */; };
 		82D8F07A6ADAC81D68D0E505 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D816A8A7BC650BA0FCFB9C /* CoreMIDI.framework */; };
 		8A6267F983C1797C4E26C4A7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A3FB9135F3BB9CCB8EEBC8 /* AudioToolbox.framework */; };
+		91099BF91A6C603A001BFD44 /* 命运交错.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 91099BF81A6C603A001BFD44 /* 命运交错.mp3 */; };
 		98F06AD9BD3B99E0CEA08F9B /* juce_audio_processors.mm in Sources */ = {isa = PBXBuildFile; fileRef = 87BF4C019267724B00099039 /* juce_audio_processors.mm */; };
 		9937F19D03C2D3C39D744FF0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B73C42EBCB2385FE26D2B4 /* Cocoa.framework */; };
 		9C545AD41CB8DBF9FE4DCF4C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7842E27F17902F8481F58A93 /* IOKit.framework */; };
@@ -569,6 +570,7 @@
 		908AB329CA2D9AC2F93D7E2D /* juce_TextEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_TextEditor.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_TextEditor.cpp; sourceTree = SOURCE_ROOT; };
 		90A4A65585F2FAA08947DEAB /* juce_KeyMappingEditorComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_KeyMappingEditorComponent.h; path = ../../JuceLibraryCode/modules/juce_gui_extra/misc/juce_KeyMappingEditorComponent.h; sourceTree = SOURCE_ROOT; };
 		90B7C694C4CDDA6E3B4740D8 /* juce_MixerAudioSource.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MixerAudioSource.cpp; path = ../../JuceLibraryCode/modules/juce_audio_basics/sources/juce_MixerAudioSource.cpp; sourceTree = SOURCE_ROOT; };
+		91099BF81A6C603A001BFD44 /* 命运交错.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "命运交错.mp3"; sourceTree = "<group>"; };
 		914C3A09939688C5F7BEC870 /* juce_PropertySet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_PropertySet.h; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_PropertySet.h; sourceTree = SOURCE_ROOT; };
 		9169E2C9A78412E41AB01148 /* RecentFilesMenuTemplate.nib */ = {isa = PBXFileReference; lastKnownFileType = file.nib; path = RecentFilesMenuTemplate.nib; sourceTree = SOURCE_ROOT; };
 		91978DAB543BED6DD75A70DC /* juce_ArrowButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ArrowButton.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_ArrowButton.h; sourceTree = SOURCE_ROOT; };
@@ -1904,6 +1906,15 @@
 			name = contexts;
 			sourceTree = "<group>";
 		};
+		91099BF71A6C603A001BFD44 /* songs */ = {
+			isa = PBXGroup;
+			children = (
+				91099BF81A6C603A001BFD44 /* 命运交错.mp3 */,
+			);
+			name = songs;
+			path = ../../songs;
+			sourceTree = "<group>";
+		};
 		91F4D2A215D338CD9EB6BD05 /* misc */ = {
 			isa = PBXGroup;
 			children = (
@@ -2289,6 +2300,7 @@
 		C58217706CBC053891980AAE /* EigenPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				91099BF71A6C603A001BFD44 /* songs */,
 				F331530E1A69E0BA008831DB /* Images */,
 				F376F9D71A3CC5BE00E3C4E4 /* Include */,
 				CEE01CE6C89CB789194789FE /* Source */,
@@ -2975,7 +2987,12 @@
 				F33153241A69E0BA008831DB /* b_RandomPlay.png in Resources */,
 				F331532B1A69E0BA008831DB /* p_ListBackgoundDown.png in Resources */,
 				F33153281A69E0BA008831DB /* c_Search.png in Resources */,
+<<<<<<< HEAD
 				F331532D1A69E0BA008831DB /* Show1.jpg in Resources */,
+=======
+				F331532D1A69E0BA008831DB /* 界面1.jpg in Resources */,
+				91099BF91A6C603A001BFD44 /* 命运交错.mp3 in Resources */,
+>>>>>>> FETCH_HEAD
 				3402E39E107A346C1D7F6EFC /* RecentFilesMenuTemplate.nib in Resources */,
 				F33153211A69E0BA008831DB /* b_GenreBig.png in Resources */,
 				F331532A1A69E0BA008831DB /* f_OutFrame.png in Resources */,

@@ -35,13 +35,20 @@ PlayList::PlayList ()
     
     addAndMakeVisible (saveList = new TextButton ("saveList"));
     saveList->setButtonText (TRANS("Save Playlist"));
-    //saveList->addListener (this);
+    saveList->addListener (this);
     addAndMakeVisible (loadList = new TextButton ("loadList"));
     loadList->setButtonText (TRANS("Load Playlist"));
-    //loadList->addListener (this);
+    loadList->addListener (this);
     addAndMakeVisible(savesublist = new TextButton ("savesub"));
                       savesublist->setButtonText(TRANS("savesub"));
+    addAndMakeVisible (musicname = new Label ("new label",
+                                              TRANS("musicname")));
+    musicname->setEditable(true,true,true);
+    addAndMakeVisible (sublistname = new Label ("new label",
+                                              TRANS("sublistname")));
+    sublistname->setEditable(true,true,true);
     
+    savesublist->addListener(this);
     //[Constructor] You can add your own custom stuff here..
 
 	playlist = ValueTree (playlistId);
@@ -54,14 +61,19 @@ PlayList::PlayList ()
     musicInfo.setProperty(musicSingerId, String::empty, nullptr);
     musicInfo.setProperty(musicAlbumId, String::empty, nullptr);
     music.addChild(musicInfo, 0, nullptr);
+   // music.setProperty(musicId, String::empty, nullptr);
+    music.setProperty(musicId, "try2", nullptr);
     sublist.addChild(music, 0, nullptr);
+    sublist.setProperty(sublistId, "try1", nullptr);
+   // sublist.setProperty(sublistId, String::empty, nullptr);
     playlist.addChild(sublist, 0, nullptr);
+   // playlist.setProperty(playlistId, String::empty, nullptr);
 //    playlist.addChild(musicInfo, 0, nullptr);
 //    playlist.addListener(this);
 	
     //button to be added
     //[/Constructor]
-    setSize (200, 40);
+    setSize (200, 100);
 }
 
 PlayList::~PlayList()
@@ -71,6 +83,8 @@ PlayList::~PlayList()
 	loadList = nullptr;
 	saveList = nullptr;
     savesublist = nullptr;
+    musicname = nullptr;
+    sublistname = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -91,9 +105,11 @@ void PlayList::paint (Graphics& g)
 
 void PlayList::resized()
 {
-    loadList->setBounds(0, getHeight()/2, getWidth(), getHeight()/2);
-    saveList->setBounds(0, 0, getWidth(), getHeight()/2);
-    savesublist->setBounds(0,getHeight(),getWidth(),getHeight()/2);
+    loadList->setBounds(0, getHeight()/5, getWidth(), getHeight()/5);
+    saveList->setBounds(0, 0, getWidth(), getHeight()/5);
+    savesublist->setBounds(0,getHeight()*2/5,getWidth(),getHeight()/5);
+    musicname->setBounds(0, getHeight()*3/5, getWidth(), getHeight()/5);
+    sublistname->setBounds(0, getHeight()*4/5, getWidth(), getHeight()/5);
     
 }
 
@@ -127,10 +143,23 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
     }
     else if (buttonThatWasClicked == savesublist)
     {
+       const Identifier sublistId = sublist.getPropertyName(0);
+        const Identifier musicId = music.getPropertyName(0);
         ValueTree newsublist = setsublist(sublistId, musicId);
         playlist.addChild(newsublist, 0, nullptr);
     }
 }
+
+//void PlayList::labelTextChanged(Label* labelThatWasChanged)
+//{
+ //   if (labelThatWasChanged == musicname) {
+  //      music.setProperty(musicId, labelThatWasChanged->getText(), nullptr);
+  //  }
+  // else if (labelThatWasChanged == sublistname) {
+  //      sublist.setProperty(sublistId, labelThatWasChanged->getText(), nullptr);
+  //  }
+//}
+
 
 //[/MiscUserCode]
 
