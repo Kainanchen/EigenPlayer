@@ -49,7 +49,7 @@
 		F331532A1A69E0BA008831DB /* f_OutFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = F331531A1A69E0BA008831DB /* f_OutFrame.png */; };
 		F331532B1A69E0BA008831DB /* p_ListBackgoundDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F331531B1A69E0BA008831DB /* p_ListBackgoundDown.png */; };
 		F331532C1A69E0BA008831DB /* p_ListBackgoundUp.png in Resources */ = {isa = PBXBuildFile; fileRef = F331531C1A69E0BA008831DB /* p_ListBackgoundUp.png */; };
-		F331532D1A69E0BA008831DB /* 界面1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F331531D1A69E0BA008831DB /* 界面1.jpg */; };
+		F331532D1A69E0BA008831DB /* Show1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F331531D1A69E0BA008831DB /* Show1.jpg */; };
 		F331532E1A69E0BA008831DB /* 界面2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F331531E1A69E0BA008831DB /* 界面2.jpg */; };
 		F3732C7D1A227B53003DF225 /* PlayControlBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */; };
 		F3732C801A227CD3003DF225 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7E1A227CD3003DF225 /* MainWindow.cpp */; };
@@ -923,7 +923,7 @@
 		F331531A1A69E0BA008831DB /* f_OutFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f_OutFrame.png; sourceTree = "<group>"; };
 		F331531B1A69E0BA008831DB /* p_ListBackgoundDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_ListBackgoundDown.png; sourceTree = "<group>"; };
 		F331531C1A69E0BA008831DB /* p_ListBackgoundUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_ListBackgoundUp.png; sourceTree = "<group>"; };
-		F331531D1A69E0BA008831DB /* 界面1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "界面1.jpg"; sourceTree = "<group>"; };
+		F331531D1A69E0BA008831DB /* Show1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Show1.jpg; sourceTree = "<group>"; };
 		F331531E1A69E0BA008831DB /* 界面2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "界面2.jpg"; sourceTree = "<group>"; };
 		F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayControlBar.cpp; path = ../../Source/PlayControlBar.cpp; sourceTree = "<group>"; };
 		F3732C7C1A227B53003DF225 /* PlayControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayControlBar.h; path = ../../Source/PlayControlBar.h; sourceTree = "<group>"; };
@@ -2656,7 +2656,7 @@
 				F331531A1A69E0BA008831DB /* f_OutFrame.png */,
 				F331531B1A69E0BA008831DB /* p_ListBackgoundDown.png */,
 				F331531C1A69E0BA008831DB /* p_ListBackgoundUp.png */,
-				F331531D1A69E0BA008831DB /* 界面1.jpg */,
+				F331531D1A69E0BA008831DB /* Show1.jpg */,
 				F331531E1A69E0BA008831DB /* 界面2.jpg */,
 			);
 			name = Images;
@@ -2975,7 +2975,7 @@
 				F33153241A69E0BA008831DB /* b_RandomPlay.png in Resources */,
 				F331532B1A69E0BA008831DB /* p_ListBackgoundDown.png in Resources */,
 				F33153281A69E0BA008831DB /* c_Search.png in Resources */,
-				F331532D1A69E0BA008831DB /* 界面1.jpg in Resources */,
+				F331532D1A69E0BA008831DB /* Show1.jpg in Resources */,
 				3402E39E107A346C1D7F6EFC /* RecentFilesMenuTemplate.nib in Resources */,
 				F33153211A69E0BA008831DB /* b_GenreBig.png in Resources */,
 				F331532A1A69E0BA008831DB /* f_OutFrame.png in Resources */,

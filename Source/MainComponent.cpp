@@ -59,8 +59,6 @@ StringArray MainContentComponent::getMenuBarNames(){
     return StringArray (menuNames);
 }
 
-
-
 PopupMenu MainContentComponent::getMenuForIndex(int index, const String& name){
     PopupMenu menu;
     if (name=="File") {

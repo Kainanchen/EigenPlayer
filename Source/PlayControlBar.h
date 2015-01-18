@@ -60,7 +60,9 @@ private:
 	Value playTime;
 	double musicLength;
 	File musicFile;
-	ScopedPointer<TextButton> playButton;
+	//ScopedPointer<TextButton> playButton;
+	ScopedPointer<ImageButton> playButton;
+	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/Show1.png"));
 	ScopedPointer<TextButton> stopButton;
 	ScopedPointer<Slider> playTimeSlider;
 	AudioDeviceManager deviceManager;

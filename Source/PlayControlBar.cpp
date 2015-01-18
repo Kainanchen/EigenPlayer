@@ -8,11 +8,13 @@
 PlayControlBar::PlayControlBar ()
 : playTime(0.0)
 {
-    
-    addAndMakeVisible (playButton = new TextButton ("Play"));
+	
+	addAndMakeVisible (playButton = new ImageButton("Play"));
     playButton->addListener (this);
+	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/Show1"));
+	//playButton->setImages(true, true, true, playButtonImage, 0.1f, Colours::transparentBlack, playButtonImage, 0.1f, Colours::transparentBlack, playButtonImage, 0.1f, Colours::transparentBlack);
     playButton->setColour (TextButton::buttonColourId, Colours::chartreuse);
-    
+	
     addAndMakeVisible (stopButton = new TextButton ("Stop"));
     stopButton->addListener (this);
     stopButton->setColour (TextButton::buttonColourId, Colours::red);
@@ -55,8 +57,8 @@ void PlayControlBar::paint (Graphics& g)
 
 void PlayControlBar::resized()
 {
-	playButton->setBoundsRelative(0, 0, 0.125, 1);
-    stopButton->setBoundsRelative (0.125, 0, 0.125, 1);
+	playButton->setBoundsRelative(0.125, 0, 0.05, 1);
+    stopButton->setBoundsRelative (0.15, 0, 0.05, 1);
 	playTimeSlider->setBoundsRelative(0.25, 0, 0.75, 1);
 }
 
