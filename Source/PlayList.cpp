@@ -39,6 +39,8 @@ PlayList::PlayList ()
     addAndMakeVisible (loadList = new TextButton ("loadList"));
     loadList->setButtonText (TRANS("Load Playlist"));
     //loadList->addListener (this);
+    addAndMakeVisible(savesublist = new TextButton ("savesub"));
+                      savesublist->setButtonText(TRANS("savesub"));
     
     //[Constructor] You can add your own custom stuff here..
 
@@ -68,6 +70,7 @@ PlayList::~PlayList()
     //[/Destructor_pre]
 	loadList = nullptr;
 	saveList = nullptr;
+    savesublist = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -90,6 +93,8 @@ void PlayList::resized()
 {
     loadList->setBounds(0, getHeight()/2, getWidth(), getHeight()/2);
     saveList->setBounds(0, 0, getWidth(), getHeight()/2);
+    savesublist->setBounds(0,getHeight(),getWidth(),getHeight()/2);
+    
 }
 
 
@@ -111,48 +116,19 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
     
     if(buttonThatWasClicked == loadList)
     {
-        //[UserButtonCode_openButton] -- add your button handler code here..
-      //  FileChooser chooser ("Select Playlist",File::nonexistent,"*.xml");
-      //  if (chooser.browseForFileToOpen()) {
-            //Logger* log = Logger::getCurrentLogger(); //这个粘过来干蛋。。。。
-      //      File file (chooser.getResult()); //咱们这个固定路径，后台直接自动载入，不弹窗选文件
-        char path[100];
-        sprintf(path, "./playlist/default.xml");
-        char mode[5];
-      //  sprintf(mode, "r");
-      //  std::ifstream pl;
-            File file (path);
-            XmlDocument xmlDoc(file);
-            ScopedPointer<XmlElement>xml =xmlDoc.getDocumentElement();
-            ValueTree newPlaylist (ValueTree::fromXml(*xml));
-            ValueTree newsublist (newPlaylist.getChildWithName(sublistId));
-            ValueTree newmusic (newsublist.getChildWithName(musicId));
-            ValueTree newmusicInfo (newmusic.getChildWithName(musicinfoId));
-            playlist.copyPropertiesFrom(newPlaylist, nullptr);
-            sublist.copyPropertiesFrom(newsublist, nullptr);
-            music.copyPropertiesFrom(newmusic, nullptr);
-            musicInfo.copyPropertiesFrom(newmusicInfo, nullptr);
-        
-        //}
-        //[/UserButtonCode_openButton]
+      
+        getlist();
+
     }
     else if (buttonThatWasClicked == saveList)
     {
-        //[UserButtonCode_saveButton] -- add your button handler code here..
-       // FileChooser chooser("Save Playlist",File::nonexistent,"*.xml"); //同理，固定路径，不检查
-        //if (chooser.browseForFileToSave(true)){
-       //     File file (chooser.getResult());
-        //    if (file.existsAsFile()) {
-         //       file.moveToTrash();
-         //   }
-        char path[100];
-        sprintf(path,"./playList/default.xml");
-        File file (path);
-            FileOutputStream stream(file);
-            ScopedPointer<XmlElement>xml = playlist.createXml();
-            xml->writeToStream(stream, String::empty);
-       // }
-        //[/UserButtonCode_saveButton]
+        setlist();
+
+    }
+    else if (buttonThatWasClicked == savesublist)
+    {
+        ValueTree newsublist = setsublist(sublistId, musicId);
+        playlist.addChild(newsublist, 0, nullptr);
     }
 }
 

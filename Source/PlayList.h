@@ -38,7 +38,7 @@
 class PlayList  : public Component,
 				  public ButtonListener//,
 				  //public ValueTree::Listener
-			//public TableListBoxModel
+
 
 {
 public:
@@ -60,6 +60,47 @@ public:
 	void valueTreeParentChanged (ValueTree& tree){}
 	void valueTreeRedirected (ValueTree& tree) {}
     void buttonClicked (Button* buttonThatWasClicked);
+    void setlist (const Identifier musicID)
+    {
+    
+        return;}
+    
+    void getlist ()
+    {
+        File filedir (File::getSpecialLocation(
+                                               File::currentExecutableFile));
+        File dir (filedir.getParentDirectory());
+        File file (dir.getChildFile ("Default_Playlist.xml"));
+        XmlDocument xmlDoc(file);
+        ScopedPointer<XmlElement>xml =xmlDoc.getDocumentElement();
+        ValueTree newPlaylist (ValueTree::fromXml(*xml));
+        ValueTree newsublist (newPlaylist.getChildWithName(sublistId));
+        ValueTree newmusic (newsublist.getChildWithName(musicId));
+        ValueTree newmusicInfo (newmusic.getChildWithName(musicinfoId));
+        playlist.copyPropertiesFrom(newPlaylist, nullptr);
+        sublist.copyPropertiesFrom(newsublist, nullptr);
+        music.copyPropertiesFrom(newmusic, nullptr);
+        musicInfo.copyPropertiesFrom(newmusicInfo, nullptr);
+        return;}
+    void setlist ()
+    {
+        File filedir (File::getSpecialLocation(
+                                               File::currentExecutableFile));
+        File dir (filedir.getParentDirectory());
+        File file (dir.getChildFile ("Default_Playlist.xml"));
+        FileOutputStream stream(file);
+        ScopedPointer<XmlElement>xml = playlist.createXml();
+        xml->writeToStream(stream, String::empty);
+    }
+    ValueTree setsublist(const Identifier sublistId, const Identifier musicId)
+    {
+        //应该加一个listener，在想
+        ValueTree sublist = ValueTree(sublistId);
+        ValueTree music = ValueTree(musicId);
+        sublist.addChild(music,0,nullptr);
+        
+        return sublist;        
+    }
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
@@ -68,6 +109,7 @@ private:
 	
 	ScopedPointer<TextButton> loadList;
 	ScopedPointer<TextButton> saveList;
+    ScopedPointer<TextButton> savesublist;
 	ValueTree musicInfo;
     ValueTree playlist;
     ValueTree sublist;
