@@ -50,7 +50,7 @@ void MainContentComponent::resized()
 
 void MainContentComponent::paint(Graphics& g)
 {
-	backgroundImage = ImageFileFormat::loadFrom(File("/Users/HarmoniCache/Documents/Projects/EigenPlayer/Images/f_OutFrame.png"));
+	backgroundImage = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrame.png"));
 	g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), 0, 0, backgroundImage.getWidth(), backgroundImage.getHeight(), false );
 }
 
