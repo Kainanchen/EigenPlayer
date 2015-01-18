@@ -62,7 +62,7 @@ PlayList::PlayList ()
     musicInfo.setProperty(musicAlbumId, String::empty, nullptr);
     music.addChild(musicInfo, 0, nullptr);
    // music.setProperty(musicId, String::empty, nullptr);
-    music.setProperty(musicId, "try2", nullptr);
+    music.setProperty(musicId, "try", nullptr);
     sublist.addChild(music, 0, nullptr);
     sublist.setProperty(sublistId, "try1", nullptr);
    // sublist.setProperty(sublistId, String::empty, nullptr);
