@@ -26,6 +26,7 @@ public:
     MainContentComponent();
 	~MainContentComponent();
     void resized();
+	void paint (Graphics& g);
     StringArray getMenuBarNames();
     PopupMenu getMenuForIndex (int index, const String& name);
     void menuItemSelected (int menuID, int index);
@@ -43,6 +44,8 @@ private:
 	PlayList playList;
     MenuBarComponent menuBar;
     ApplicationProperties appProperties;
+	Image backgroundImage;
+	Image frameImage;
 };
 
 

@@ -26,7 +26,7 @@ PlayControlBar::PlayControlBar ()
     //[UserPreSize]
     //[/UserPreSize]
     
-    setSize (500, 25);
+    setSize (1600, 50);
 	
     //[Constructor] You can add your own custom stuff here..
     playButton->setEnabled(false);
@@ -50,7 +50,7 @@ PlayControlBar::~PlayControlBar()
 //==============================================================================
 void PlayControlBar::paint (Graphics& g)
 {
-    g.fillAll (Colours::white);
+    //g.fillAll (Colours::white);
 }
 
 void PlayControlBar::resized()
