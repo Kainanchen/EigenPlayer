@@ -21,6 +21,7 @@ ChromaFingerPrint::~ChromaFingerPrint()
 
 String ChromaFingerPrint::calculateFingerPrint(File audioFile)
 {
+/*
 	formatManager.registerBasicFormats();
 	AudioFormatReader *reader = formatManager.createReaderFor(audioFile);
 	AudioSampleBuffer *audioContent = new AudioSampleBuffer(reader->numChannels,reader->lengthInSamples);
@@ -33,4 +34,5 @@ String ChromaFingerPrint::calculateFingerPrint(File audioFile)
 	chromaprint_get_fingerprint(chromaprintContext, &fingerprint);
 	//free(fingerprint);
 	return String(fingerprint);
+ */
 }
