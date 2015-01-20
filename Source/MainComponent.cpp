@@ -50,8 +50,15 @@ void MainContentComponent::resized()
 
 void MainContentComponent::paint(Graphics& g)
 {
-	backgroundImage = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrame.png"));
-	g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), 0, 0, backgroundImage.getWidth(), backgroundImage.getHeight(), false );
+	//backgroundImage = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrame.png"));
+	Image f_OutFrameTop = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameTop.png"));
+	Image f_OutFrameBottom = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameBottom.png"));
+	Image f_OutFrameVertBar = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameVertBar.png"));
+	g.drawImage(f_OutFrameTop, 0, 0, getWidth(), f_OutFrameTop.getHeight()/1.5, 0, 0, f_OutFrameTop.getWidth(), f_OutFrameTop.getHeight());
+	g.drawImage(f_OutFrameBottom, 0, getHeight()-f_OutFrameBottom.getHeight()/1.5, getWidth(), f_OutFrameBottom.getHeight()/1.5, 0, 0, f_OutFrameTop.getWidth(), f_OutFrameTop.getHeight());
+	g.drawImage(f_OutFrameVertBar, 0, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
+	g.drawImage(f_OutFrameVertBar, getWidth()/22.5*4.6, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
+	g.drawImage(f_OutFrameVertBar, getWidth()-f_OutFrameVertBar.getWidth()/1.5, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
 }
 
 StringArray MainContentComponent::getMenuBarNames(){

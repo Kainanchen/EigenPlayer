@@ -143,9 +143,10 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
     }
     else if (buttonThatWasClicked == savesublist)
     {
-       String sublistId = sublist.getProperty(sublistId, "0");
-       String musicId = music.getProperty(musicId, "0");
-        ValueTree newsublist = setsublist(sublistId, musicId);
+       String sublistId2 = sublist.getProperty(sublistId, "0");
+
+       String musicId2 = music.getProperty(musicId, "0");
+        ValueTree newsublist = setsublist(sublistId2, musicId2);
         playlist.addChild(newsublist, 0, nullptr);
     }
 }
