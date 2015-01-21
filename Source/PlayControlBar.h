@@ -62,7 +62,7 @@ private:
 	File musicFile;
 	//ScopedPointer<TextButton> playButton;
 	ScopedPointer<ImageButton> playButton;
-	ScopedPointer<TextButton> stopButton;
+	ScopedPointer<ImageButton> prvButton;
 	ScopedPointer<Slider> playTimeSlider;
 	AudioDeviceManager deviceManager;
 	AudioFormatManager formatManager;
@@ -70,7 +70,9 @@ private:
 	AudioTransportSource transportSource;
 	AudioSourcePlayer sourcePlayer;
 	TransportState state;
-	
+	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Play.png"));
+	Image pauseButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Pause.png"));
+	Image prvButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayPrv.png"));
 	void timerCallback() override;
 	
     //==============================================================================

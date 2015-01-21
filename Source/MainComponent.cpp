@@ -41,7 +41,7 @@ MainContentComponent::~MainContentComponent()
 
 void MainContentComponent::resized()
 {
-    playControlBar.setBounds(0, 11*getHeight()/12, getWidth(), playControlBar.getHeight());
+    playControlBar.setBounds(0, getHeight()-f_OutFrameBottom.getHeight()/1.5, getWidth(), f_OutFrameBottom.getHeight()/1.5);
 	playList.setBounds(0,playList.getHeight(), playList.getWidth(), playList.getHeight());
 #if JUCE_WINDOWS || JUCE_LINUX
 	menuBar.setBounds(0, 0, getWidth(), 20);
@@ -51,9 +51,7 @@ void MainContentComponent::resized()
 void MainContentComponent::paint(Graphics& g)
 {
 	//backgroundImage = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrame.png"));
-	Image f_OutFrameTop = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameTop.png"));
-	Image f_OutFrameBottom = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameBottom.png"));
-	Image f_OutFrameVertBar = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameVertBar.png"));
+
 	g.drawImage(f_OutFrameTop, 0, 0, getWidth(), f_OutFrameTop.getHeight()/1.5, 0, 0, f_OutFrameTop.getWidth(), f_OutFrameTop.getHeight());
 	g.drawImage(f_OutFrameBottom, 0, getHeight()-f_OutFrameBottom.getHeight()/1.5, getWidth(), f_OutFrameBottom.getHeight()/1.5, 0, 0, f_OutFrameTop.getWidth(), f_OutFrameTop.getHeight());
 	g.drawImage(f_OutFrameVertBar, 0, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());

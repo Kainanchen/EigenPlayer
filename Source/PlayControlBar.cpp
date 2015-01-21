@@ -11,13 +11,11 @@ PlayControlBar::PlayControlBar ()
 	
 	addAndMakeVisible (playButton = new ImageButton("Play"));
     playButton->addListener (this);
-	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_play.png"));
-
-	playButton->setImages(true, true, false, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
+	playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
 	
-    addAndMakeVisible (stopButton = new TextButton ("Stop"));
-    stopButton->addListener (this);
-    stopButton->setColour (TextButton::buttonColourId, Colours::red);
+    addAndMakeVisible (prvButton = new ImageButton ("Prv"));
+    prvButton->addListener (this);
+	prvButton->setImages(false, true, true, prvButtonImage, 1.0f, Colours::transparentBlack, prvButtonImage, 1.0f, Colours::transparentBlack, prvButtonImage, 1.0f, Colours::transparentBlack);
 
 	addAndMakeVisible(playTimeSlider = new Slider ("Play Time"));
 	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
@@ -32,7 +30,7 @@ PlayControlBar::PlayControlBar ()
 	
     //[Constructor] You can add your own custom stuff here..
     playButton->setEnabled(false);
-    stopButton->setEnabled(false);
+    prvButton->setEnabled(false);
     formatManager.registerBasicFormats();
     sourcePlayer.setSource(&transportSource);
     deviceManager.addAudioCallback(&sourcePlayer);
@@ -46,7 +44,7 @@ PlayControlBar::PlayControlBar ()
 PlayControlBar::~PlayControlBar()
 {
     playButton = nullptr;
-    stopButton = nullptr;
+    prvButton = nullptr;
 }
 
 //==============================================================================
@@ -57,10 +55,9 @@ void PlayControlBar::paint (Graphics& g)
 
 void PlayControlBar::resized()
 {
-	playButton->setBounds(50, 0, 50, 50);
-	//playButton->setBoundsRelative(0.125, 0, 0.05, 1);
-    stopButton->setBoundsRelative(0.15, 0, 0.05, 1);
-	playTimeSlider->setBoundsRelative(0.25, 0, 0.75, 1);
+	playButton->setBounds(getWidth()/2-30, 0.7*getHeight()/2, 60, 60);
+    prvButton->setBounds(getWidth()/2-150, 0.7*getHeight()/2+10, 60, 60);
+	playTimeSlider->setBoundsRelative(0.025, 0, 0.95, 0.5);
 }
 
 void PlayControlBar::timerCallback()
@@ -85,7 +82,7 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
         //[/UserButtonCode_textButton]
         //[/UserButtonCode_playButton]
     }
-    else if (buttonThatWasClicked == stopButton)
+    else if (buttonThatWasClicked == prvButton)
     {
         //[UserButtonCode_stopButton] -- add your button handler code here..
         if (Paused==state)
@@ -118,7 +115,7 @@ void PlayControlBar::playEnable(bool enable)
 
 void PlayControlBar::stopEnable(bool enable)
 {
-	stopButton->setEnabled(enable);
+	prvButton->setEnabled(enable);
 }
 
 void PlayControlBar::playTimeEnable(bool enable)
@@ -179,22 +176,22 @@ void PlayControlBar::changeState(TransportState newState){
 				startTimer(1000/40);
 				break;
 			case Stopped:
-                playButton->setButtonText("Play");
-                stopButton->setButtonText("Stop");
-                stopButton->setEnabled(false);
+                playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
+                prvButton->setButtonText("Stop");
+                prvButton->setEnabled(false);
                 transportSource.setPosition(0.0);
                 break;
             case Starting:
                 transportSource.start();
                 break;
             case Playing:
-                playButton->setButtonText("Paused");
-                stopButton->setButtonText("Stop");
-                stopButton->setEnabled(true);
+                playButton->setImages(false, true, true, pauseButtonImage, 1.0f, Colours::transparentBlack, pauseButtonImage, 1.0f, Colours::transparentBlack, pauseButtonImage, 1.0f, Colours::transparentBlack);
+                prvButton->setButtonText("Stop");
+                prvButton->setEnabled(true);
                 break;
             case Paused:
-                playButton->setButtonText("Resume");
-                stopButton->setButtonText("Return to zero");
+                playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
+                prvButton->setButtonText("Return to zero");
                 break;
             case Stopping:
                 transportSource.stop();

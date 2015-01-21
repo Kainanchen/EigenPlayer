@@ -39,6 +39,9 @@
 		F3732C801A227CD3003DF225 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7E1A227CD3003DF225 /* MainWindow.cpp */; };
 		F3732C821A228528003DF225 /* SystemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C811A228528003DF225 /* SystemInfo.cpp */; };
 		F379E9811A23E087007D0E20 /* PlayList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F379E97F1A23E087007D0E20 /* PlayList.cpp */; };
+		F37C3C591A6F1B220094015D /* b_SinglePlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F37C3C581A6F1B220094015D /* b_SinglePlay.png */; };
+		F37C3C5C1A6F1B2C0094015D /* b_Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F37C3C5A1A6F1B2C0094015D /* b_Pause.png */; };
+		F37C3C5D1A6F1B2C0094015D /* b_Play.png in Resources */ = {isa = PBXBuildFile; fileRef = F37C3C5B1A6F1B2C0094015D /* b_Play.png */; };
 		F39CC91F1A3E45AC00D94A76 /* MetaData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */; };
 		F3BEDF041A6DD18600C33F13 /* 命运交错.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF031A6DD18600C33F13 /* 命运交错.mp3 */; };
 		F3BEDF2D1A6DD19D00C33F13 /* b_Close.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF061A6DD19D00C33F13 /* b_Close.png */; };
@@ -51,7 +54,6 @@
 		F3BEDF341A6DD19D00C33F13 /* b_Minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0D1A6DD19D00C33F13 /* b_Minimize.png */; };
 		F3BEDF351A6DD19D00C33F13 /* b_Nxt.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0E1A6DD19D00C33F13 /* b_Nxt.png */; };
 		F3BEDF361A6DD19D00C33F13 /* b_OrderedPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0F1A6DD19D00C33F13 /* b_OrderedPlay.png */; };
-		F3BEDF371A6DD19D00C33F13 /* b_play.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF101A6DD19D00C33F13 /* b_play.png */; };
 		F3BEDF381A6DD19D00C33F13 /* b_PlayFastBackward.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF111A6DD19D00C33F13 /* b_PlayFastBackward.png */; };
 		F3BEDF391A6DD19D00C33F13 /* b_PlayFastForward.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF121A6DD19D00C33F13 /* b_PlayFastForward.png */; };
 		F3BEDF3A1A6DD19D00C33F13 /* b_PlayNxt.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF131A6DD19D00C33F13 /* b_PlayNxt.png */; };
@@ -1008,6 +1010,9 @@
 		F376FA1B1A3CC5BE00E3C4E4 /* xmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlParser.h; sourceTree = "<group>"; };
 		F379E97F1A23E087007D0E20 /* PlayList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayList.cpp; path = ../../Source/PlayList.cpp; sourceTree = "<group>"; };
 		F379E9801A23E087007D0E20 /* PlayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayList.h; path = ../../Source/PlayList.h; sourceTree = "<group>"; };
+		F37C3C581A6F1B220094015D /* b_SinglePlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_SinglePlay.png; sourceTree = "<group>"; };
+		F37C3C5A1A6F1B2C0094015D /* b_Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Pause.png; sourceTree = "<group>"; };
+		F37C3C5B1A6F1B2C0094015D /* b_Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Play.png; sourceTree = "<group>"; };
 		F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetaData.cpp; path = ../../Source/MetaData.cpp; sourceTree = "<group>"; };
 		F39CC91E1A3E45AC00D94A76 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MetaData.h; path = ../../Source/MetaData.h; sourceTree = "<group>"; };
 		F3AD40115521AF95EE95AB15 /* juce_MidiFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MidiFile.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/midi/juce_MidiFile.h; sourceTree = SOURCE_ROOT; };
@@ -1022,7 +1027,6 @@
 		F3BEDF0D1A6DD19D00C33F13 /* b_Minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Minimize.png; sourceTree = "<group>"; };
 		F3BEDF0E1A6DD19D00C33F13 /* b_Nxt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Nxt.png; sourceTree = "<group>"; };
 		F3BEDF0F1A6DD19D00C33F13 /* b_OrderedPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_OrderedPlay.png; sourceTree = "<group>"; };
-		F3BEDF101A6DD19D00C33F13 /* b_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_play.png; sourceTree = "<group>"; };
 		F3BEDF111A6DD19D00C33F13 /* b_PlayFastBackward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PlayFastBackward.png; sourceTree = "<group>"; };
 		F3BEDF121A6DD19D00C33F13 /* b_PlayFastForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PlayFastForward.png; sourceTree = "<group>"; };
 		F3BEDF131A6DD19D00C33F13 /* b_PlayNxt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PlayNxt.png; sourceTree = "<group>"; };
@@ -2791,6 +2795,9 @@
 		F3BEDF051A6DD19D00C33F13 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F37C3C5A1A6F1B2C0094015D /* b_Pause.png */,
+				F37C3C5B1A6F1B2C0094015D /* b_Play.png */,
+				F37C3C581A6F1B220094015D /* b_SinglePlay.png */,
 				F3BEDF061A6DD19D00C33F13 /* b_Close.png */,
 				F3BEDF071A6DD19D00C33F13 /* b_Feature.png */,
 				F3BEDF081A6DD19D00C33F13 /* b_Gear.png */,
@@ -2801,7 +2808,6 @@
 				F3BEDF0D1A6DD19D00C33F13 /* b_Minimize.png */,
 				F3BEDF0E1A6DD19D00C33F13 /* b_Nxt.png */,
 				F3BEDF0F1A6DD19D00C33F13 /* b_OrderedPlay.png */,
-				F3BEDF101A6DD19D00C33F13 /* b_play.png */,
 				F3BEDF111A6DD19D00C33F13 /* b_PlayFastBackward.png */,
 				F3BEDF121A6DD19D00C33F13 /* b_PlayFastForward.png */,
 				F3BEDF131A6DD19D00C33F13 /* b_PlayNxt.png */,
@@ -3053,6 +3059,7 @@
 			files = (
 				F3BEDF361A6DD19D00C33F13 /* b_OrderedPlay.png in Resources */,
 				F3BEDF4D1A6DD19D00C33F13 /* t_Operate.png in Resources */,
+				F37C3C5C1A6F1B2C0094015D /* b_Pause.png in Resources */,
 				F3BEDF411A6DD19D00C33F13 /* f_MainFrame.png in Resources */,
 				F3BEDF531A6DD19D00C33F13 /* t_Time.png in Resources */,
 				F3BEDF511A6DD19D00C33F13 /* t_Singer.png in Resources */,
@@ -3074,6 +3081,7 @@
 				F3BEDF2D1A6DD19D00C33F13 /* b_Close.png in Resources */,
 				F3BEDF3C1A6DD19D00C33F13 /* b_Prv.png in Resources */,
 				F3BEDF3D1A6DD19D00C33F13 /* b_RandomPlay.png in Resources */,
+				F37C3C5D1A6F1B2C0094015D /* b_Play.png in Resources */,
 				F3BEDF301A6DD19D00C33F13 /* b_GenreBig.png in Resources */,
 				F3BEDF521A6DD19D00C33F13 /* t_Song.png in Resources */,
 				3402E39E107A346C1D7F6EFC /* RecentFilesMenuTemplate.nib in Resources */,
@@ -3081,13 +3089,13 @@
 				F3BEDF431A6DD19D00C33F13 /* p_ListBack.png in Resources */,
 				F3BEDF4B1A6DD19D00C33F13 /* t_Default.png in Resources */,
 				F3BEDF471A6DD19D00C33F13 /* Show1.jpg in Resources */,
+				F37C3C591A6F1B220094015D /* b_SinglePlay.png in Resources */,
 				F3BEDF4E1A6DD19D00C33F13 /* t_Pop.png in Resources */,
 				F3BEDF461A6DD19D00C33F13 /* p_SearchBack.png in Resources */,
 				F3BEDF391A6DD19D00C33F13 /* b_PlayFastForward.png in Resources */,
 				F3BEDF491A6DD19D00C33F13 /* t_Album.png in Resources */,
 				F3BEDF341A6DD19D00C33F13 /* b_Minimize.png in Resources */,
 				F3BEDF4C1A6DD19D00C33F13 /* t_Jazz.png in Resources */,
-				F3BEDF371A6DD19D00C33F13 /* b_play.png in Resources */,
 				F3BEDF351A6DD19D00C33F13 /* b_Nxt.png in Resources */,
 				F3BEDF3B1A6DD19D00C33F13 /* b_PlayPrv.png in Resources */,
 				F3BEDF4F1A6DD19D00C33F13 /* t_Rock.png in Resources */,

@@ -44,8 +44,9 @@ private:
 	PlayList playList;
     MenuBarComponent menuBar;
     ApplicationProperties appProperties;
-	Image backgroundImage;
-	Image frameImage;
+	Image f_OutFrameTop = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameTop.png"));
+	Image f_OutFrameBottom = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameBottom.png"));
+	Image f_OutFrameVertBar = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameVertBar.png"));
 };
 
 
