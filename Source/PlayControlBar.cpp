@@ -17,12 +17,28 @@ PlayControlBar::PlayControlBar ()
     prvButton->addListener (this);
 	prvButton->setImages(false, true, true, prvButtonImage, 1.0f, Colours::transparentBlack, prvButtonImage, 1.0f, Colours::transparentBlack, prvButtonImage, 1.0f, Colours::transparentBlack);
 
+	addAndMakeVisible (volumeButton = new ImageButton ("Volume"));
+	volumeButton->addListener (this);
+	volumeButton->setImages(false, true, true, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack);
+	
+	addAndMakeVisible (silenceButton = new ImageButton ("Silence"));
+	silenceButton->addListener (this);
+	silenceButton->setImages(false, true, true, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack);
+	
+	
 	addAndMakeVisible(playTimeSlider = new Slider ("Play Time"));
 	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 	playTimeSlider->getValueObject().referTo(playTime);
 	playTimeSlider->setEnabled(false);
 	playTimeSlider->addListener(this);
 
+	addAndMakeVisible(volumeSlider = new Slider ("Volume"));
+	volumeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+	volumeSlider->setEnabled(true);
+	volumeSlider->addListener(this);
+	
+	
+	
     //[UserPreSize]
     //[/UserPreSize]
     
@@ -57,6 +73,9 @@ void PlayControlBar::resized()
 {
 	playButton->setBounds(getWidth()/2-30, 0.7*getHeight()/2, 60, 60);
     prvButton->setBounds(getWidth()/2-150, 0.7*getHeight()/2+10, 60, 60);
+	silenceButton->setBounds(30, 0.75*getHeight()/2, 60, 60);
+	volumeButton->setBounds(getWidth()/2-260, 0.72*getHeight()/2, 60, 60);
+	volumeSlider->setBounds(80, 0.72*getHeight()/2, getWidth()/2-330, getHeight()/2);
 	playTimeSlider->setBoundsRelative(0.025, 0, 0.95, 0.5);
 }
 

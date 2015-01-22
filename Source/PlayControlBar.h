@@ -63,7 +63,10 @@ private:
 	//ScopedPointer<TextButton> playButton;
 	ScopedPointer<ImageButton> playButton;
 	ScopedPointer<ImageButton> prvButton;
+	ScopedPointer<ImageButton> volumeButton;
+	ScopedPointer<ImageButton> silenceButton;
 	ScopedPointer<Slider> playTimeSlider;
+	ScopedPointer<Slider> volumeSlider;
 	AudioDeviceManager deviceManager;
 	AudioFormatManager formatManager;
 	ScopedPointer<AudioFormatReaderSource> readerSource;
@@ -73,6 +76,8 @@ private:
 	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Play.png"));
 	Image pauseButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Pause.png"));
 	Image prvButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayPrv.png"));
+	Image volumeButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Volume.png"));
+	Image silenceButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Silence.png"));
 	void timerCallback() override;
 	
     //==============================================================================
