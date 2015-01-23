@@ -56,7 +56,7 @@ void MainContentComponent::paint(Graphics& g)
 	g.drawImage(f_OutFrameBottom, 0, getHeight()-f_OutFrameBottom.getHeight()/1.5, getWidth(), f_OutFrameBottom.getHeight()/1.5, 0, 0, f_OutFrameTop.getWidth(), f_OutFrameTop.getHeight());
 	g.drawImage(f_OutFrameVertBar, 0, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
 	g.drawImage(f_OutFrameVertBar, getWidth()/22.5*4.6, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
-	g.drawImage(f_OutFrameVertBar, getWidth()-f_OutFrameVertBar.getWidth()/1.5, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
+	g.drawImage(f_OutFrameVertBar, getWidth()-f_OutFrameVertBar.getWidth()/1.5+1, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
 }
 
 StringArray MainContentComponent::getMenuBarNames(){

@@ -6,7 +6,8 @@
 
 //==============================================================================
 PlayControlBar::PlayControlBar ()
-: playTime(0.0)
+: playTime(0.0),
+  volume(1.0)
 {
 	
 	addAndMakeVisible (playButton = new ImageButton("Play"));
@@ -21,11 +22,6 @@ PlayControlBar::PlayControlBar ()
 	volumeButton->addListener (this);
 	volumeButton->setImages(false, true, true, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack);
 	
-	addAndMakeVisible (silenceButton = new ImageButton ("Silence"));
-	silenceButton->addListener (this);
-	silenceButton->setImages(false, true, true, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack);
-	
-	
 	addAndMakeVisible(playTimeSlider = new Slider ("Play Time"));
 	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 	playTimeSlider->getValueObject().referTo(playTime);
@@ -34,6 +30,8 @@ PlayControlBar::PlayControlBar ()
 
 	addAndMakeVisible(volumeSlider = new Slider ("Volume"));
 	volumeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+	volumeSlider->getValueObject().referTo(volume);
+	volumeSlider->setRange(0.0, 1.0);
 	volumeSlider->setEnabled(true);
 	volumeSlider->addListener(this);
 	
@@ -73,9 +71,8 @@ void PlayControlBar::resized()
 {
 	playButton->setBounds(getWidth()/2-30, 0.7*getHeight()/2, 60, 60);
     prvButton->setBounds(getWidth()/2-150, 0.7*getHeight()/2+10, 60, 60);
-	silenceButton->setBounds(30, 0.75*getHeight()/2, 60, 60);
-	volumeButton->setBounds(getWidth()/2-260, 0.72*getHeight()/2, 60, 60);
-	volumeSlider->setBounds(80, 0.72*getHeight()/2, getWidth()/2-330, getHeight()/2);
+	volumeButton->setBounds(40, 0.75*getHeight()/2, 60, 60);
+	volumeSlider->setBounds(90, 0.72*getHeight()/2, getWidth()/2-270, getHeight()/2);
 	playTimeSlider->setBoundsRelative(0.025, 0, 0.95, 0.5);
 }
 
@@ -110,6 +107,16 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
             changeState(Stopping);
         //[/UserButtonCode_stopButton]
     }
+	else if (buttonThatWasClicked == volumeButton)
+	{
+		if (volumeSlider->getValue()==0) {
+			volumeSlider->setValue(volumeBuffer);
+		}
+		else {
+			volumeBuffer = volumeSlider->getValue();
+			volumeSlider->setValue(0.0);
+		}
+	}
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
 }
@@ -119,6 +126,17 @@ void PlayControlBar::sliderValueChanged (Slider* sliderThatWasMoved)
 	if (sliderThatWasMoved == playTimeSlider)
 	{
 		transportSource.setPosition(playTime.getValue());
+	}
+	
+	if (sliderThatWasMoved == volumeSlider)
+	{
+		transportSource.setGain(volume.getValue());
+		if (volumeSlider->getValue()==0) {
+			volumeButton->setImages(false, true, true, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack);
+		}
+		else {
+			volumeButton->setImages(false, true, true, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack);
+		}
 	}
 }
 

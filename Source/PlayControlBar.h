@@ -58,13 +58,14 @@ private:
     
     //[UserVariables]   -- You can add your own custom variables in this section.
 	Value playTime;
+	Value volume;
 	double musicLength;
+	float volumeBuffer = 0;
 	File musicFile;
 	//ScopedPointer<TextButton> playButton;
 	ScopedPointer<ImageButton> playButton;
 	ScopedPointer<ImageButton> prvButton;
 	ScopedPointer<ImageButton> volumeButton;
-	ScopedPointer<ImageButton> silenceButton;
 	ScopedPointer<Slider> playTimeSlider;
 	ScopedPointer<Slider> volumeSlider;
 	AudioDeviceManager deviceManager;
