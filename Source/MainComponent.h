@@ -12,7 +12,10 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PlayControlBar.h"
 #include "PlayList.h"
+#include "Features.h"
+#include "Stage.h"
 #include "ChromaFingerPrint.h"
+
 //==============================================================================
 /*
  This component lives inside our window, and this is where you should put all
@@ -42,6 +45,8 @@ public:
 private:
     PlayControlBar playControlBar;
 	PlayList playList;
+	Features features;
+	Stage stage;
     MenuBarComponent menuBar;
     ApplicationProperties appProperties;
 	Image f_OutFrameTop = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameTop.png"));

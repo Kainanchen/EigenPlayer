@@ -14,9 +14,17 @@ PlayControlBar::PlayControlBar ()
     playButton->addListener (this);
 	playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
 	
-    addAndMakeVisible (prvButton = new ImageButton ("Prv"));
-    prvButton->addListener (this);
-	prvButton->setImages(false, true, true, prvButtonImage, 1.0f, Colours::transparentBlack, prvButtonImage, 1.0f, Colours::transparentBlack, prvButtonImage, 1.0f, Colours::transparentBlack);
+    addAndMakeVisible (playPrvButton = new ImageButton ("Play Previous"));
+    playPrvButton->addListener (this);
+	playPrvButton->setImages(false, true, true, playPrvButtonImage, 1.0f, Colours::transparentBlack, playPrvButtonImage, 1.0f, Colours::transparentBlack, playPrvButtonImage, 1.0f, Colours::transparentBlack);
+	
+	addAndMakeVisible (playNxtButton = new ImageButton ("Play Next"));
+	playNxtButton->addListener (this);
+	playNxtButton->setImages(false, true, true, playNxtButtonImage, 1.0f, Colours::transparentBlack, playNxtButtonImage, 1.0f, Colours::transparentBlack, playNxtButtonImage, 1.0f, Colours::transparentBlack);
+	
+	addAndMakeVisible (playFastForwardButton = new ImageButton ("Play Fast Forward"));
+	playFastForwardButton->addListener (this);
+	playFastForwardButton->setImages(false, true, true, playFastForwardButtonImage, 1.0f, Colours::transparentBlack, playFastForwardButtonImage, 1.0f, Colours::transparentBlack, playFastForwardButtonImage, 1.0f, Colours::transparentBlack);
 
 	addAndMakeVisible (volumeButton = new ImageButton ("Volume"));
 	volumeButton->addListener (this);
@@ -46,18 +54,16 @@ PlayControlBar::PlayControlBar ()
 	
 	addAndMakeVisible(timeLabel = new Label ("Play Time Label"));
 	timeLabel->setColour(Label::textColourId, Colours::white);
-	timeLabel->setText("0:00/0:00", dontSendNotification);
+	timeLabel->setText("00:00/00:00", dontSendNotification);
 	timeLabel->setFont(Font(32));
 	timeLabel->setEditable(false);
 	
     //[UserPreSize]
     //[/UserPreSize]
-    
-    setSize (1600, 50);
 	
     //[Constructor] You can add your own custom stuff here..
     playButton->setEnabled(false);
-    prvButton->setEnabled(false);
+	playFastForwardButton->setEnabled(false);
     formatManager.registerBasicFormats();
     sourcePlayer.setSource(&transportSource);
     deviceManager.addAudioCallback(&sourcePlayer);
@@ -71,7 +77,7 @@ PlayControlBar::PlayControlBar ()
 PlayControlBar::~PlayControlBar()
 {
     playButton = nullptr;
-    prvButton = nullptr;
+    playPrvButton = nullptr;
 }
 
 //==============================================================================
@@ -82,22 +88,24 @@ void PlayControlBar::paint (Graphics& g)
 
 void PlayControlBar::resized()
 {
-	playButton->setBounds(getWidth()/2-30, 0.7*getHeight()/2, 60, 60);
-    prvButton->setBounds(getWidth()/2-150, 0.7*getHeight()/2+10, 60, 60);
+	playButton->setBounds(getWidth()/2-15, 0.7*getHeight()/2, 60, 60);
+    playPrvButton->setBounds(getWidth()/2-105, 0.7*getHeight()/2+10, 60, 60);
+	playFastForwardButton->setBounds(getWidth()/2+75, 0.7*getHeight()/2+10, 60, 60);
+	playNxtButton->setBounds(getWidth()/2+165, 0.7*getHeight()/2+10, 60, 60);
 	volumeButton->setBounds(40, 0.75*getHeight()/2, 60, 60);
 	loopButton->setBounds(getWidth()/2+280, 0.7*getHeight()/2, 60, 60);
-	settingsButton->setBounds(getWidth()-100, 0.7*getHeight()/2, 60, 60);
+	settingsButton->setBounds(getWidth()-100, 0.7*getHeight()/2+5, 60, 60);
 	volumeSlider->setBounds(90, 0.72*getHeight()/2, getWidth()/2-270, getHeight()/2);
 	playTimeSlider->setBoundsRelative(0.025, 0, 0.95, 0.5);
-	timeLabel->setBounds(getWidth()-300, 0.7*getHeight()/2, 120, 60);
+	timeLabel->setBounds(getWidth()-300, 0.7*getHeight()/2+5, 140, 60);
 }
 
 void PlayControlBar::timerCallback()
 {
 	playTime = transportSource.getCurrentPosition();
-	String currentMin = String("%02d",int(floor(playTimeSlider->getValue()/60)));
-	String currentSec = String(int(fmod(playTimeSlider->getValue(),60)));
-	timeLabel->setText(currentMin+":"+currentSec+"/"+musicLengthTime, sendNotification);
+	playTimeFormat = Time(playTimeSlider->getValue()*1000);
+	currentPlayTimeString = playTimeFormat.formatted("%M:%S");
+	timeLabel->setText(currentPlayTimeString+"/"+musicLengthTimeString, sendNotification);
 }
 
 void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
@@ -117,7 +125,7 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
         //[/UserButtonCode_textButton]
         //[/UserButtonCode_playButton]
     }
-    else if (buttonThatWasClicked == prvButton)
+    else if (buttonThatWasClicked == playPrvButton)
     {
         //[UserButtonCode_stopButton] -- add your button handler code here..
         if (Paused==state)
@@ -190,7 +198,7 @@ void PlayControlBar::playEnable(bool enable)
 
 void PlayControlBar::stopEnable(bool enable)
 {
-	prvButton->setEnabled(enable);
+	playPrvButton->setEnabled(enable);
 }
 
 void PlayControlBar::playTimeEnable(bool enable)
@@ -245,16 +253,16 @@ void PlayControlBar::changeState(TransportState newState){
 				readerSource = new AudioFormatReaderSource(formatManager.createReaderFor(musicFile),true);
 				transportSource.setSource(readerSource);
 				musicLength = transportSource.getLengthInSeconds();
-				musicLengthTime = String(int(floor(musicLength)/60))+":"+String(int(fmod(musicLength,60)));
+				playTimeFormat = Time(musicLength*1000);
+				musicLengthTimeString = playTimeFormat.formatted("%M:%S");
 				playTimeSlider->setRange(0.0, musicLength);
 				playEnable(true);
+				playFastForwardButton->setEnabled(true);
 				playTimeEnable(true);
 				startTimer(1000/40);
 				break;
 			case Stopped:
                 playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
-                prvButton->setButtonText("Stop");
-                prvButton->setEnabled(false);
                 transportSource.setPosition(0.0);
                 break;
             case Starting:
@@ -262,12 +270,9 @@ void PlayControlBar::changeState(TransportState newState){
                 break;
             case Playing:
                 playButton->setImages(false, true, true, pauseButtonImage, 1.0f, Colours::transparentBlack, pauseButtonImage, 1.0f, Colours::transparentBlack, pauseButtonImage, 1.0f, Colours::transparentBlack);
-                prvButton->setButtonText("Stop");
-                prvButton->setEnabled(true);
                 break;
             case Paused:
                 playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
-                prvButton->setButtonText("Return to zero");
                 break;
             case Stopping:
                 transportSource.stop();

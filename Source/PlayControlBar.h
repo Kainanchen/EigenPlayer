@@ -3,10 +3,6 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include <math.h>
-#include <iomanip>
-#include <iostream>
-using namespace std;
 //[/Headers]
 
 
@@ -69,13 +65,17 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 	Value playTime;
 	Value volume;
+	Time playTimeFormat;
 	double musicLength;
-	String musicLengthTime;
+	String musicLengthTimeString;
+	String currentPlayTimeString;
 	float volumeBuffer = 0;
 	File musicFile;
 	Font timeFont = Font(24);
 	ScopedPointer<ImageButton> playButton;
-	ScopedPointer<ImageButton> prvButton;
+	ScopedPointer<ImageButton> playPrvButton;
+	ScopedPointer<ImageButton> playNxtButton;
+	ScopedPointer<ImageButton> playFastForwardButton;
 	ScopedPointer<ImageButton> volumeButton;
 	ScopedPointer<ImageButton> loopButton;
 	ScopedPointer<ImageButton> settingsButton;
@@ -91,13 +91,16 @@ private:
 	LoopState loopState;
 	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Play.png"));
 	Image pauseButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Pause.png"));
-	Image prvButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayPrv.png"));
+	Image playPrvButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayPrv.png"));
+	Image playNxtButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayNxt.png"));
+	Image playFastForwardButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayFastForward.png"));
 	Image volumeButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Volume.png"));
 	Image silenceButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Silence.png"));
 	Image loopOrderedButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_OrderedPlay.png"));
 	Image loopSingleButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_SinglePlay.png"));
 	Image loopRandomButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_RandomPlay.png"));
 	Image settingsButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Gear.png"));
+	
 	void timerCallback() override;
 	
     //==============================================================================

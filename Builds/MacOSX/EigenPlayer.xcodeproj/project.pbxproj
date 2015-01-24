@@ -35,6 +35,8 @@
 		C394044CEE955459FA9002BA /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA0B34063D865B435FE85084 /* juce_core.mm */; };
 		C7A6FEDB42692614115518C0 /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E25334B981B6A3D521BB1 /* juce_events.mm */; };
 		CF5217DC28B95D1A551DA629 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF96F349C2F28E219A2BAA2 /* Accelerate.framework */; };
+		F34ACFF71A73B840004B5885 /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F34ACFF51A73B840004B5885 /* Stage.cpp */; };
+		F34ACFFA1A73B861004B5885 /* Features.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F34ACFF81A73B861004B5885 /* Features.cpp */; };
 		F3732C7D1A227B53003DF225 /* PlayControlBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */; };
 		F3732C801A227CD3003DF225 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7E1A227CD3003DF225 /* MainWindow.cpp */; };
 		F3732C821A228528003DF225 /* SystemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C811A228528003DF225 /* SystemInfo.cpp */; };
@@ -45,24 +47,24 @@
 		F39CC91F1A3E45AC00D94A76 /* MetaData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */; };
 		F3BEDF041A6DD18600C33F13 /* 命运交错.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF031A6DD18600C33F13 /* 命运交错.mp3 */; };
 		F3BEDF2D1A6DD19D00C33F13 /* b_Close.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF061A6DD19D00C33F13 /* b_Close.png */; };
-		F3BEDF2E1A6DD19D00C33F13 /* b_Feature.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF071A6DD19D00C33F13 /* b_Feature.png */; };
+		F3BEDF2E1A6DD19D00C33F13 /* b_Features.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF071A6DD19D00C33F13 /* b_Features.png */; };
 		F3BEDF2F1A6DD19D00C33F13 /* b_Gear.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF081A6DD19D00C33F13 /* b_Gear.png */; };
 		F3BEDF301A6DD19D00C33F13 /* b_GenreBig.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF091A6DD19D00C33F13 /* b_GenreBig.png */; };
 		F3BEDF311A6DD19D00C33F13 /* b_GenreSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0A1A6DD19D00C33F13 /* b_GenreSmall.png */; };
 		F3BEDF321A6DD19D00C33F13 /* b_LoopPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0B1A6DD19D00C33F13 /* b_LoopPlay.png */; };
 		F3BEDF331A6DD19D00C33F13 /* b_Magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0C1A6DD19D00C33F13 /* b_Magnifier.png */; };
 		F3BEDF341A6DD19D00C33F13 /* b_Minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0D1A6DD19D00C33F13 /* b_Minimize.png */; };
-		F3BEDF351A6DD19D00C33F13 /* b_Nxt.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0E1A6DD19D00C33F13 /* b_Nxt.png */; };
+		F3BEDF351A6DD19D00C33F13 /* b_PageNxt.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0E1A6DD19D00C33F13 /* b_PageNxt.png */; };
 		F3BEDF361A6DD19D00C33F13 /* b_OrderedPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF0F1A6DD19D00C33F13 /* b_OrderedPlay.png */; };
 		F3BEDF381A6DD19D00C33F13 /* b_PlayFastBackward.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF111A6DD19D00C33F13 /* b_PlayFastBackward.png */; };
 		F3BEDF391A6DD19D00C33F13 /* b_PlayFastForward.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF121A6DD19D00C33F13 /* b_PlayFastForward.png */; };
 		F3BEDF3A1A6DD19D00C33F13 /* b_PlayNxt.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF131A6DD19D00C33F13 /* b_PlayNxt.png */; };
 		F3BEDF3B1A6DD19D00C33F13 /* b_PlayPrv.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF141A6DD19D00C33F13 /* b_PlayPrv.png */; };
-		F3BEDF3C1A6DD19D00C33F13 /* b_Prv.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF151A6DD19D00C33F13 /* b_Prv.png */; };
+		F3BEDF3C1A6DD19D00C33F13 /* b_PagePrv.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF151A6DD19D00C33F13 /* b_PagePrv.png */; };
 		F3BEDF3D1A6DD19D00C33F13 /* b_RandomPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF161A6DD19D00C33F13 /* b_RandomPlay.png */; };
 		F3BEDF3E1A6DD19D00C33F13 /* b_Silence.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF171A6DD19D00C33F13 /* b_Silence.png */; };
 		F3BEDF401A6DD19D00C33F13 /* b_Volume.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF191A6DD19D00C33F13 /* b_Volume.png */; };
-		F3BEDF411A6DD19D00C33F13 /* f_MainFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF1A1A6DD19D00C33F13 /* f_MainFrame.png */; };
+		F3BEDF411A6DD19D00C33F13 /* f_Stage.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF1A1A6DD19D00C33F13 /* f_Stage.png */; };
 		F3BEDF421A6DD19D00C33F13 /* f_OutFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF1B1A6DD19D00C33F13 /* f_OutFrame.png */; };
 		F3BEDF431A6DD19D00C33F13 /* p_ListBack.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF1C1A6DD19D00C33F13 /* p_ListBack.png */; };
 		F3BEDF441A6DD19D00C33F13 /* p_ListBackDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF1D1A6DD19D00C33F13 /* p_ListBackDown.png */; };
@@ -934,6 +936,10 @@
 		F29587A3E61463857CA97A94 /* juce_SystemStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_SystemStats.h; path = ../../JuceLibraryCode/modules/juce_core/system/juce_SystemStats.h; sourceTree = SOURCE_ROOT; };
 		F2CFC78201AF6BF7F1B8F82D /* juce_Viewport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Viewport.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_Viewport.h; sourceTree = SOURCE_ROOT; };
 		F2E6C909D897D53F18982029 /* juce_AttributedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AttributedString.h; path = ../../JuceLibraryCode/modules/juce_graphics/fonts/juce_AttributedString.h; sourceTree = SOURCE_ROOT; };
+		F34ACFF51A73B840004B5885 /* Stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stage.cpp; path = ../../Source/Stage.cpp; sourceTree = "<group>"; };
+		F34ACFF61A73B840004B5885 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = ../../Source/Stage.h; sourceTree = "<group>"; };
+		F34ACFF81A73B861004B5885 /* Features.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Features.cpp; path = ../../Source/Features.cpp; sourceTree = "<group>"; };
+		F34ACFF91A73B861004B5885 /* Features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Features.h; path = ../../Source/Features.h; sourceTree = "<group>"; };
 		F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayControlBar.cpp; path = ../../Source/PlayControlBar.cpp; sourceTree = "<group>"; };
 		F3732C7C1A227B53003DF225 /* PlayControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayControlBar.h; path = ../../Source/PlayControlBar.h; sourceTree = "<group>"; };
 		F3732C7E1A227CD3003DF225 /* MainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainWindow.cpp; path = ../../Source/MainWindow.cpp; sourceTree = "<group>"; };
@@ -1017,24 +1023,24 @@
 		F3AD40115521AF95EE95AB15 /* juce_MidiFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MidiFile.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/midi/juce_MidiFile.h; sourceTree = SOURCE_ROOT; };
 		F3BEDF031A6DD18600C33F13 /* 命运交错.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "命运交错.mp3"; sourceTree = "<group>"; };
 		F3BEDF061A6DD19D00C33F13 /* b_Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Close.png; sourceTree = "<group>"; };
-		F3BEDF071A6DD19D00C33F13 /* b_Feature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Feature.png; sourceTree = "<group>"; };
+		F3BEDF071A6DD19D00C33F13 /* b_Features.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Features.png; sourceTree = "<group>"; };
 		F3BEDF081A6DD19D00C33F13 /* b_Gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Gear.png; sourceTree = "<group>"; };
 		F3BEDF091A6DD19D00C33F13 /* b_GenreBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_GenreBig.png; sourceTree = "<group>"; };
 		F3BEDF0A1A6DD19D00C33F13 /* b_GenreSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_GenreSmall.png; sourceTree = "<group>"; };
 		F3BEDF0B1A6DD19D00C33F13 /* b_LoopPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_LoopPlay.png; sourceTree = "<group>"; };
 		F3BEDF0C1A6DD19D00C33F13 /* b_Magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Magnifier.png; sourceTree = "<group>"; };
 		F3BEDF0D1A6DD19D00C33F13 /* b_Minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Minimize.png; sourceTree = "<group>"; };
-		F3BEDF0E1A6DD19D00C33F13 /* b_Nxt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Nxt.png; sourceTree = "<group>"; };
+		F3BEDF0E1A6DD19D00C33F13 /* b_PageNxt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PageNxt.png; sourceTree = "<group>"; };
 		F3BEDF0F1A6DD19D00C33F13 /* b_OrderedPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_OrderedPlay.png; sourceTree = "<group>"; };
 		F3BEDF111A6DD19D00C33F13 /* b_PlayFastBackward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PlayFastBackward.png; sourceTree = "<group>"; };
 		F3BEDF121A6DD19D00C33F13 /* b_PlayFastForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PlayFastForward.png; sourceTree = "<group>"; };
 		F3BEDF131A6DD19D00C33F13 /* b_PlayNxt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PlayNxt.png; sourceTree = "<group>"; };
 		F3BEDF141A6DD19D00C33F13 /* b_PlayPrv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PlayPrv.png; sourceTree = "<group>"; };
-		F3BEDF151A6DD19D00C33F13 /* b_Prv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Prv.png; sourceTree = "<group>"; };
+		F3BEDF151A6DD19D00C33F13 /* b_PagePrv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_PagePrv.png; sourceTree = "<group>"; };
 		F3BEDF161A6DD19D00C33F13 /* b_RandomPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_RandomPlay.png; sourceTree = "<group>"; };
 		F3BEDF171A6DD19D00C33F13 /* b_Silence.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Silence.png; sourceTree = "<group>"; };
 		F3BEDF191A6DD19D00C33F13 /* b_Volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Volume.png; sourceTree = "<group>"; };
-		F3BEDF1A1A6DD19D00C33F13 /* f_MainFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f_MainFrame.png; sourceTree = "<group>"; };
+		F3BEDF1A1A6DD19D00C33F13 /* f_Stage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f_Stage.png; sourceTree = "<group>"; };
 		F3BEDF1B1A6DD19D00C33F13 /* f_OutFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f_OutFrame.png; sourceTree = "<group>"; };
 		F3BEDF1C1A6DD19D00C33F13 /* p_ListBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_ListBack.png; sourceTree = "<group>"; };
 		F3BEDF1D1A6DD19D00C33F13 /* p_ListBackDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_ListBackDown.png; sourceTree = "<group>"; };
@@ -2442,6 +2448,10 @@
 				F3732C7F1A227CD3003DF225 /* MainWindow.h */,
 				F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */,
 				F39CC91E1A3E45AC00D94A76 /* MetaData.h */,
+				F34ACFF51A73B840004B5885 /* Stage.cpp */,
+				F34ACFF61A73B840004B5885 /* Stage.h */,
+				F34ACFF81A73B861004B5885 /* Features.cpp */,
+				F34ACFF91A73B861004B5885 /* Features.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -2797,24 +2807,24 @@
 				F37C3C5B1A6F1B2C0094015D /* b_Play.png */,
 				F37C3C581A6F1B220094015D /* b_SinglePlay.png */,
 				F3BEDF061A6DD19D00C33F13 /* b_Close.png */,
-				F3BEDF071A6DD19D00C33F13 /* b_Feature.png */,
+				F3BEDF071A6DD19D00C33F13 /* b_Features.png */,
 				F3BEDF081A6DD19D00C33F13 /* b_Gear.png */,
 				F3BEDF091A6DD19D00C33F13 /* b_GenreBig.png */,
 				F3BEDF0A1A6DD19D00C33F13 /* b_GenreSmall.png */,
 				F3BEDF0B1A6DD19D00C33F13 /* b_LoopPlay.png */,
 				F3BEDF0C1A6DD19D00C33F13 /* b_Magnifier.png */,
 				F3BEDF0D1A6DD19D00C33F13 /* b_Minimize.png */,
-				F3BEDF0E1A6DD19D00C33F13 /* b_Nxt.png */,
 				F3BEDF0F1A6DD19D00C33F13 /* b_OrderedPlay.png */,
 				F3BEDF111A6DD19D00C33F13 /* b_PlayFastBackward.png */,
 				F3BEDF121A6DD19D00C33F13 /* b_PlayFastForward.png */,
 				F3BEDF131A6DD19D00C33F13 /* b_PlayNxt.png */,
 				F3BEDF141A6DD19D00C33F13 /* b_PlayPrv.png */,
-				F3BEDF151A6DD19D00C33F13 /* b_Prv.png */,
+				F3BEDF151A6DD19D00C33F13 /* b_PagePrv.png */,
+				F3BEDF0E1A6DD19D00C33F13 /* b_PageNxt.png */,
 				F3BEDF161A6DD19D00C33F13 /* b_RandomPlay.png */,
 				F3BEDF171A6DD19D00C33F13 /* b_Silence.png */,
 				F3BEDF191A6DD19D00C33F13 /* b_Volume.png */,
-				F3BEDF1A1A6DD19D00C33F13 /* f_MainFrame.png */,
+				F3BEDF1A1A6DD19D00C33F13 /* f_Stage.png */,
 				F3BEDF1B1A6DD19D00C33F13 /* f_OutFrame.png */,
 				F3BEDF1C1A6DD19D00C33F13 /* p_ListBack.png */,
 				F3BEDF1D1A6DD19D00C33F13 /* p_ListBackDown.png */,
@@ -3057,7 +3067,7 @@
 				F3BEDF361A6DD19D00C33F13 /* b_OrderedPlay.png in Resources */,
 				F3BEDF4D1A6DD19D00C33F13 /* t_Operate.png in Resources */,
 				F37C3C5C1A6F1B2C0094015D /* b_Pause.png in Resources */,
-				F3BEDF411A6DD19D00C33F13 /* f_MainFrame.png in Resources */,
+				F3BEDF411A6DD19D00C33F13 /* f_Stage.png in Resources */,
 				F3BEDF531A6DD19D00C33F13 /* t_Time.png in Resources */,
 				F3BEDF511A6DD19D00C33F13 /* t_Singer.png in Resources */,
 				F3BEDF501A6DD19D00C33F13 /* t_Set.png in Resources */,
@@ -3070,12 +3080,12 @@
 				F3BEDF321A6DD19D00C33F13 /* b_LoopPlay.png in Resources */,
 				F3BEDF421A6DD19D00C33F13 /* f_OutFrame.png in Resources */,
 				F3BEDF481A6DD19D00C33F13 /* Show2.jpg in Resources */,
-				F3BEDF2E1A6DD19D00C33F13 /* b_Feature.png in Resources */,
+				F3BEDF2E1A6DD19D00C33F13 /* b_Features.png in Resources */,
 				F3BEDF451A6DD19D00C33F13 /* p_ListBackUp.png in Resources */,
 				F3BEDF3E1A6DD19D00C33F13 /* b_Silence.png in Resources */,
 				F3BEDF441A6DD19D00C33F13 /* p_ListBackDown.png in Resources */,
 				F3BEDF2D1A6DD19D00C33F13 /* b_Close.png in Resources */,
-				F3BEDF3C1A6DD19D00C33F13 /* b_Prv.png in Resources */,
+				F3BEDF3C1A6DD19D00C33F13 /* b_PagePrv.png in Resources */,
 				F3BEDF3D1A6DD19D00C33F13 /* b_RandomPlay.png in Resources */,
 				F37C3C5D1A6F1B2C0094015D /* b_Play.png in Resources */,
 				F3BEDF301A6DD19D00C33F13 /* b_GenreBig.png in Resources */,
@@ -3092,7 +3102,7 @@
 				F3BEDF491A6DD19D00C33F13 /* t_Album.png in Resources */,
 				F3BEDF341A6DD19D00C33F13 /* b_Minimize.png in Resources */,
 				F3BEDF4C1A6DD19D00C33F13 /* t_Jazz.png in Resources */,
-				F3BEDF351A6DD19D00C33F13 /* b_Nxt.png in Resources */,
+				F3BEDF351A6DD19D00C33F13 /* b_PageNxt.png in Resources */,
 				F3BEDF3B1A6DD19D00C33F13 /* b_PlayPrv.png in Resources */,
 				F3BEDF4F1A6DD19D00C33F13 /* t_Rock.png in Resources */,
 				F3BEDF2F1A6DD19D00C33F13 /* b_Gear.png in Resources */,
@@ -3120,9 +3130,11 @@
 				58085ECED34E64CC7561F1A9 /* juce_data_structures.mm in Sources */,
 				C7A6FEDB42692614115518C0 /* juce_events.mm in Sources */,
 				744F6E2867CF91DD10B12164 /* juce_graphics.mm in Sources */,
+				F34ACFF71A73B840004B5885 /* Stage.cpp in Sources */,
 				F3732C821A228528003DF225 /* SystemInfo.cpp in Sources */,
 				F379E9811A23E087007D0E20 /* PlayList.cpp in Sources */,
 				060E29622F219760885F2A4C /* juce_gui_basics.mm in Sources */,
+				F34ACFFA1A73B861004B5885 /* Features.cpp in Sources */,
 				0775C6E69AEF07D1C5B5F017 /* juce_gui_extra.mm in Sources */,
 				F39CC91F1A3E45AC00D94A76 /* MetaData.cpp in Sources */,
 				5BB77F0B3031EF7AE8C7A439 /* juce_opengl.mm in Sources */,

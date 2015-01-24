@@ -19,6 +19,8 @@ MainContentComponent::MainContentComponent()
     addAndMakeVisible(&playControlBar);
 	addAndMakeVisible(&playList);
     addAndMakeVisible(&menuBar);
+	addAndMakeVisible(&features);
+	addAndMakeVisible(&stage);
     PropertiesFile::Options options;
     options.applicationName = ProjectInfo::projectName;
     options.folderName = ProjectInfo::projectName;
@@ -41,8 +43,10 @@ MainContentComponent::~MainContentComponent()
 
 void MainContentComponent::resized()
 {
+	stage.setBounds(getWidth()/22.5*4.6+f_OutFrameVertBar.getWidth()/1.5,f_OutFrameTop.getHeight()/1.5,getWidth()-getWidth()/22.5*4.6-2*f_OutFrameVertBar.getWidth()/1.5,getHeight()-(f_OutFrameBottom.getHeight()+f_OutFrameTop.getHeight())/1.5);
     playControlBar.setBounds(0, getHeight()-f_OutFrameBottom.getHeight()/1.5, getWidth(), f_OutFrameBottom.getHeight()/1.5);
 	playList.setBounds(0,playList.getHeight(), playList.getWidth(), playList.getHeight());
+	features.setBounds(getWidth()-f_OutFrameVertBar.getWidth()/1.5-93,f_OutFrameTop.getHeight()/1.5,100,100);
 #if JUCE_WINDOWS || JUCE_LINUX
 	menuBar.setBounds(0, 0, getWidth(), 20);
 #endif
@@ -50,8 +54,6 @@ void MainContentComponent::resized()
 
 void MainContentComponent::paint(Graphics& g)
 {
-	//backgroundImage = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrame.png"));
-
 	g.drawImage(f_OutFrameTop, 0, 0, getWidth(), f_OutFrameTop.getHeight()/1.5, 0, 0, f_OutFrameTop.getWidth(), f_OutFrameTop.getHeight());
 	g.drawImage(f_OutFrameBottom, 0, getHeight()-f_OutFrameBottom.getHeight()/1.5, getWidth(), f_OutFrameBottom.getHeight()/1.5, 0, 0, f_OutFrameTop.getWidth(), f_OutFrameTop.getHeight());
 	g.drawImage(f_OutFrameVertBar, 0, f_OutFrameTop.getHeight()/1.5, f_OutFrameVertBar.getWidth()/1.5, f_OutFrameVertBar.getHeight()/1.5, 0, 0, f_OutFrameVertBar.getWidth(), f_OutFrameVertBar.getHeight());
