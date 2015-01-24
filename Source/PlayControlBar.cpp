@@ -22,6 +22,15 @@ PlayControlBar::PlayControlBar ()
 	volumeButton->addListener (this);
 	volumeButton->setImages(false, true, true, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack);
 	
+	addAndMakeVisible (loopButton = new ImageButton ("Loop"));
+	loopButton->addListener (this);
+	loopButton->setImages(false, true, true, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack);
+	loopState = Ordered;
+	
+	addAndMakeVisible (settingsButton = new ImageButton ("Loop"));
+	settingsButton->addListener (this);
+	settingsButton->setImages(false, true, true, settingsButtonImage, 1.0f, Colours::transparentBlack, settingsButtonImage, 1.0f, Colours::transparentBlack, settingsButtonImage, 1.0f, Colours::transparentBlack);
+	
 	addAndMakeVisible(playTimeSlider = new Slider ("Play Time"));
 	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 	playTimeSlider->getValueObject().referTo(playTime);
@@ -35,7 +44,11 @@ PlayControlBar::PlayControlBar ()
 	volumeSlider->setEnabled(true);
 	volumeSlider->addListener(this);
 	
-	
+	addAndMakeVisible(timeLabel = new Label ("Play Time Label"));
+	timeLabel->setColour(Label::textColourId, Colours::white);
+	timeLabel->setText("0:00/0:00", dontSendNotification);
+	timeLabel->setFont(Font(32));
+	timeLabel->setEditable(false);
 	
     //[UserPreSize]
     //[/UserPreSize]
@@ -72,13 +85,19 @@ void PlayControlBar::resized()
 	playButton->setBounds(getWidth()/2-30, 0.7*getHeight()/2, 60, 60);
     prvButton->setBounds(getWidth()/2-150, 0.7*getHeight()/2+10, 60, 60);
 	volumeButton->setBounds(40, 0.75*getHeight()/2, 60, 60);
+	loopButton->setBounds(getWidth()/2+280, 0.7*getHeight()/2, 60, 60);
+	settingsButton->setBounds(getWidth()-100, 0.7*getHeight()/2, 60, 60);
 	volumeSlider->setBounds(90, 0.72*getHeight()/2, getWidth()/2-270, getHeight()/2);
 	playTimeSlider->setBoundsRelative(0.025, 0, 0.95, 0.5);
+	timeLabel->setBounds(getWidth()-300, 0.7*getHeight()/2, 120, 60);
 }
 
 void PlayControlBar::timerCallback()
 {
 	playTime = transportSource.getCurrentPosition();
+	String currentMin = String("%02d",int(floor(playTimeSlider->getValue()/60)));
+	String currentSec = String(int(fmod(playTimeSlider->getValue(),60)));
+	timeLabel->setText(currentMin+":"+currentSec+"/"+musicLengthTime, sendNotification);
 }
 
 void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
@@ -116,6 +135,25 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
 			volumeBuffer = volumeSlider->getValue();
 			volumeSlider->setValue(0.0);
 		}
+	}
+	else if (buttonThatWasClicked == loopButton)
+	{
+		if (loopState==Ordered) {
+			loopButton->setImages(false, true, true, loopSingleButtonImage, 1.0f, Colours::transparentBlack, loopSingleButtonImage, 1.0f, Colours::transparentBlack, loopSingleButtonImage, 1.0f, Colours::transparentBlack);
+			loopState = Single;
+		}
+		else if (loopState==Single){
+			loopButton->setImages(false, true, true, loopRandomButtonImage, 1.0f, Colours::transparentBlack, loopRandomButtonImage, 1.0f, Colours::transparentBlack, loopRandomButtonImage, 1.0f, Colours::transparentBlack);
+			loopState = Random;
+		}
+		else {
+			loopButton->setImages(false, true, true, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack);
+			loopState = Ordered;
+		}
+	}
+	else if (buttonThatWasClicked == settingsButton)
+	{
+		audioSettingsMenu();
 	}
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -207,6 +245,7 @@ void PlayControlBar::changeState(TransportState newState){
 				readerSource = new AudioFormatReaderSource(formatManager.createReaderFor(musicFile),true);
 				transportSource.setSource(readerSource);
 				musicLength = transportSource.getLengthInSeconds();
+				musicLengthTime = String(int(floor(musicLength)/60))+":"+String(int(fmod(musicLength,60)));
 				playTimeSlider->setRange(0.0, musicLength);
 				playEnable(true);
 				playTimeEnable(true);

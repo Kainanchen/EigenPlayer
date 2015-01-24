@@ -3,6 +3,10 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
+#include <math.h>
+#include <iomanip>
+#include <iostream>
+using namespace std;
 //[/Headers]
 
 
@@ -33,6 +37,12 @@ public:
         Stopping
     };
 
+	enum LoopState {
+		Ordered,
+		Single,
+		Random
+	};
+	
     void paint (Graphics& g);
     void resized();
 	
@@ -60,25 +70,34 @@ private:
 	Value playTime;
 	Value volume;
 	double musicLength;
+	String musicLengthTime;
 	float volumeBuffer = 0;
 	File musicFile;
-	//ScopedPointer<TextButton> playButton;
+	Font timeFont = Font(24);
 	ScopedPointer<ImageButton> playButton;
 	ScopedPointer<ImageButton> prvButton;
 	ScopedPointer<ImageButton> volumeButton;
+	ScopedPointer<ImageButton> loopButton;
+	ScopedPointer<ImageButton> settingsButton;
 	ScopedPointer<Slider> playTimeSlider;
 	ScopedPointer<Slider> volumeSlider;
+	ScopedPointer<Label> timeLabel;
 	AudioDeviceManager deviceManager;
 	AudioFormatManager formatManager;
 	ScopedPointer<AudioFormatReaderSource> readerSource;
 	AudioTransportSource transportSource;
 	AudioSourcePlayer sourcePlayer;
 	TransportState state;
+	LoopState loopState;
 	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Play.png"));
 	Image pauseButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Pause.png"));
 	Image prvButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayPrv.png"));
 	Image volumeButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Volume.png"));
 	Image silenceButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Silence.png"));
+	Image loopOrderedButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_OrderedPlay.png"));
+	Image loopSingleButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_SinglePlay.png"));
+	Image loopRandomButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_RandomPlay.png"));
+	Image settingsButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Gear.png"));
 	void timerCallback() override;
 	
     //==============================================================================
