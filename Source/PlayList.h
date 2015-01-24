@@ -36,8 +36,8 @@
                                                                     //[/Comments]
 */
 class PlayList  : public Component,
-				  public ButtonListener
-               //   public LabelListener
+				  public ButtonListener,
+                  public LabelListener
 				//  public ValueTree::Listener
 
 
@@ -61,7 +61,7 @@ public:
 	void valueTreeParentChanged (ValueTree& tree){}
 	void valueTreeRedirected (ValueTree& tree) {}
     void buttonClicked (Button* buttonThatWasClicked);
- //   void labelTextChanged (Label* labelThatHasChanged);
+    void labelTextChanged (Label* labelThatHasChanged);
     void setlist (const Identifier musicID)
     {
     
@@ -96,8 +96,12 @@ public:
     }
     ValueTree setsublist(String sublistId, String musicId)
     {
-        sublist = ValueTree(sublistId);
-        music = ValueTree(musicId);
+       const Identifier tempsubId = "tempsubId";
+       const Identifier tempmusicId = "tempmusicId";
+        sublist = ValueTree(tempsubId);
+        music = ValueTree(tempmusicId);
+        sublist.setProperty(tempsubId, sublistId, nullptr);
+        music.setProperty(tempmusicId, musicId, nullptr);
         sublist.addChild(music,0,nullptr);
         
         return sublist;        
@@ -125,6 +129,7 @@ private:
     static const Identifier playlistId;
     static const Identifier sublistId;
     static const Identifier musicinfoId;
+    static const Identifier testId;
  
     //[/UserVariables]
 

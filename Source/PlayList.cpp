@@ -61,13 +61,13 @@ PlayList::PlayList ()
     musicInfo.setProperty(musicSingerId, String::empty, nullptr);
     musicInfo.setProperty(musicAlbumId, String::empty, nullptr);
     music.addChild(musicInfo, 0, nullptr);
-   // music.setProperty(musicId, String::empty, nullptr);
-    music.setProperty(musicId, "try", nullptr);
+    music.setProperty(musicId, String::empty, nullptr);
+   // music.setProperty(musicId, "try", nullptr);
     sublist.addChild(music, 0, nullptr);
     sublist.setProperty(sublistId, "try1", nullptr);
-   // sublist.setProperty(sublistId, String::empty, nullptr);
+    sublist.setProperty(sublistId, String::empty, nullptr);
     playlist.addChild(sublist, 0, nullptr);
-   // playlist.setProperty(playlistId, String::empty, nullptr);
+    playlist.setProperty(playlistId, String::empty, nullptr);
 //    playlist.addChild(musicInfo, 0, nullptr);
 //    playlist.addListener(this);
 	
@@ -124,6 +124,7 @@ const Identifier PlayList::musicAlbumId = "musicAlbumId";
 const Identifier PlayList::playlistId = "playlistId";
 const Identifier PlayList::sublistId = "sublistId";
 const Identifier PlayList::musicinfoId = "musicinfoId";
+const Identifier PlayList::testId = "testId";
 
 void PlayList::buttonClicked (Button* buttonThatWasClicked)
 {
@@ -135,6 +136,10 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
       
         getlist();
 
+        Logger* log = Logger::getCurrentLogger();
+        String testtext= sublist.getProperty(sublistId);
+        log->writeToLog(testtext);
+        log->writeToLog("test");
     }
     else if (buttonThatWasClicked == saveList)
     {
@@ -143,23 +148,36 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
     }
     else if (buttonThatWasClicked == savesublist)
     {
-       String sublistId2 = sublist.getProperty(sublistId, "0");
 
-       String musicId2 = music.getProperty(musicId, "0");
-        ValueTree newsublist = setsublist(sublistId2, musicId2);
+   //    String sublistId2 = sublist.getProperty(sublistId, "0");
+
+    //   String musicId2 = music.getProperty(musicId, "0");
+    //    ValueTree newsublist = setsublist(sublistId2, musicId2);
+        ValueTree testtree =ValueTree(testId);
+        testtree.setProperty(testId, "bull shit", nullptr);
+       String testsubId= sublist.getProperty(sublistId);
+        var testvar = sublist.getProperty(sublistId);
+        String testtreeId= testtree.getProperty(testId);
+        Logger* log = Logger::getCurrentLogger();
+        log->writeToLog(testsubId);
+        log->writeToLog(testvar);
+        log->writeToLog(testtreeId);
+       String testmusicId = music.getProperty(musicId);
+        ValueTree newsublist = setsublist(testsubId, testmusicId);
+
         playlist.addChild(newsublist, 0, nullptr);
     }
 }
 
-//void PlayList::labelTextChanged(Label* labelThatWasChanged)
-//{
- //   if (labelThatWasChanged == musicname) {
-  //      music.setProperty(musicId, labelThatWasChanged->getText(), nullptr);
-  //  }
-  // else if (labelThatWasChanged == sublistname) {
-  //      sublist.setProperty(sublistId, labelThatWasChanged->getText(), nullptr);
-  //  }
-//}
+void PlayList::labelTextChanged(Label* labelThatWasChanged)
+{
+  if (labelThatWasChanged == musicname) {
+        music.setProperty(musicId, labelThatWasChanged->getText(), nullptr);
+    }
+   else if (labelThatWasChanged == sublistname) {
+        sublist.setProperty(sublistId, labelThatWasChanged->getText(), nullptr);
+    }
+}
 
 
 //[/MiscUserCode]
