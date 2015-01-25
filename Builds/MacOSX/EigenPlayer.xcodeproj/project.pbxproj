@@ -3176,8 +3176,10 @@
 					/Users/HarmoniCache/Documents/Projects/EigenPlayer/Include/acoustid,
 				);
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.9;
 				SDKROOT_ppc = macosx10.5;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -3213,6 +3215,7 @@
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				SDKROOT = macosx10.9;
 				SDKROOT_ppc = macosx10.5;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
