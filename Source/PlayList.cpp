@@ -39,15 +39,19 @@ PlayList::PlayList ()
     addAndMakeVisible (loadList = new TextButton ("loadList"));
     loadList->setButtonText (TRANS("Load Playlist"));
     loadList->addListener (this);
+    addAndMakeVisible (path = new TextButton ("musicpath"));
+    saveList->setButtonText (TRANS("Set Music"));
+    saveList->addListener (this);
     addAndMakeVisible(savesublist = new TextButton ("savesub"));
                       savesublist->setButtonText(TRANS("savesub"));
     addAndMakeVisible (musicname = new Label ("new label",
                                               TRANS("musicname")));
     musicname->setEditable(true,true,true);
+    musicname->addListener(this);
     addAndMakeVisible (sublistname = new Label ("new label",
                                               TRANS("sublistname")));
     sublistname->setEditable(true,true,true);
-    
+    sublistname->addListener(this);
     savesublist->addListener(this);
     //[Constructor] You can add your own custom stuff here..
 
@@ -55,12 +59,15 @@ PlayList::PlayList ()
     sublist = ValueTree (sublistId);
     music = ValueTree (musicId);
     musicInfo  = ValueTree (musicinfoId);
+    musicpath = ValueTree(pathId);
 
 	musicInfo.setProperty(musicNameId, String::empty, nullptr);
     musicInfo.setProperty(musicTypeId, String::empty, nullptr);
     musicInfo.setProperty(musicSingerId, String::empty, nullptr);
     musicInfo.setProperty(musicAlbumId, String::empty, nullptr);
+    musicpath.setProperty(musicId, String::empty, nullptr);
     music.addChild(musicInfo, 0, nullptr);
+    music.addChild(musicpath, 0, nullptr);
     music.setProperty(musicId, String::empty, nullptr);
    // music.setProperty(musicId, "try", nullptr);
     sublist.addChild(music, 0, nullptr);
@@ -125,6 +132,7 @@ const Identifier PlayList::playlistId = "playlistId";
 const Identifier PlayList::sublistId = "sublistId";
 const Identifier PlayList::musicinfoId = "musicinfoId";
 const Identifier PlayList::testId = "testId";
+const Identifier PlayList::pathId = "pathId";
 
 void PlayList::buttonClicked (Button* buttonThatWasClicked)
 {
@@ -153,19 +161,37 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
 
     //   String musicId2 = music.getProperty(musicId, "0");
     //    ValueTree newsublist = setsublist(sublistId2, musicId2);
-        ValueTree testtree =ValueTree(testId);
-        testtree.setProperty(testId, "bull shit", nullptr);
+    //    ValueTree testtree =ValueTree(testId);
+    //    testtree.setProperty(testId, "bull shit", nullptr);
        String testsubId= sublist.getProperty(sublistId);
-        var testvar = sublist.getProperty(sublistId);
-        String testtreeId= testtree.getProperty(testId);
-        Logger* log = Logger::getCurrentLogger();
-        log->writeToLog(testsubId);
-        log->writeToLog(testvar);
-        log->writeToLog(testtreeId);
+    //    var testvar = sublist.getProperty(sublistId);
+     //   String testtreeId= testtree.getProperty(testId);
+     //   Logger* log = Logger::getCurrentLogger();
+     //   log->writeToLog(testsubId);
+     //   log->writeToLog(testvar);
+     //   log->writeToLog(testtreeId);
+        
        String testmusicId = music.getProperty(musicId);
         ValueTree newsublist = setsublist(testsubId, testmusicId);
 
+        Logger* log = Logger::getCurrentLogger();
+        log->writeToLog(testmusicId);
+        log->writeToLog(testsubId);
         playlist.addChild(newsublist, 0, nullptr);
+    }
+    else if (buttonThatWasClicked == path){
+        FileChooser chooser ("Select Music",File::nonexistent);
+        if (chooser.browseForFileToOpen()) {
+            File file (chooser.getResult());
+            String musicname=file.getFileName();
+            File path(file.getCurrentWorkingDirectory());
+            String actpath= (path.getFileNameWithoutExtension(),"/", musicname);
+            musicpath.setProperty(pathId, actpath, nullptr);
+            music.setProperty(musicId, musicname, nullptr);
+        }
+        String testpath = musicpath.getProperty(pathId);
+        Logger* log = Logger::getCurrentLogger();
+        log->writeToLog(testpath);
     }
 }
 
@@ -173,6 +199,10 @@ void PlayList::labelTextChanged(Label* labelThatWasChanged)
 {
   if (labelThatWasChanged == musicname) {
         music.setProperty(musicId, labelThatWasChanged->getText(), nullptr);
+      
+      String mid = music.getProperty(musicId);
+      Logger* log = Logger::getCurrentLogger();
+      log->writeToLog(mid);
     }
    else if (labelThatWasChanged == sublistname) {
         sublist.setProperty(sublistId, labelThatWasChanged->getText(), nullptr);

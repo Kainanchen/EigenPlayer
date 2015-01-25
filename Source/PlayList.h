@@ -115,12 +115,14 @@ private:
 	ScopedPointer<TextButton> loadList;
 	ScopedPointer<TextButton> saveList;
     ScopedPointer<TextButton> savesublist;
+    ScopedPointer<TextButton> path;
     ScopedPointer<Label> musicname;
     ScopedPointer<Label> sublistname;
 	ValueTree musicInfo;
     ValueTree playlist;
     ValueTree sublist;
     ValueTree music;
+    ValueTree musicpath;
 	static const Identifier musicId;
 	static const Identifier musicNameId;
 	static const Identifier musicTypeId;
@@ -130,6 +132,7 @@ private:
     static const Identifier sublistId;
     static const Identifier musicinfoId;
     static const Identifier testId;
+    static const Identifier pathId;
  
     //[/UserVariables]
 
