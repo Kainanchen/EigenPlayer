@@ -10,6 +10,7 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "ImageMainComponent.h"
 #include "PlayControlBar.h"
 #include "PlayList.h"
 #include "Features.h"
@@ -45,13 +46,14 @@ public:
 private:
     PlayControlBar playControlBar;
 	PlayList playList;
-	Features features;
 	Stage stage;
+	Features features;
     MenuBarComponent menuBar;
     ApplicationProperties appProperties;
-	Image f_OutFrameTop = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameTop.png"));
-	Image f_OutFrameBottom = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameBottom.png"));
-	Image f_OutFrameVertBar = ImageFileFormat::loadFrom(File("../../../../Images/f_OutFrameVertBar.png"));
+	ImageMainComponent imageMainComponent;
+	Image f_OutFrameVertBar = ImageCache::getFromMemory(imageMainComponent.f_outFrameVertBar_png, imageMainComponent.f_outFrameVertBar_pngSize);
+	Image f_OutFrameBottom = ImageCache::getFromMemory(imageMainComponent.f_outFrameBottom_png, imageMainComponent.f_outFrameBottom_pngSize);
+	Image f_OutFrameTop = ImageCache::getFromMemory(imageMainComponent.f_outFrameTop_png, imageMainComponent.f_outFrameTop_pngSize);
 };
 
 

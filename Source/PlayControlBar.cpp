@@ -12,32 +12,32 @@ PlayControlBar::PlayControlBar ()
 	
 	addAndMakeVisible (playButton = new ImageButton("Play"));
     playButton->addListener (this);
-	playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
+	playButton->setImages(false, true, true, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack);
 	
     addAndMakeVisible (playPrvButton = new ImageButton ("Play Previous"));
     playPrvButton->addListener (this);
-	playPrvButton->setImages(false, true, true, playPrvButtonImage, 1.0f, Colours::transparentBlack, playPrvButtonImage, 1.0f, Colours::transparentBlack, playPrvButtonImage, 1.0f, Colours::transparentBlack);
+	playPrvButton->setImages(false, true, true, imagePlayControlBar.image_b_playPrv_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_playPrv_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_playPrv_png, 1.0f, Colours::transparentBlack);
 	
 	addAndMakeVisible (playNxtButton = new ImageButton ("Play Next"));
 	playNxtButton->addListener (this);
-	playNxtButton->setImages(false, true, true, playNxtButtonImage, 1.0f, Colours::transparentBlack, playNxtButtonImage, 1.0f, Colours::transparentBlack, playNxtButtonImage, 1.0f, Colours::transparentBlack);
+	playNxtButton->setImages(false, true, true, imagePlayControlBar.image_b_playNxt_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_playNxt_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_playNxt_png, 1.0f, Colours::transparentBlack);
 	
 	addAndMakeVisible (playFastForwardButton = new ImageButton ("Play Fast Forward"));
 	playFastForwardButton->addListener (this);
-	playFastForwardButton->setImages(false, true, true, playFastForwardButtonImage, 1.0f, Colours::transparentBlack, playFastForwardButtonImage, 1.0f, Colours::transparentBlack, playFastForwardButtonImage, 1.0f, Colours::transparentBlack);
+	playFastForwardButton->setImages(false, true, true, imagePlayControlBar.image_b_playFastForward_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_playFastForward_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_playFastForward_png, 1.0f, Colours::transparentBlack);
 
 	addAndMakeVisible (volumeButton = new ImageButton ("Volume"));
 	volumeButton->addListener (this);
-	volumeButton->setImages(false, true, true, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack);
+	volumeButton->setImages(false, true, true, imagePlayControlBar.image_b_volume_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_volume_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_volume_png, 1.0f, Colours::transparentBlack);
 	
 	addAndMakeVisible (loopButton = new ImageButton ("Loop"));
 	loopButton->addListener (this);
-	loopButton->setImages(false, true, true, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack);
+	loopButton->setImages(false, true, true, imagePlayControlBar.image_b_orderedPlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_orderedPlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_orderedPlay_png, 1.0f, Colours::transparentBlack);
 	loopState = Ordered;
 	
 	addAndMakeVisible (settingsButton = new ImageButton ("Loop"));
 	settingsButton->addListener (this);
-	settingsButton->setImages(false, true, true, settingsButtonImage, 1.0f, Colours::transparentBlack, settingsButtonImage, 1.0f, Colours::transparentBlack, settingsButtonImage, 1.0f, Colours::transparentBlack);
+	settingsButton->setImages(false, true, true, imagePlayControlBar.image_b_gear_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_gear_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_gear_png, 1.0f, Colours::transparentBlack);
 	
 	addAndMakeVisible(playTimeSlider = new Slider ("Play Time"));
 	playTimeSlider->setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
@@ -147,15 +147,15 @@ void PlayControlBar::buttonClicked (Button* buttonThatWasClicked)
 	else if (buttonThatWasClicked == loopButton)
 	{
 		if (loopState==Ordered) {
-			loopButton->setImages(false, true, true, loopSingleButtonImage, 1.0f, Colours::transparentBlack, loopSingleButtonImage, 1.0f, Colours::transparentBlack, loopSingleButtonImage, 1.0f, Colours::transparentBlack);
+			loopButton->setImages(false, true, true, imagePlayControlBar.image_b_singlePlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_singlePlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_singlePlay_png, 1.0f, Colours::transparentBlack);
 			loopState = Single;
 		}
 		else if (loopState==Single){
-			loopButton->setImages(false, true, true, loopRandomButtonImage, 1.0f, Colours::transparentBlack, loopRandomButtonImage, 1.0f, Colours::transparentBlack, loopRandomButtonImage, 1.0f, Colours::transparentBlack);
+			loopButton->setImages(false, true, true, imagePlayControlBar.image_b_randomPlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_randomPlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_randomPlay_png, 1.0f, Colours::transparentBlack);
 			loopState = Random;
 		}
 		else {
-			loopButton->setImages(false, true, true, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack, loopOrderedButtonImage, 1.0f, Colours::transparentBlack);
+			loopButton->setImages(false, true, true, imagePlayControlBar.image_b_orderedPlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_orderedPlay_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_orderedPlay_png, 1.0f, Colours::transparentBlack);
 			loopState = Ordered;
 		}
 	}
@@ -178,10 +178,10 @@ void PlayControlBar::sliderValueChanged (Slider* sliderThatWasMoved)
 	{
 		transportSource.setGain(volume.getValue());
 		if (volumeSlider->getValue()==0) {
-			volumeButton->setImages(false, true, true, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack, silenceButtonImage, 1.0f, Colours::transparentBlack);
+			volumeButton->setImages(false, true, true, imagePlayControlBar.image_b_silence_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_silence_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_silence_png, 1.0f, Colours::transparentBlack);
 		}
 		else {
-			volumeButton->setImages(false, true, true, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack, volumeButtonImage, 1.0f, Colours::transparentBlack);
+			volumeButton->setImages(false, true, true, imagePlayControlBar.image_b_volume_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_volume_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_volume_png, 1.0f, Colours::transparentBlack);
 		}
 	}
 }
@@ -262,17 +262,17 @@ void PlayControlBar::changeState(TransportState newState){
 				startTimer(1000/40);
 				break;
 			case Stopped:
-                playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
+                playButton->setImages(false, true, true, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack);
                 transportSource.setPosition(0.0);
                 break;
             case Starting:
                 transportSource.start();
                 break;
             case Playing:
-                playButton->setImages(false, true, true, pauseButtonImage, 1.0f, Colours::transparentBlack, pauseButtonImage, 1.0f, Colours::transparentBlack, pauseButtonImage, 1.0f, Colours::transparentBlack);
+                playButton->setImages(false, true, true, imagePlayControlBar.image_b_pause_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_pause_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_pause_png, 1.0f, Colours::transparentBlack);
                 break;
             case Paused:
-                playButton->setImages(false, true, true, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack, playButtonImage, 1.0f, Colours::transparentBlack);
+                playButton->setImages(false, true, true, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack, imagePlayControlBar.image_b_play_png, 1.0f, Colours::transparentBlack);
                 break;
             case Stopping:
                 transportSource.stop();

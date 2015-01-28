@@ -11,13 +11,13 @@
 Stage::Stage()
 {
 	addAndMakeVisible(pagePrvButton = new ImageButton("Previous Page"));
-	pagePrvButton->setImages(false, true, true, pagePrvButtonImage, 1.0f, Colours::transparentBlack, pagePrvButtonImage, 1.0f, Colours::transparentBlack, pagePrvButtonImage, 1.0f, Colours::transparentBlack);
+	pagePrvButton->setImages(false, true, true, image_b_pagePrv_png, 1.0f, Colours::transparentBlack, image_b_pagePrv_png, 1.0f, Colours::transparentBlack, image_b_pagePrv_png, 1.0f, Colours::transparentBlack);
 	
 	addAndMakeVisible(pageNxtButton = new ImageButton("Next Page"));
-	pageNxtButton->setImages(false, true, true, pageNxtButtonImage, 1.0f, Colours::transparentBlack, pageNxtButtonImage, 1.0f, Colours::transparentBlack, pageNxtButtonImage, 1.0f, Colours::transparentBlack);
+	pageNxtButton->setImages(false, true, true, image_b_pageNxt_png, 1.0f, Colours::transparentBlack, image_b_pageNxt_png, 1.0f, Colours::transparentBlack, image_b_pageNxt_png, 1.0f, Colours::transparentBlack);
 	
 	addAndMakeVisible(searchButton = new ImageButton("Search"));
-	searchButton->setImages(false, true, true, searchButtonImage, 1.0f, Colours::transparentBlack, searchButtonImage, 1.0f, Colours::transparentBlack, searchButtonImage, 1.0f, Colours::transparentBlack);
+	searchButton->setImages(false, true, true, image_b_magnifier_png, 1.0f, Colours::transparentBlack, image_b_magnifier_png, 1.0f, Colours::transparentBlack, image_b_magnifier_png, 1.0f, Colours::transparentBlack);
 	
 	
 }
@@ -31,10 +31,10 @@ void Stage::resized()
 {
 	pagePrvButton->setBounds(10,10,50,50);
 	pageNxtButton->setBounds(65,10,50,50);
-	searchButton->setBounds(120,10,50,50);
+	searchButton->setBounds(120,10,200,50);
 }
 
 void Stage::paint(Graphics& g)
 {
-	g.drawImage(stageImage, 0, 0, getWidth(), getHeight(), 0, 0, stageImage.getWidth(), stageImage.getHeight());
+	g.drawImage(image_f_stage_png, 0, 0, getWidth(), getHeight(), 0, 0, image_f_stage_png.getWidth(), image_f_stage_png.getHeight());
 }

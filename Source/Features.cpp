@@ -12,7 +12,7 @@ Features::Features()
 {
 	addAndMakeVisible(featuresButton = new ImageButton("Features"));
 	featuresButton->addListener(this);
-	featuresButton->setImages(false, true, true, featuresButtonImage, 1.0f, Colours::transparentBlack, featuresButtonImage, 1.0f, Colours::transparentBlack, featuresButtonImage, 1.0f, Colours::transparentBlack);
+	featuresButton->setImages(false, true, true, image_b_features_png, 1.0f, Colours::transparentBlack, image_b_features_png, 1.0f, Colours::transparentBlack, image_b_features_png, 1.0f, Colours::transparentBlack);
 }
 
 Features::~Features()

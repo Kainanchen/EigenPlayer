@@ -10,6 +10,7 @@
 #define __EigenPlayer__Features__
 
 #include "JuceHeader.h"
+#include "ImageFeatures.h"
 
 class Features  : public Component,
 				  public ButtonListener
@@ -25,7 +26,8 @@ public:
 	
 private:
 	ScopedPointer<ImageButton> featuresButton;
-	Image featuresButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Features.png"));
+	ImageFeatures imageFeatures;
+	Image image_b_features_png = ImageCache::getFromMemory (imageFeatures.b_features_png, imageFeatures.b_features_pngSize);
 };
 
 #endif /* defined(__EigenPlayer__Features__) */

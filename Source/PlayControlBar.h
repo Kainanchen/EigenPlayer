@@ -3,6 +3,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
+#include "ImagePlayControlBar.h"
 //[/Headers]
 
 
@@ -89,17 +90,7 @@ private:
 	AudioSourcePlayer sourcePlayer;
 	TransportState state;
 	LoopState loopState;
-	Image playButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Play.png"));
-	Image pauseButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Pause.png"));
-	Image playPrvButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayPrv.png"));
-	Image playNxtButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayNxt.png"));
-	Image playFastForwardButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PlayFastForward.png"));
-	Image volumeButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Volume.png"));
-	Image silenceButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Silence.png"));
-	Image loopOrderedButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_OrderedPlay.png"));
-	Image loopSingleButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_SinglePlay.png"));
-	Image loopRandomButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_RandomPlay.png"));
-	Image settingsButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Gear.png"));
+	ImagePlayControlBar imagePlayControlBar;
 	
 	void timerCallback() override;
 	

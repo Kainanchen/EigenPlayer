@@ -10,7 +10,7 @@
 #define __EigenPlayer__Stage__
 
 #include "JuceHeader.h"
-
+#include "ImageStage.h"
 class Stage  : public Component
 
 {
@@ -26,10 +26,11 @@ private:
 	ScopedPointer<ImageButton> pagePrvButton;
 	ScopedPointer<ImageButton> pageNxtButton;
 	ScopedPointer<ImageButton> searchButton;
-	Image stageImage = ImageFileFormat::loadFrom(File("../../../../Images/f_Stage.png"));
-	Image searchButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_Magnifier.png"));
-	Image pagePrvButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PagePrv.png"));
-	Image pageNxtButtonImage = ImageFileFormat::loadFrom(File("../../../../Images/b_PageNxt.png"));
+	ImageStage imageStage;
+	Image image_b_pageNxt_png = ImageCache::getFromMemory (imageStage.b_pageNxt_png, imageStage.b_pageNxt_pngSize);
+	Image image_b_pagePrv_png = ImageCache::getFromMemory (imageStage.b_pagePrv_png, imageStage.b_pagePrv_pngSize);
+	Image image_b_magnifier_png = ImageCache::getFromMemory (imageStage.b_magnifier_png, imageStage.b_magnifier_pngSize);
+	Image image_f_stage_png = ImageCache::getFromMemory (imageStage.f_stage_png, imageStage.f_stage_pngSize);
 };
 
 #endif /* defined(__EigenPlayer__Stage__) */
