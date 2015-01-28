@@ -37,7 +37,8 @@
 */
 class PlayList  : public Component,
 				  public ButtonListener,
-                  public LabelListener
+                  public LabelListener,
+                  public ValueTree::Listener
 				//  public ValueTree::Listener
 
 
@@ -62,6 +63,7 @@ public:
 	void valueTreeRedirected (ValueTree& tree) {}
     void buttonClicked (Button* buttonThatWasClicked);
     void labelTextChanged (Label* labelThatHasChanged);
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property);
     void setlist (const Identifier musicID)
     {
     

@@ -39,9 +39,11 @@ PlayList::PlayList ()
     addAndMakeVisible (loadList = new TextButton ("loadList"));
     loadList->setButtonText (TRANS("Load Playlist"));
     loadList->addListener (this);
-    addAndMakeVisible (path = new TextButton ("musicpath"));
     saveList->setButtonText (TRANS("Set Music"));
     saveList->addListener (this);
+    addAndMakeVisible (path = new TextButton ("musicpath"));
+    path->setButtonText(TRANS("Select music"));
+    path->addListener(this);
     addAndMakeVisible(savesublist = new TextButton ("savesub"));
                       savesublist->setButtonText(TRANS("savesub"));
     addAndMakeVisible (musicname = new Label ("new label",
@@ -60,6 +62,11 @@ PlayList::PlayList ()
     music = ValueTree (musicId);
     musicInfo  = ValueTree (musicinfoId);
     musicpath = ValueTree(pathId);
+    playlist.addListener(this);
+    sublist.addListener(this);
+    music.addListener(this);
+    musicInfo.addListener(this);
+    musicpath.addListener(this);
 
 	musicInfo.setProperty(musicNameId, String::empty, nullptr);
     musicInfo.setProperty(musicTypeId, String::empty, nullptr);
@@ -112,11 +119,12 @@ void PlayList::paint (Graphics& g)
 
 void PlayList::resized()
 {
-    loadList->setBounds(0, getHeight()/5, getWidth(), getHeight()/5);
-    saveList->setBounds(0, 0, getWidth(), getHeight()/5);
-    savesublist->setBounds(0,getHeight()*2/5,getWidth(),getHeight()/5);
-    musicname->setBounds(0, getHeight()*3/5, getWidth(), getHeight()/5);
-    sublistname->setBounds(0, getHeight()*4/5, getWidth(), getHeight()/5);
+    loadList->setBounds(0, getHeight()/6, getWidth(), getHeight()/6);
+    saveList->setBounds(0, 0, getWidth(), getHeight()/6);
+    savesublist->setBounds(0,getHeight()*2/6,getWidth(),getHeight()/6);
+    musicname->setBounds(0, getHeight()*3/6, getWidth(), getHeight()/6);
+    sublistname->setBounds(0, getHeight()*4/6, getWidth(), getHeight()/6);
+    path->setBounds(0, getHeight()*5/6, getWidth(), getHeight()/6);
     
 }
 
@@ -185,14 +193,24 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
             File file (chooser.getResult());
             String musicname=file.getFileName();
             File path(file.getCurrentWorkingDirectory());
-            String actpath= (path.getFileNameWithoutExtension(),"/", musicname);
-            musicpath.setProperty(pathId, actpath, nullptr);
-            music.setProperty(musicId, musicname, nullptr);
+            String actpath= (file.getFullPathName());
+            
+            ValueTree newmusic= ValueTree(musicId);
+            ValueTree newmusicpath = ValueTree(pathId);
+            newmusic.addChild(newmusicpath, 0, nullptr);
+            newmusicpath.setProperty(pathId, actpath, nullptr);
+            newmusic.setProperty(musicId, musicname, nullptr);
+            ValueTree newsublist = ValueTree(sublistId);
+            newsublist.addChild(newmusic,0, nullptr);
+            playlist.addChild(newsublist, 0, nullptr);
+            String testpath = newmusicpath.getProperty(pathId);
+            Logger* log = Logger::getCurrentLogger();
+            log->writeToLog(testpath);
         }
-        String testpath = musicpath.getProperty(pathId);
-        Logger* log = Logger::getCurrentLogger();
-        log->writeToLog(testpath);
+        
+       
     }
+    
 }
 
 void PlayList::labelTextChanged(Label* labelThatWasChanged)
@@ -209,7 +227,15 @@ void PlayList::labelTextChanged(Label* labelThatWasChanged)
     }
 }
 
-
+void PlayList::valueTreePropertyChanged(ValueTree& tree, const Identifier& property)
+{
+    if (property==musicId) {
+        musicname->setText(tree.getProperty(property), dontSendNotification);
+    }
+    else if (property==sublistId){
+        sublistname->setText(tree.getProperty(property), dontSendNotification);
+    }
+}
 //[/MiscUserCode]
 
 
