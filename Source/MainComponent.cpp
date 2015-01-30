@@ -16,11 +16,11 @@ MainContentComponent::MainContentComponent()
 #if JUCE_MAC
 	MenuBarModel::setMacMainMenu (this);
 #endif
-    addAndMakeVisible(&playControlBar);
-	addAndMakeVisible(&playList);
     addAndMakeVisible(&menuBar);
-	addAndMakeVisible(&features);
 	addAndMakeVisible(&stage);
+	addAndMakeVisible(&playControlBar);
+	addAndMakeVisible(&playList);
+	addAndMakeVisible(&features);
     PropertiesFile::Options options;
     options.applicationName = ProjectInfo::projectName;
     options.folderName = ProjectInfo::projectName;

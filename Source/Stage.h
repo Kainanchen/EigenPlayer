@@ -16,7 +16,7 @@ class Stage  : public Component
 {
 public:
 	
-	Stage ();
+	Stage();
 	~Stage();
 	
 	void resized();
