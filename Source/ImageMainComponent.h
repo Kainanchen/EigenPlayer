@@ -17,8 +17,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_8630F8037A5353AE__
-#define __JUCE_HEADER_8630F8037A5353AE__
+#ifndef __JUCE_HEADER_56613B0DD5BA616E__
+#define __JUCE_HEADER_56613B0DD5BA616E__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
@@ -34,12 +34,12 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class ImageStage  : public Component
+class ImageMainComponent  : public Component
 {
 public:
     //==============================================================================
-    ImageStage ();
-    ~ImageStage();
+    ImageMainComponent ();
+    ~ImageMainComponent();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -49,14 +49,12 @@ public:
     void resized();
 
     // Binary resources:
-    static const char* b_pageNxt_png;
-    static const int b_pageNxt_pngSize;
-    static const char* b_pagePrv_png;
-    static const int b_pagePrv_pngSize;
-    static const char* b_magnifier_png;
-    static const int b_magnifier_pngSize;
-    static const char* f_stage_png;
-    static const int f_stage_pngSize;
+    static const char* f_outFrameVertBar_png;
+    static const int f_outFrameVertBar_pngSize;
+    static const char* f_outFrameTop_png;
+    static const int f_outFrameTop_pngSize;
+    static const char* f_outFrameBottom_png;
+    static const int f_outFrameBottom_pngSize;
 
 
 private:
@@ -67,10 +65,10 @@ private:
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ImageStage)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ImageMainComponent)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_8630F8037A5353AE__
+#endif   // __JUCE_HEADER_56613B0DD5BA616E__

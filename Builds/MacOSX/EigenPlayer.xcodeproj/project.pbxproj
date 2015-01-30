@@ -37,10 +37,6 @@
 		CF5217DC28B95D1A551DA629 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF96F349C2F28E219A2BAA2 /* Accelerate.framework */; };
 		F34ACFF71A73B840004B5885 /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F34ACFF51A73B840004B5885 /* Stage.cpp */; };
 		F34ACFFA1A73B861004B5885 /* Features.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F34ACFF81A73B861004B5885 /* Features.cpp */; };
-		F35A1C5F1A78B059008A2D6F /* ImagePlayControlBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35A1C5D1A78B059008A2D6F /* ImagePlayControlBar.cpp */; };
-		F35A1C621A78B92B008A2D6F /* ImageStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35A1C601A78B92B008A2D6F /* ImageStage.cpp */; };
-		F35A1C651A78BBC0008A2D6F /* ImageFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35A1C631A78BBC0008A2D6F /* ImageFeatures.cpp */; };
-		F35A1C681A78BE4E008A2D6F /* ImageMainComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35A1C661A78BE4E008A2D6F /* ImageMainComponent.cpp */; };
 		F3732C7D1A227B53003DF225 /* PlayControlBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */; };
 		F3732C801A227CD3003DF225 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C7E1A227CD3003DF225 /* MainWindow.cpp */; };
 		F3732C821A228528003DF225 /* SystemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3732C811A228528003DF225 /* SystemInfo.cpp */; };
@@ -48,6 +44,10 @@
 		F37C3C591A6F1B220094015D /* b_SinglePlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F37C3C581A6F1B220094015D /* b_SinglePlay.png */; };
 		F37C3C5C1A6F1B2C0094015D /* b_Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F37C3C5A1A6F1B2C0094015D /* b_Pause.png */; };
 		F37C3C5D1A6F1B2C0094015D /* b_Play.png in Resources */ = {isa = PBXBuildFile; fileRef = F37C3C5B1A6F1B2C0094015D /* b_Play.png */; };
+		F394E8F41A7A11C900C77636 /* ImageFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F394E8EC1A7A11C900C77636 /* ImageFeatures.cpp */; };
+		F394E8F51A7A11C900C77636 /* ImageMainComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F394E8EE1A7A11C900C77636 /* ImageMainComponent.cpp */; };
+		F394E8F61A7A11C900C77636 /* ImagePlayControlBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F394E8F01A7A11C900C77636 /* ImagePlayControlBar.cpp */; };
+		F394E8F71A7A11C900C77636 /* ImageStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F394E8F21A7A11C900C77636 /* ImageStage.cpp */; };
 		F39CC91F1A3E45AC00D94A76 /* MetaData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */; };
 		F3BEDF041A6DD18600C33F13 /* 命运交错.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF031A6DD18600C33F13 /* 命运交错.mp3 */; };
 		F3BEDF2D1A6DD19D00C33F13 /* b_Close.png in Resources */ = {isa = PBXBuildFile; fileRef = F3BEDF061A6DD19D00C33F13 /* b_Close.png */; };
@@ -944,14 +944,6 @@
 		F34ACFF61A73B840004B5885 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = ../../Source/Stage.h; sourceTree = "<group>"; };
 		F34ACFF81A73B861004B5885 /* Features.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Features.cpp; path = ../../Source/Features.cpp; sourceTree = "<group>"; };
 		F34ACFF91A73B861004B5885 /* Features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Features.h; path = ../../Source/Features.h; sourceTree = "<group>"; };
-		F35A1C5D1A78B059008A2D6F /* ImagePlayControlBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImagePlayControlBar.cpp; path = ../../Source/ImagePlayControlBar.cpp; sourceTree = "<group>"; };
-		F35A1C5E1A78B059008A2D6F /* ImagePlayControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePlayControlBar.h; path = ../../Source/ImagePlayControlBar.h; sourceTree = "<group>"; };
-		F35A1C601A78B92B008A2D6F /* ImageStage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageStage.cpp; sourceTree = "<group>"; };
-		F35A1C611A78B92B008A2D6F /* ImageStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStage.h; sourceTree = "<group>"; };
-		F35A1C631A78BBC0008A2D6F /* ImageFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageFeatures.cpp; sourceTree = "<group>"; };
-		F35A1C641A78BBC0008A2D6F /* ImageFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFeatures.h; sourceTree = "<group>"; };
-		F35A1C661A78BE4E008A2D6F /* ImageMainComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageMainComponent.cpp; sourceTree = "<group>"; };
-		F35A1C671A78BE4E008A2D6F /* ImageMainComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMainComponent.h; sourceTree = "<group>"; };
 		F3732C7B1A227B53003DF225 /* PlayControlBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayControlBar.cpp; path = ../../Source/PlayControlBar.cpp; sourceTree = "<group>"; };
 		F3732C7C1A227B53003DF225 /* PlayControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayControlBar.h; path = ../../Source/PlayControlBar.h; sourceTree = "<group>"; };
 		F3732C7E1A227CD3003DF225 /* MainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainWindow.cpp; path = ../../Source/MainWindow.cpp; sourceTree = "<group>"; };
@@ -1030,6 +1022,14 @@
 		F37C3C581A6F1B220094015D /* b_SinglePlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_SinglePlay.png; sourceTree = "<group>"; };
 		F37C3C5A1A6F1B2C0094015D /* b_Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Pause.png; sourceTree = "<group>"; };
 		F37C3C5B1A6F1B2C0094015D /* b_Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_Play.png; sourceTree = "<group>"; };
+		F394E8EC1A7A11C900C77636 /* ImageFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageFeatures.cpp; sourceTree = "<group>"; };
+		F394E8ED1A7A11C900C77636 /* ImageFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFeatures.h; sourceTree = "<group>"; };
+		F394E8EE1A7A11C900C77636 /* ImageMainComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageMainComponent.cpp; sourceTree = "<group>"; };
+		F394E8EF1A7A11C900C77636 /* ImageMainComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMainComponent.h; sourceTree = "<group>"; };
+		F394E8F01A7A11C900C77636 /* ImagePlayControlBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImagePlayControlBar.cpp; sourceTree = "<group>"; };
+		F394E8F11A7A11C900C77636 /* ImagePlayControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePlayControlBar.h; sourceTree = "<group>"; };
+		F394E8F21A7A11C900C77636 /* ImageStage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageStage.cpp; sourceTree = "<group>"; };
+		F394E8F31A7A11C900C77636 /* ImageStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStage.h; sourceTree = "<group>"; };
 		F39CC91D1A3E45AC00D94A76 /* MetaData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetaData.cpp; path = ../../Source/MetaData.cpp; sourceTree = "<group>"; };
 		F39CC91E1A3E45AC00D94A76 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MetaData.h; path = ../../Source/MetaData.h; sourceTree = "<group>"; };
 		F3AD40115521AF95EE95AB15 /* juce_MidiFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MidiFile.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/midi/juce_MidiFile.h; sourceTree = SOURCE_ROOT; };
@@ -2447,14 +2447,14 @@
 		CEE01CE6C89CB789194789FE /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F35A1C661A78BE4E008A2D6F /* ImageMainComponent.cpp */,
-				F35A1C671A78BE4E008A2D6F /* ImageMainComponent.h */,
-				F35A1C5D1A78B059008A2D6F /* ImagePlayControlBar.cpp */,
-				F35A1C5E1A78B059008A2D6F /* ImagePlayControlBar.h */,
-				F35A1C631A78BBC0008A2D6F /* ImageFeatures.cpp */,
-				F35A1C641A78BBC0008A2D6F /* ImageFeatures.h */,
-				F35A1C601A78B92B008A2D6F /* ImageStage.cpp */,
-				F35A1C611A78B92B008A2D6F /* ImageStage.h */,
+				F394E8EC1A7A11C900C77636 /* ImageFeatures.cpp */,
+				F394E8ED1A7A11C900C77636 /* ImageFeatures.h */,
+				F394E8EE1A7A11C900C77636 /* ImageMainComponent.cpp */,
+				F394E8EF1A7A11C900C77636 /* ImageMainComponent.h */,
+				F394E8F01A7A11C900C77636 /* ImagePlayControlBar.cpp */,
+				F394E8F11A7A11C900C77636 /* ImagePlayControlBar.h */,
+				F394E8F21A7A11C900C77636 /* ImageStage.cpp */,
+				F394E8F31A7A11C900C77636 /* ImageStage.h */,
 				F379E97F1A23E087007D0E20 /* PlayList.cpp */,
 				F379E9801A23E087007D0E20 /* PlayList.h */,
 				F3732C811A228528003DF225 /* SystemInfo.cpp */,
@@ -3137,26 +3137,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				54FD3EA923816E268BDA9684 /* MainComponent.cpp in Sources */,
+				F394E8F61A7A11C900C77636 /* ImagePlayControlBar.cpp in Sources */,
 				28B30B935BE838FA5B4C5628 /* Main.cpp in Sources */,
-				F35A1C651A78BBC0008A2D6F /* ImageFeatures.cpp in Sources */,
 				70E6E223E8DBD0A2B8945FE9 /* juce_audio_basics.mm in Sources */,
 				0FF0A68564782DA81EBA06B9 /* juce_audio_devices.mm in Sources */,
+				F394E8F41A7A11C900C77636 /* ImageFeatures.cpp in Sources */,
 				F3732C801A227CD3003DF225 /* MainWindow.cpp in Sources */,
-				F35A1C681A78BE4E008A2D6F /* ImageMainComponent.cpp in Sources */,
+				F394E8F51A7A11C900C77636 /* ImageMainComponent.cpp in Sources */,
 				F3D5603A2577AD7DC5176076 /* juce_audio_formats.mm in Sources */,
 				F3732C7D1A227B53003DF225 /* PlayControlBar.cpp in Sources */,
 				98F06AD9BD3B99E0CEA08F9B /* juce_audio_processors.mm in Sources */,
 				026E0F9CAA57724CF7CDCADF /* juce_audio_utils.mm in Sources */,
 				C394044CEE955459FA9002BA /* juce_core.mm in Sources */,
 				3DCD4F0F147F9F1C45C98EA6 /* juce_cryptography.mm in Sources */,
-				F35A1C5F1A78B059008A2D6F /* ImagePlayControlBar.cpp in Sources */,
 				58085ECED34E64CC7561F1A9 /* juce_data_structures.mm in Sources */,
 				C7A6FEDB42692614115518C0 /* juce_events.mm in Sources */,
 				744F6E2867CF91DD10B12164 /* juce_graphics.mm in Sources */,
+				F394E8F71A7A11C900C77636 /* ImageStage.cpp in Sources */,
 				F34ACFF71A73B840004B5885 /* Stage.cpp in Sources */,
 				F3732C821A228528003DF225 /* SystemInfo.cpp in Sources */,
 				F379E9811A23E087007D0E20 /* PlayList.cpp in Sources */,
-				F35A1C621A78B92B008A2D6F /* ImageStage.cpp in Sources */,
 				060E29622F219760885F2A4C /* juce_gui_basics.mm in Sources */,
 				F34ACFFA1A73B861004B5885 /* Features.cpp in Sources */,
 				0775C6E69AEF07D1C5B5F017 /* juce_gui_extra.mm in Sources */,

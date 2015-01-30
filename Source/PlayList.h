@@ -39,8 +39,6 @@ class PlayList  : public Component,
 				  public ButtonListener,
                   public LabelListener,
                   public ValueTree::Listener
-				//  public ValueTree::Listener
-
 
 {
 public:

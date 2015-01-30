@@ -91,6 +91,19 @@ private:
 	TransportState state;
 	LoopState loopState;
 	ImagePlayControlBar imagePlayControlBar;
+	Image image_b_gear_png = ImageCache::getFromMemory (imagePlayControlBar.b_gear_png, imagePlayControlBar.b_gear_pngSize);
+	Image image_b_loopPlay_png = ImageCache::getFromMemory (imagePlayControlBar.b_loopPlay_png, imagePlayControlBar.b_loopPlay_pngSize);
+	Image image_b_orderedPlay_png = ImageCache::getFromMemory (imagePlayControlBar.b_orderedPlay_png, imagePlayControlBar.b_orderedPlay_pngSize);
+	Image image_b_pause_png = ImageCache::getFromMemory (imagePlayControlBar.b_pause_png, imagePlayControlBar.b_pause_pngSize);
+	Image image_b_play_png = ImageCache::getFromMemory (imagePlayControlBar.b_play_png, imagePlayControlBar.b_play_pngSize);
+	Image image_b_playFastBackward_png = ImageCache::getFromMemory (imagePlayControlBar.b_playFastBackward_png, imagePlayControlBar.b_playFastBackward_pngSize);
+	Image image_b_playFastForward_png = ImageCache::getFromMemory (imagePlayControlBar.b_playFastForward_png, imagePlayControlBar.b_playFastForward_pngSize);
+	Image image_b_playNxt_png = ImageCache::getFromMemory (imagePlayControlBar.b_playNxt_png, imagePlayControlBar.b_playNxt_pngSize);
+	Image image_b_playPrv_png = ImageCache::getFromMemory (imagePlayControlBar.b_playPrv_png, imagePlayControlBar.b_playPrv_pngSize);
+	Image image_b_randomPlay_png = ImageCache::getFromMemory (imagePlayControlBar.b_randomPlay_png, imagePlayControlBar.b_randomPlay_pngSize);
+	Image image_b_silence_png = ImageCache::getFromMemory (imagePlayControlBar.b_silence_png, imagePlayControlBar.b_silence_pngSize);
+	Image image_b_singlePlay_png = ImageCache::getFromMemory (imagePlayControlBar.b_singlePlay_png, imagePlayControlBar.b_singlePlay_pngSize);
+	Image image_b_volume_png = ImageCache::getFromMemory (imagePlayControlBar.b_volume_png, imagePlayControlBar.b_volume_pngSize);
 	
 	void timerCallback() override;
 	
