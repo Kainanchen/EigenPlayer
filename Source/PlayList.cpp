@@ -125,7 +125,7 @@ void PlayList::resized()
 {
     loadList->setBounds(0, getHeight()/6, getWidth(), getHeight()/6);
     saveList->setBounds(0, 0, getWidth(), getHeight()/6);
-    savesublist->setBounds(0,getHeight()*2/6,getWidth(),getHeight()/6);
+    newsublist->setBounds(0, getHeight()*2/6, getWidth(), getHeight()/6);
     musicname->setBounds(0, getHeight()*3/6, getWidth(), getHeight()/6);
     sublistname->setBounds(0, getHeight()*4/6, getWidth(), getHeight()/6);
     path->setBounds(0, getHeight()*5/6, getWidth(), getHeight()/6);
@@ -203,6 +203,12 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
         
        
     }
+    else if (buttonThatWasClicked == newsublist)
+    {
+        NativeMessageBox::showMessageBox(AlertWindow::QuestionIcon, "New Playlist Name", "Please input a new playlist name",testlabel);
+        testlabel->setEditable(true,true,true);
+        testlabel->addListener(this);
+    }
     
 }
 
@@ -218,6 +224,9 @@ void PlayList::labelTextChanged(Label* labelThatWasChanged)
    else if (labelThatWasChanged == sublistname) {
         sublist.setProperty(sublistId, labelThatWasChanged->getText(), nullptr);
     }
+   else if (labelThatWasChanged == testlabel){
+    
+   }
 }
 
 void PlayList::valueTreePropertyChanged(ValueTree& tree, const Identifier& property)

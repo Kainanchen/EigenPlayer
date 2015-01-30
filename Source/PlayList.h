@@ -119,6 +119,7 @@ private:
     ScopedPointer<TextButton> newsublist;
     ScopedPointer<Label> musicname;
     ScopedPointer<Label> sublistname;
+    ScopedPointer<Label> testlabel;
 	ValueTree musicInfo;
     ValueTree playlist;
     ValueTree sublist;
