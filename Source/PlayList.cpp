@@ -32,18 +32,22 @@ PlayList::PlayList ()
 
     //[UserPreSize]
     //[/UserPreSize]
+    addAndMakeVisible(newsublist = new TextButton ("New Playlist"));
+    newsublist->setButtonText(TRANS("New Playlist"));
+    newsublist->addListener(this);
     
     addAndMakeVisible (saveList = new TextButton ("saveList"));
     saveList->setButtonText (TRANS("Save Playlist"));
     saveList->addListener (this);
+    
     addAndMakeVisible (loadList = new TextButton ("loadList"));
     loadList->setButtonText (TRANS("Load Playlist"));
     loadList->addListener (this);
-    saveList->setButtonText (TRANS("Set Music"));
-    saveList->addListener (this);
+    
     addAndMakeVisible (path = new TextButton ("musicpath"));
     path->setButtonText(TRANS("Select music"));
     path->addListener(this);
+    
     addAndMakeVisible(savesublist = new TextButton ("savesub"));
                       savesublist->setButtonText(TRANS("savesub"));
     addAndMakeVisible (musicname = new Label ("new label",
@@ -99,8 +103,8 @@ PlayList::~PlayList()
     savesublist = nullptr;
     musicname = nullptr;
     sublistname = nullptr;
-
-
+    path = nullptr;
+    newsublist = nullptr;
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
 }
@@ -191,14 +195,10 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
             newmusic.addChild(newmusicpath, 0, nullptr);
             newmusicpath.setProperty(pathId, actpath, nullptr);
             newmusic.setProperty(musicId, musicname, nullptr);
-            ValueTree newsublist = ValueTree(sublistId);
-            newsublist.addListener(this);
-            newsublist.setProperty(sublistId, "New Playlist", nullptr);
-            newsublist.addChild(newmusic,0, nullptr);
-            playlist.addChild(newsublist, 0, nullptr);
-            String testpath = newmusicpath.getProperty(pathId);
-            Logger* log = Logger::getCurrentLogger();
-            log->writeToLog(testpath);
+            //ValueTree newsublist = ValueTree(sublistId);
+            //newsublist.addListener(this);
+            //newsublist.setProperty(sublistId, "New Playlist", nullptr);
+            sublist.addChild(newmusic,0, nullptr);
         }
         
        

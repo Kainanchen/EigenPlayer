@@ -116,6 +116,7 @@ private:
 	ScopedPointer<TextButton> saveList;
     ScopedPointer<TextButton> savesublist;
     ScopedPointer<TextButton> path;
+    ScopedPointer<TextButton> newsublist;
     ScopedPointer<Label> musicname;
     ScopedPointer<Label> sublistname;
 	ValueTree musicInfo;
