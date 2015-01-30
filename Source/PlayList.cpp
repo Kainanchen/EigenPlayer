@@ -165,19 +165,8 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == savesublist)
     {
 
-   //    String sublistId2 = sublist.getProperty(sublistId, "0");
-
-    //   String musicId2 = music.getProperty(musicId, "0");
-    //    ValueTree newsublist = setsublist(sublistId2, musicId2);
-    //    ValueTree testtree =ValueTree(testId);
-    //    testtree.setProperty(testId, "bull shit", nullptr);
        String testsubId= sublist.getProperty(sublistId);
-    //    var testvar = sublist.getProperty(sublistId);
-     //   String testtreeId= testtree.getProperty(testId);
-     //   Logger* log = Logger::getCurrentLogger();
-     //   log->writeToLog(testsubId);
-     //   log->writeToLog(testvar);
-     //   log->writeToLog(testtreeId);
+
         
        String testmusicId = music.getProperty(musicId);
         ValueTree newsublist = setsublist(testsubId, testmusicId);
@@ -197,10 +186,14 @@ void PlayList::buttonClicked (Button* buttonThatWasClicked)
             
             ValueTree newmusic= ValueTree(musicId);
             ValueTree newmusicpath = ValueTree(pathId);
+            newmusic.addListener(this);
+            newmusicpath.addListener(this);
             newmusic.addChild(newmusicpath, 0, nullptr);
             newmusicpath.setProperty(pathId, actpath, nullptr);
             newmusic.setProperty(musicId, musicname, nullptr);
             ValueTree newsublist = ValueTree(sublistId);
+            newsublist.addListener(this);
+            newsublist.setProperty(sublistId, "New Playlist", nullptr);
             newsublist.addChild(newmusic,0, nullptr);
             playlist.addChild(newsublist, 0, nullptr);
             String testpath = newmusicpath.getProperty(pathId);
