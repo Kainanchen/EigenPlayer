@@ -26,8 +26,8 @@ public:
 	
 private:
 	ScopedPointer<ImageButton> featuresButton;
-	ImageFeatures imageFeatures;
-	Image image_b_features_png = ImageCache::getFromMemory (imageFeatures.b_features_png, imageFeatures.b_features_pngSize);
+	ScopedPointer<ImageFeatures> imageFeatures;
+	Image image_b_features_png = ImageCache::getFromMemory (imageFeatures->b_features_png, imageFeatures->b_features_pngSize);
 };
 
 #endif /* defined(__EigenPlayer__Features__) */

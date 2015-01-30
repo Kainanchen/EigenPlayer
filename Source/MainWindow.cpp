@@ -12,6 +12,7 @@ MainWindow::MainWindow()
 : DocumentWindow("MainWindow",
 				 Colours::lightgrey,
 				 DocumentWindow::allButtons)
+
 {
 	setUsingNativeTitleBar (true);
 	setContentOwned (new MainContentComponent(), true);
